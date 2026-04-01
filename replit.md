@@ -21,7 +21,18 @@ pnpm workspace monorepo using TypeScript. Each package manages its own dependenc
 ```text
 artifacts-monorepo/
 ├── artifacts/              # Deployable applications
-│   └── api-server/         # Express API server
+│   ├── api-server/         # Express API server
+│   └── threnlabs/          # ThrenlabsAI landing page (React + Vite)
+│       └── src/
+│           ├── components/nav.tsx      # Dropdown mega-menu navigation
+│           ├── components/footer.tsx   # Shared footer
+│           ├── lib/shared.tsx          # Shared hooks/components (useInView, GridBackground, etc.)
+│           └── pages/                  # Separate subpages
+│               ├── home.tsx            # Landing page (/)
+│               ├── products.tsx        # Products + CRTX (/products, /products/crtx, etc.)
+│               ├── technology.tsx      # Tech stack (/technology)
+│               ├── research.tsx        # Research papers (/research)
+│               └── company.tsx         # About/Team/Careers/Contact (/company)
 ├── lib/                    # Shared libraries
 │   ├── api-spec/           # OpenAPI spec + Orval codegen config
 │   ├── api-client-react/   # Generated React Query hooks
