@@ -10,6 +10,10 @@ import ProductsPage from "@/pages/products";
 import TechnologyPage from "@/pages/technology";
 import ResearchPage from "@/pages/research";
 import CompanyPage from "@/pages/company";
+import CortexPage from "@/pages/products/cortex";
+import BullpenPage from "@/pages/products/bullpen";
+import CalendarSyncPage from "@/pages/products/calendarsync";
+import SmapPage from "@/pages/products/smap";
 
 const queryClient = new QueryClient();
 
@@ -21,10 +25,10 @@ function Router() {
         <Route path="/" component={Home} />
         {/* Products routes */}
         <Route path="/products" component={ProductsPage} />
-        <Route path="/products/crtx" component={ProductsPage} />
-        <Route path="/products/axon" component={ProductsPage} />
-        <Route path="/products/synapse" component={ProductsPage} />
-        <Route path="/products/cortex" component={ProductsPage} />
+        <Route path="/products/cortex" component={CortexPage} />
+        <Route path="/products/bullpen" component={BullpenPage} />
+        <Route path="/products/calendarsync" component={CalendarSyncPage} />
+        <Route path="/products/smap" component={SmapPage} />
         {/* Other pages */}
         <Route path="/technology" component={TechnologyPage} />
         <Route path="/research" component={ResearchPage} />

@@ -24,16 +24,24 @@ export function Footer() {
             <div className="text-xs font-semibold text-[hsl(215,20%,55%)] tracking-widest uppercase mb-4">Products</div>
             <ul className="space-y-2.5">
               {[
-                { label: "CRTX", href: "/products/crtx" },
+                { label: "Cortex", href: "/products/cortex" },
+                { label: "CalendarSync", href: "/products/calendarsync" },
+                { label: "Bullpen", href: "/products/bullpen" },
+                { label: "Smap", href: "/products/smap" },
                 { label: "All Products", href: "/products" },
-                { label: "Coming Soon", href: "/products#upcoming" },
-              ].map(({ label, href }) => (
-                <li key={label}>
-                  <Link href={href} className="text-sm text-[hsl(215,20%,40%)] hover:text-white transition-colors">
-                    {label}
-                  </Link>
-                </li>
-              ))}
+              ].map(({ label, href }) => {
+                const isExternal = href.startsWith("http");
+                const LinkComponent = isExternal ? "a" : Link;
+                const linkProps = isExternal ? { href, target: "_blank", rel: "noopener noreferrer" } : { href };
+
+                return (
+                  <li key={label}>
+                    <LinkComponent {...(linkProps as any)} className="text-sm text-[hsl(215,20%,40%)] hover:text-white transition-colors">
+                      {label}
+                    </LinkComponent>
+                  </li>
+                );
+              })}
             </ul>
           </div>
 
@@ -42,16 +50,23 @@ export function Footer() {
             <ul className="space-y-2.5">
               {[
                 { label: "About", href: "/company#mission" },
+                { label: "Founder", href: "https://founder.threnlabs.com" },
                 { label: "Research", href: "/research" },
                 { label: "Careers", href: "/company#careers" },
                 { label: "Contact", href: "/company#contact" },
-              ].map(({ label, href }) => (
-                <li key={label}>
-                  <Link href={href} className="text-sm text-[hsl(215,20%,40%)] hover:text-white transition-colors">
-                    {label}
-                  </Link>
-                </li>
-              ))}
+              ].map(({ label, href }) => {
+                const isExternal = href.startsWith("http");
+                const LinkComponent = isExternal ? "a" : Link;
+                const linkProps = isExternal ? { href, target: "_blank", rel: "noopener noreferrer" } : { href };
+
+                return (
+                  <li key={label}>
+                    <LinkComponent {...(linkProps as any)} className="text-sm text-[hsl(215,20%,40%)] hover:text-white transition-colors">
+                      {label}
+                    </LinkComponent>
+                  </li>
+                );
+              })}
             </ul>
           </div>
 
@@ -74,12 +89,24 @@ export function Footer() {
             &copy; {new Date().getFullYear()} Threnlabs, Inc. All rights reserved.
           </div>
           <div className="flex items-center gap-5 mt-4 md:mt-0">
-            {["Twitter", "GitHub", "LinkedIn"].map((social) => (
-              <a key={social} href="#" className="text-xs text-[hsl(215,20%,35%)] hover:text-white transition-colors">
-                {social}
+            {[
+              { label: "Twitter", href: "#" },
+              { label: "GitHub", href: "#" },
+              { label: "LinkedIn", href: "#" },
+              { label: "Instagram", href: "https://www.instagram.com/threnlabs.ai" }
+            ].map((social) => (
+              <a
+                key={social.label}
+                href={social.href}
+                target={social.href.startsWith("http") ? "_blank" : undefined}
+                rel={social.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                className="text-xs text-[hsl(215,20%,35%)] hover:text-white transition-colors"
+              >
+                {social.label}
               </a>
             ))}
           </div>
+
         </div>
       </div>
     </footer>

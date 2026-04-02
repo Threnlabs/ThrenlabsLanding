@@ -198,7 +198,7 @@ function ContactSection() {
         >
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">Get in touch</h2>
           <p className="text-[hsl(215,20%,55%)] mb-8 leading-relaxed">
-            Talk to our team about CRTX deployment, enterprise licensing, or early access to upcoming products.
+            Talk to our team about Cortex deployment, enterprise licensing, or early access to upcoming products.
             No sales deck. No fluff. Engineers talking to engineers.
           </p>
 

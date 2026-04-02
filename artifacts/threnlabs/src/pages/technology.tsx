@@ -42,7 +42,7 @@ function InfrastructureSection() {
           {[
             {
               id: "runtime",
-              title: "CRTX Runtime",
+              title: "Cortex Runtime",
               tag: "Compute Layer",
               tagColor: "text-blue-300 bg-blue-500/10 border-blue-500/20",
               border: "border-blue-500/15",
@@ -182,7 +182,7 @@ function TechStackSection() {
           style={{ opacity: inView ? 1 : 0, transform: inView ? "translateY(0)" : "translateY(20px)" }}
         >
           <h2 className="text-3xl font-bold text-white mb-2">Compatible with your stack</h2>
-          <p className="text-[hsl(215,20%,55%)]">CRTX adapts to what you already use — no migration required.</p>
+          <p className="text-[hsl(215,20%,55%)]">Cortex adapts to what you already use — no migration required.</p>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">

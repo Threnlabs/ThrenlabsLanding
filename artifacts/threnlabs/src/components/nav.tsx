@@ -26,10 +26,16 @@ const navItems: NavItem[] = [
         heading: "Available Now",
         items: [
           {
-            label: "CRTX",
+            label: "Cortex",
             desc: "Flagship inference engine for production workloads",
-            href: "/products/crtx",
+            href: "/products/cortex",
             tag: "Stable",
+          },
+          {
+            label: "CalendarSync",
+            desc: "Enterprise-grade real-time calendar orchestration",
+            href: "/products/calendarsync",
+            tag: "Alpha",
           },
           {
             label: "Products Overview",
@@ -42,22 +48,16 @@ const navItems: NavItem[] = [
         heading: "In Development",
         items: [
           {
-            label: "Project Axon",
+            label: "Bullpen",
             desc: "Distributed training for multi-modal models",
-            href: "/products/axon",
+            href: "/products/bullpen",
             tag: "Alpha",
           },
           {
-            label: "Project Synapse",
+            label: "Smap",
             desc: "Real-time model adaptation and drift detection",
-            href: "/products/synapse",
+            href: "/products/smap",
             tag: "Testing",
-          },
-          {
-            label: "Project Cortex",
-            desc: "AI observability and inference tracing",
-            href: "/products/cortex",
-            tag: "Research",
           },
         ],
       },
@@ -70,7 +70,7 @@ const navItems: NavItem[] = [
         heading: "Infrastructure",
         items: [
           {
-            label: "CRTX Runtime",
+            label: "Cortex Runtime",
             desc: "Custom CUDA kernels and memory management",
             href: "/technology#runtime",
           },
@@ -165,6 +165,11 @@ const navItems: NavItem[] = [
             href: "/company#mission",
           },
           {
+            label: "Founder",
+            desc: "A personal letter from our founder",
+            href: "https://founder.threnlabs.com",
+          },
+          {
             label: "The Team",
             desc: "Engineers, researchers, and builders",
             href: "/company#team",
@@ -191,11 +196,17 @@ const navItems: NavItem[] = [
           },
           {
             label: "Contact Us",
-            desc: "Talk to our team about CRTX or partnerships",
+            desc: "Talk to our team about Cortex or partnerships",
             href: "/company#contact",
+          },
+          {
+            label: "Instagram",
+            desc: "Follow our journey and office culture",
+            href: "https://www.instagram.com/threnlabs.ai",
           },
         ],
       },
+
     ],
   },
 ];
@@ -217,9 +228,8 @@ function TagBadge({ tag }: { tag: string }) {
 function DropdownPanel({ columns, visible }: { columns: NavColumn[]; visible: boolean }) {
   return (
     <div
-      className={`absolute top-full left-1/2 -translate-x-1/2 mt-2 z-50 transition-all duration-150 ${
-        visible ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-1 pointer-events-none"
-      }`}
+      className={`absolute top-full left-1/2 -translate-x-1/2 mt-2 z-50 transition-all duration-150 ${visible ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-1 pointer-events-none"
+        }`}
     >
       {/* Caret arrow */}
       <div className="flex justify-center">
@@ -237,23 +247,29 @@ function DropdownPanel({ columns, visible }: { columns: NavColumn[]; visible: bo
 
               {/* Items */}
               <div className="space-y-0.5">
-                {col.items.map((item) => (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    className="group flex flex-col gap-0.5 px-2 py-2.5 rounded-lg hover:bg-[hsl(220,30%,14%)] transition-colors duration-100 cursor-pointer"
-                  >
-                    <div className="flex items-center gap-2">
-                      <span className="text-sm font-medium text-[hsl(210,40%,88%)] group-hover:text-white transition-colors leading-none">
-                        {item.label}
+                {col.items.map((item) => {
+                  const isExternal = item.href.startsWith("http");
+                  const LinkComponent = isExternal ? "a" : Link;
+                  const linkProps = isExternal ? { href: item.href, target: "_blank", rel: "noopener noreferrer" } : { href: item.href };
+
+                  return (
+                    <LinkComponent
+                      key={item.href}
+                      {...(linkProps as any)}
+                      className="group flex flex-col gap-0.5 px-2 py-2.5 rounded-lg hover:bg-[hsl(220,30%,14%)] transition-colors duration-100 cursor-pointer"
+                    >
+                      <div className="flex items-center gap-2">
+                        <span className="text-sm font-medium text-[hsl(210,40%,88%)] group-hover:text-white transition-colors leading-none">
+                          {item.label}
+                        </span>
+                        {item.tag && <TagBadge tag={item.tag} />}
+                      </div>
+                      <span className="text-xs text-[hsl(215,20%,44%)] leading-snug">
+                        {item.desc}
                       </span>
-                      {item.tag && <TagBadge tag={item.tag} />}
-                    </div>
-                    <span className="text-xs text-[hsl(215,20%,44%)] leading-snug">
-                      {item.desc}
-                    </span>
-                  </Link>
-                ))}
+                    </LinkComponent>
+                  );
+                })}
               </div>
             </div>
           ))}
@@ -316,11 +332,10 @@ export function Nav() {
   return (
     <nav
       ref={navRef}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
           ? "bg-[hsl(222,47%,5%)]/95 backdrop-blur-xl border-b border-[hsl(220,30%,14%)]"
           : "bg-transparent"
-      }`}
+        }`}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8 h-16 flex items-center justify-between">
 
@@ -341,11 +356,10 @@ export function Nav() {
             <div key={item.label} className="relative">
               <button
                 onClick={() => handleNavClick(item.label)}
-                className={`flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-150 select-none ${
-                  openMenu === item.label
+                className={`flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-150 select-none ${openMenu === item.label
                     ? "text-white bg-[hsl(220,30%,13%)]"
                     : "text-[hsl(215,20%,58%)] hover:text-white hover:bg-[hsl(220,30%,11%)]"
-                }`}
+                  }`}
               >
                 {item.label}
                 <svg
@@ -372,12 +386,14 @@ export function Nav() {
           >
             Sign in
           </Link>
-          <Link
-            href="/products/crtx"
+          <a
+            href="https://cortex.threnlabs.com"
+            target="_blank"
+            rel="noopener noreferrer"
             className="text-sm bg-blue-500 hover:bg-blue-400 text-white px-4 py-2 rounded-lg transition-all duration-150 font-semibold shadow-lg shadow-blue-500/20"
           >
-            Get CRTX
-          </Link>
+            Get Cortex
+          </a>
         </div>
 
         {/* Mobile hamburger */}
@@ -394,9 +410,8 @@ export function Nav() {
 
       {/* Mobile drawer */}
       <div
-        className={`md:hidden overflow-hidden transition-all duration-300 ${
-          mobileOpen ? "max-h-[80vh]" : "max-h-0"
-        }`}
+        className={`md:hidden overflow-hidden transition-all duration-300 ${mobileOpen ? "max-h-[80vh]" : "max-h-0"
+          }`}
       >
         <div className="bg-[hsl(222,44%,6%)] border-t border-[hsl(220,30%,14%)] overflow-y-auto">
           {navItems.map((item) => (
@@ -425,21 +440,27 @@ export function Nav() {
                         {col.heading}
                       </div>
                       <div className="space-y-0.5">
-                        {col.items.map((link) => (
-                          <Link
-                            key={link.href}
-                            href={link.href}
-                            className="flex items-center justify-between px-2 py-2.5 rounded-lg hover:bg-[hsl(220,30%,13%)] transition-colors"
-                          >
-                            <div>
-                              <div className="text-sm text-[hsl(210,40%,80%)] hover:text-white font-medium leading-none mb-0.5">
-                                {link.label}
+                        {col.items.map((link) => {
+                          const isExternal = link.href.startsWith("http");
+                          const LinkComponent = isExternal ? "a" : Link;
+                          const linkProps = isExternal ? { href: link.href, target: "_blank", rel: "noopener noreferrer" } : { href: link.href };
+
+                          return (
+                            <LinkComponent
+                              key={link.href}
+                              {...(linkProps as any)}
+                              className="flex items-center justify-between px-2 py-2.5 rounded-lg hover:bg-[hsl(220,30%,13%)] transition-colors"
+                            >
+                              <div>
+                                <div className="text-sm text-[hsl(210,40%,80%)] hover:text-white font-medium leading-none mb-0.5">
+                                  {link.label}
+                                </div>
+                                <div className="text-xs text-[hsl(215,20%,42%)]">{link.desc}</div>
                               </div>
-                              <div className="text-xs text-[hsl(215,20%,42%)]">{link.desc}</div>
-                            </div>
-                            {link.tag && <TagBadge tag={link.tag} />}
-                          </Link>
-                        ))}
+                              {link.tag && <TagBadge tag={link.tag} />}
+                            </LinkComponent>
+                          );
+                        })}
                       </div>
                     </div>
                   ))}
@@ -456,12 +477,14 @@ export function Nav() {
             >
               Sign in
             </Link>
-            <Link
-              href="/products/crtx"
+            <a
+              href="https://cortex.threnlabs.com"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-sm text-center py-2.5 bg-blue-500 hover:bg-blue-400 text-white rounded-lg font-semibold transition-all"
             >
-              Get CRTX
-            </Link>
+              Get Cortex
+            </a>
           </div>
         </div>
       </div>

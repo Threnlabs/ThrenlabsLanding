@@ -1,235 +1,93 @@
 import { Link } from "wouter";
 import { useInView, GridBackground, RadialGlow, SectionLabel, PageShell } from "@/lib/shared";
 
-function CRTXHero() {
+function ProductsHero() {
   const { ref, inView } = useInView();
   return (
-    <section ref={ref} className="relative pt-20 pb-16 px-6 lg:px-8 overflow-hidden">
-      <RadialGlow color="violet" className="w-[700px] h-[500px] -top-20 right-0" />
+    <section ref={ref} className="relative pt-28 pb-16 px-6 lg:px-8 overflow-hidden">
+      <RadialGlow color="blue" className="w-[800px] h-[600px] -top-20 left-1/2 -translate-x-1/2" />
       <GridBackground />
       <div className="max-w-7xl mx-auto">
         <div
-          className="transition-all duration-700"
+          className="text-center transition-all duration-700"
           style={{ opacity: inView ? 1 : 0, transform: inView ? "translateY(0)" : "translateY(30px)" }}
+        >
+          <SectionLabel color="blue">Product Suite</SectionLabel>
+          <h1 className="text-5xl md:text-7xl font-bold text-white tracking-tight mb-5">
+            Everything you need<br />for production AI
+          </h1>
+          <p className="text-xl text-[hsl(215,20%,55%)] max-w-2xl mx-auto leading-relaxed">
+            From inference to training, observability to scheduling — a complete stack
+            built under real production constraints, not demo conditions.
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function FlagshipProduct() {
+  const { ref, inView } = useInView();
+  return (
+    <section ref={ref} className="py-16 px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
+        <div
+          className="mb-8 transition-all duration-700"
+          style={{ opacity: inView ? 1 : 0, transform: inView ? "translateY(0)" : "translateY(20px)" }}
         >
           <SectionLabel color="violet">
             <span className="w-1.5 h-1.5 rounded-full bg-violet-400 pulse-dot" />
             Released — Stable
           </SectionLabel>
-          <h1 className="text-5xl md:text-7xl font-bold text-white tracking-tight mb-5">
-            CRTX
-          </h1>
-          <p className="text-xl text-[hsl(215,20%,55%)] max-w-2xl leading-relaxed mb-8">
-            Our flagship deep learning inference engine. Engineered for organizations that can't
-            afford to guess — deterministic outputs, SLA-backed latency, and an architecture that
-            scales horizontally without compromise.
-          </p>
-          <div className="flex flex-wrap gap-4">
-            <a
-              href="#"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-blue-500 hover:bg-blue-400 text-white font-semibold rounded-lg transition-all text-sm"
-            >
-              Get started with CRTX
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </a>
-            <a
-              href="#"
-              className="inline-flex items-center gap-2 px-6 py-3 border border-[hsl(220,30%,18%)] hover:border-blue-500/40 text-[hsl(210,40%,75%)] hover:text-white rounded-lg transition-all text-sm"
-            >
-              View documentation
-            </a>
-          </div>
         </div>
-      </div>
-    </section>
-  );
-}
-
-function CRTXSpecs() {
-  const { ref, inView } = useInView();
-  return (
-    <section ref={ref} className="py-16 px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid md:grid-cols-2 gap-12 items-start">
-          {/* Terminal */}
-          <div
-            className="relative gradient-border rounded-2xl bg-[hsl(222,44%,7%)] p-6 overflow-hidden glow-violet"
-            style={{ opacity: inView ? 1 : 0, transition: "all 0.7s ease", transform: inView ? "translateX(0)" : "translateX(-30px)" }}
-          >
-            <div className="flex items-center gap-2 mb-5">
-              <div className="w-3 h-3 rounded-full bg-red-500/70" />
-              <div className="w-3 h-3 rounded-full bg-yellow-500/70" />
-              <div className="w-3 h-3 rounded-full bg-green-500/70" />
-              <div className="ml-3 text-xs text-[hsl(215,20%,40%)] font-mono">crtx — inference_engine v2.4.1</div>
-            </div>
-            <div className="font-mono text-sm space-y-1.5 leading-relaxed">
-              <div className="text-[hsl(215,20%,40%)]"># Initialize CRTX inference session</div>
-              <div>
-                <span className="text-violet-400">import</span>
-                <span className="text-white"> crtx</span>
-              </div>
-              <div className="mt-2">
-                <span className="text-blue-400">engine</span>
-                <span className="text-white"> = crtx.</span>
-                <span className="text-yellow-300">InferenceEngine</span>
-                <span className="text-white">(</span>
-              </div>
-              <div className="pl-4">
-                <span className="text-orange-300">model</span>
-                <span className="text-white">=</span>
-                <span className="text-green-300">"crtx-v2-ultra"</span>
-                <span className="text-white">,</span>
-              </div>
-              <div className="pl-4">
-                <span className="text-orange-300">precision</span>
-                <span className="text-white">=</span>
-                <span className="text-green-300">"fp16"</span>
-                <span className="text-white">,</span>
-              </div>
-              <div className="pl-4">
-                <span className="text-orange-300">device</span>
-                <span className="text-white">=</span>
-                <span className="text-green-300">"cuda:0"</span>
-              </div>
-              <div><span className="text-white">)</span></div>
-              <div className="mt-2">
-                <span className="text-blue-400">result</span>
-                <span className="text-white"> = engine.</span>
-                <span className="text-yellow-300">run</span>
-                <span className="text-white">(input_tensor)</span>
-              </div>
-              <div className="mt-3 pt-3 border-t border-[hsl(220,30%,14%)]">
-                <span className="text-[hsl(215,20%,40%)]">→ </span>
-                <span className="text-green-400">Inference complete</span>
-                <span className="text-white"> · </span>
-                <span className="text-blue-300">11.4ms</span>
-                <span className="text-white"> · </span>
-                <span className="text-violet-300">99.81% confidence</span>
-              </div>
-            </div>
-            <div className="absolute top-4 right-4 flex items-center gap-1.5">
-              <div className="w-1.5 h-1.5 rounded-full bg-green-400 pulse-dot" />
-              <span className="text-[10px] text-green-400 font-mono tracking-widest">LIVE</span>
-            </div>
-          </div>
-
-          {/* Features */}
-          <div
-            className="space-y-5"
-            style={{ opacity: inView ? 1 : 0, transition: "all 0.7s ease 0.2s", transform: inView ? "translateX(0)" : "translateX(30px)" }}
-          >
-            {[
-              { icon: "⚡", title: "Sub-20ms Inference", desc: "Hardware-optimized kernels with quantization-aware training on standard GPU hardware." },
-              { icon: "🔒", title: "Deterministic Outputs", desc: "Seeded inference pipelines with reproducible results for regulated industries." },
-              { icon: "📈", title: "Horizontal Scaling", desc: "Native distributed inference with zero-downtime rollouts and automatic failover." },
-              { icon: "🧠", title: "Model Agnostic", desc: "PyTorch, TensorFlow, ONNX, and custom architectures — no migration required." },
-              { icon: "📡", title: "gRPC + REST APIs", desc: "Dual protocol support with streaming, batching, and priority queuing out of the box." },
-              { icon: "📊", title: "Built-in Observability", desc: "Per-request latency histograms, throughput counters, and error rate dashboards." },
-            ].map(({ icon, title, desc }, i) => (
-              <div key={title} className="flex gap-4 group">
-                <div className="flex-shrink-0 w-9 h-9 rounded-lg bg-[hsl(220,30%,10%)] border border-[hsl(220,30%,16%)] flex items-center justify-center text-base group-hover:border-blue-500/30 transition-colors">
-                  {icon}
-                </div>
-                <div>
-                  <h3 className="text-white font-semibold text-sm mb-0.5">{title}</h3>
-                  <p className="text-[hsl(215,20%,50%)] text-sm leading-relaxed">{desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function CRTXPricing() {
-  const { ref, inView } = useInView();
-  return (
-    <section ref={ref} className="py-20 px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        <div
-          className="mb-12 transition-all duration-700"
-          style={{ opacity: inView ? 1 : 0, transform: inView ? "translateY(0)" : "translateY(30px)" }}
+        <Link
+          href="/products/cortex"
+          className="block group"
+          style={{ opacity: inView ? 1 : 0, transform: inView ? "translateY(0)" : "translateY(30px)", transition: "all 0.7s ease" }}
         >
-          <SectionLabel color="blue">Pricing</SectionLabel>
-          <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-3">Straightforward plans</h2>
-          <p className="text-[hsl(215,20%,55%)]">No usage fees on outputs. Pay for compute, not per token.</p>
-        </div>
-        <div className="grid md:grid-cols-3 gap-6">
-          {[
-            {
-              name: "Starter",
-              price: "$499",
-              period: "/mo",
-              desc: "For teams validating CRTX before full deployment.",
-              features: ["Up to 10M inferences/month", "Single GPU node", "REST API access", "Email support", "99.5% uptime SLA"],
-              cta: "Start free trial",
-              highlighted: false,
-            },
-            {
-              name: "Production",
-              price: "$2,400",
-              period: "/mo",
-              desc: "For teams running CRTX in critical workloads.",
-              features: ["Unlimited inferences", "Multi-GPU cluster", "gRPC + REST APIs", "Priority support", "99.9% uptime SLA", "Custom model loading", "Audit logging"],
-              cta: "Get Production",
-              highlighted: true,
-            },
-            {
-              name: "Enterprise",
-              price: "Custom",
-              period: "",
-              desc: "On-premise, air-gapped, and fully custom deployments.",
-              features: ["On-premise deployment", "Air-gap support", "Custom SLAs", "Dedicated engineers", "Compliance documentation", "Custom contracts"],
-              cta: "Contact sales",
-              highlighted: false,
-            },
-          ].map(({ name, price, period, desc, features, cta, highlighted }) => (
-            <div
-              key={name}
-              className={`rounded-xl p-6 border transition-all duration-300 ${
-                highlighted
-                  ? "border-blue-500/40 bg-blue-500/5 glow-blue"
-                  : "border-[hsl(220,30%,14%)] bg-[hsl(222,44%,7%)]"
-              }`}
-              style={{ opacity: inView ? 1 : 0, transition: "all 0.6s ease" }}
-            >
-              {highlighted && (
-                <div className="text-xs font-bold tracking-widest text-blue-400 uppercase mb-3">Most Popular</div>
-              )}
-              <div className="mb-4">
-                <div className="text-white font-bold text-lg mb-1">{name}</div>
-                <div className="flex items-baseline gap-1">
-                  <span className="text-3xl font-bold text-white">{price}</span>
-                  <span className="text-[hsl(215,20%,45%)] text-sm">{period}</span>
+          <div className="relative rounded-2xl border border-violet-500/20 bg-[hsl(222,44%,7%)] p-8 lg:p-12 overflow-hidden hover:border-violet-500/40 transition-all duration-300">
+            <RadialGlow color="violet" className="w-[600px] h-[400px] -top-20 right-0 opacity-40" />
+            <div className="relative z-10 grid md:grid-cols-2 gap-10 items-center">
+              <div>
+                <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight mb-4 group-hover:text-violet-200 transition-colors">
+                  Cortex
+                </h2>
+                <p className="text-[hsl(215,20%,55%)] leading-relaxed mb-6">
+                  Our flagship deep learning inference engine. Sub-20ms latency,
+                  deterministic outputs, horizontal scaling — engineered for organizations
+                  that can't afford to guess.
+                </p>
+                <div className="flex flex-wrap gap-3 mb-6">
+                  {["Sub-20ms inference", "Deterministic", "gRPC + REST", "Model agnostic"].map((feat) => (
+                    <span key={feat} className="text-xs px-3 py-1 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-300">
+                      {feat}
+                    </span>
+                  ))}
                 </div>
-                <p className="text-sm text-[hsl(215,20%,50%)] mt-2">{desc}</p>
+                <div className="inline-flex items-center gap-2 text-blue-400 group-hover:text-blue-300 transition-colors font-medium text-sm">
+                  View Cortex details
+                  <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </div>
               </div>
-              <ul className="space-y-2 mb-6">
-                {features.map((f) => (
-                  <li key={f} className="flex items-center gap-2 text-sm text-[hsl(215,20%,60%)]">
-                    <svg className="w-4 h-4 text-green-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    {f}
-                  </li>
+
+              <div className="grid grid-cols-2 gap-4">
+                {[
+                  { value: "11.4ms", label: "Median latency" },
+                  { value: "48k", label: "Req/sec peak" },
+                  { value: "99.81%", label: "Benchmark confidence" },
+                  { value: "3.2×", label: "Memory efficiency" },
+                ].map(({ value, label }) => (
+                  <div key={label} className="rounded-xl border border-[hsl(220,30%,16%)] bg-[hsl(222,44%,5%)] p-5">
+                    <div className="text-2xl font-bold text-white tabular-nums mb-1">{value}</div>
+                    <div className="text-xs text-[hsl(215,20%,42%)]">{label}</div>
+                  </div>
                 ))}
-              </ul>
-              <button
-                className={`w-full py-2.5 rounded-lg text-sm font-semibold transition-all ${
-                  highlighted
-                    ? "bg-blue-500 hover:bg-blue-400 text-white"
-                    : "border border-[hsl(220,30%,20%)] hover:border-blue-500/30 text-[hsl(210,40%,75%)] hover:text-white"
-                }`}
-              >
-                {cta}
-              </button>
+              </div>
             </div>
-          ))}
-        </div>
+          </div>
+        </Link>
       </div>
     </section>
   );
@@ -237,6 +95,43 @@ function CRTXPricing() {
 
 function UpcomingProducts() {
   const { ref, inView } = useInView();
+
+  const products = [
+    {
+      href: "/products/calendarsync",
+      codename: "CalendarSync",
+      tag: "Alpha — Q3 2025",
+      desc: "Enterprise-grade real-time calendar orchestration. Synchronize across all major platforms with sub-50ms latency.",
+      progress: 72,
+      color: "blue",
+      features: ["12+ platforms", "sub-50ms sync", "SOC 2 certified"],
+    },
+    {
+      href: "/products/bullpen",
+      codename: "Bullpen",
+      tag: "Internal Testing",
+      desc: "Distributed training framework for multi-modal foundation models. 60% cost reduction without sacrificing convergence.",
+      progress: 45,
+      color: "violet",
+      features: ["3-way parallelism", "256+ GPU scaling", "Fault tolerant"],
+    },
+    {
+      href: "/products/smap",
+      codename: "Smap",
+      tag: "Research Phase",
+      desc: "A unified observability layer for AI systems — inference tracing, attention visualization, and anomaly detection.",
+      progress: 28,
+      color: "cyan",
+      features: ["Zero-code setup", "Drift detection", "Attention viz"],
+    },
+  ];
+
+  const colorMap: Record<string, { dot: string; bar: string; badge: string; tag: string }> = {
+    blue:   { dot: "bg-blue-400",   bar: "bg-blue-500",   badge: "bg-blue-500/10 border-blue-500/20 text-blue-300",     tag: "text-blue-400" },
+    violet: { dot: "bg-violet-400", bar: "bg-violet-500", badge: "bg-violet-500/10 border-violet-500/20 text-violet-300", tag: "text-violet-400" },
+    cyan:   { dot: "bg-cyan-400",   bar: "bg-cyan-400",   badge: "bg-cyan-500/10 border-cyan-500/20 text-cyan-300",     tag: "text-cyan-400" },
+  };
+
   return (
     <section ref={ref} className="relative py-20 px-6 lg:px-8 overflow-hidden">
       <GridBackground />
@@ -252,63 +147,52 @@ function UpcomingProducts() {
           <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-3">Coming next</h2>
           <p className="text-[hsl(215,20%,55%)] max-w-xl">We're building quietly. Early access available for select teams.</p>
         </div>
+
         <div className="grid md:grid-cols-3 gap-6">
-          {[
-            {
-              codename: "PROJECT AXON",
-              desc: "A distributed training framework for multi-modal foundation models. Designed to reduce training costs by 60% without sacrificing convergence.",
-              status: "Alpha — Q3 2025",
-              progress: 72,
-              color: "blue",
-            },
-            {
-              codename: "PROJECT SYNAPSE",
-              desc: "Real-time model adaptation. Continuous fine-tuning on live production data with automatic drift detection and rollback mechanisms.",
-              status: "Internal Testing",
-              progress: 45,
-              color: "violet",
-            },
-            {
-              codename: "PROJECT CORTEX",
-              desc: "A unified observability layer for AI systems. Inference tracing, attention visualization, and automated anomaly detection.",
-              status: "Research Phase",
-              progress: 28,
-              color: "cyan",
-            },
-          ].map(({ codename, desc, status, progress, color }, i) => (
-            <div
-              key={codename}
-              className="rounded-xl border border-[hsl(220,30%,14%)] bg-[hsl(222,44%,7%)] p-6"
-              style={{
-                opacity: inView ? 1 : 0,
-                transform: inView ? "translateY(0)" : "translateY(30px)",
-                transition: `all 0.6s ease ${i * 100}ms`,
-              }}
-            >
-              <div className="flex items-center justify-between mb-4">
-                <span className="text-xs font-mono tracking-widest text-[hsl(215,20%,40%)]">{codename}</span>
-                <div className={`w-2 h-2 rounded-full pulse-dot ${
-                  color === "blue" ? "bg-blue-400" : color === "violet" ? "bg-violet-400" : "bg-cyan-400"
-                }`} />
-              </div>
-              <p className="text-sm text-[hsl(215,20%,55%)] leading-relaxed mb-4">{desc}</p>
-              <div>
-                <div className="flex justify-between text-xs mb-1.5">
-                  <span className="text-[hsl(215,20%,40%)]">{status}</span>
-                  <span className="font-mono text-[hsl(215,20%,40%)]">{progress}%</span>
+          {products.map(({ href, codename, tag, desc, progress, color, features }, i) => {
+            const c = colorMap[color];
+            return (
+              <Link
+                key={codename}
+                href={href}
+                className="group block rounded-xl border border-[hsl(220,30%,14%)] bg-[hsl(222,44%,7%)] p-6 hover:border-[hsl(220,30%,24%)] transition-all duration-300"
+                style={{
+                  opacity: inView ? 1 : 0,
+                  transform: inView ? "translateY(0)" : "translateY(30px)",
+                  transition: `all 0.6s ease ${i * 100}ms`,
+                }}
+              >
+                <div className="flex items-center justify-between mb-4">
+                  <span className="text-xs font-mono tracking-widest text-[hsl(215,20%,40%)]">{codename.toUpperCase()}</span>
+                  <div className={`w-2 h-2 rounded-full pulse-dot ${c.dot}`} />
                 </div>
-                <div className="h-1 rounded-full bg-[hsl(220,30%,12%)]">
-                  <div
-                    className={`h-full rounded-full ${color === "blue" ? "bg-blue-500" : color === "violet" ? "bg-violet-500" : "bg-cyan-400"}`}
-                    style={{ width: `${progress}%` }}
-                  />
+                <p className="text-sm text-[hsl(215,20%,55%)] leading-relaxed mb-4">{desc}</p>
+
+                <div className="flex flex-wrap gap-1.5 mb-4">
+                  {features.map((f) => (
+                    <span key={f} className={`text-[10px] font-medium px-2 py-0.5 rounded border ${c.badge}`}>{f}</span>
+                  ))}
                 </div>
-              </div>
-              <button className="mt-4 w-full py-2 text-xs border border-[hsl(220,30%,18%)] rounded-lg text-[hsl(215,20%,45%)] hover:text-white hover:border-[hsl(220,30%,28%)] transition-all">
-                Request early access
-              </button>
-            </div>
-          ))}
+
+                <div className="mb-4">
+                  <div className="flex justify-between text-xs mb-1.5">
+                    <span className={`font-medium ${c.tag}`}>{tag}</span>
+                    <span className="font-mono text-[hsl(215,20%,40%)]">{progress}%</span>
+                  </div>
+                  <div className="h-1 rounded-full bg-[hsl(220,30%,12%)]">
+                    <div className={`h-full rounded-full ${c.bar}`} style={{ width: `${progress}%` }} />
+                  </div>
+                </div>
+
+                <div className={`flex items-center gap-1 text-xs font-medium ${c.tag} group-hover:gap-2 transition-all`}>
+                  Learn more
+                  <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </Link>
+            );
+          })}
         </div>
       </div>
     </section>
@@ -318,9 +202,8 @@ function UpcomingProducts() {
 export default function ProductsPage() {
   return (
     <PageShell>
-      <CRTXHero />
-      <CRTXSpecs />
-      <CRTXPricing />
+      <ProductsHero />
+      <FlagshipProduct />
       <UpcomingProducts />
     </PageShell>
   );

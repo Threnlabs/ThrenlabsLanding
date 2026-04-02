@@ -4,7 +4,7 @@ import { useInView, GridBackground, RadialGlow } from "@/lib/shared";
 
 function HeroSection() {
   const [typed, setTyped] = useState("");
-  const words = ["Production AI.", "Deep Learning.", "Real Intelligence.", "CRTX."];
+  const words = ["Production AI.", "Real Intelligence.", "Cortex.", "CalendarSync.", "Bullpen.", "Smap."];
   const [wordIdx, setWordIdx] = useState(0);
   const [charIdx, setCharIdx] = useState(0);
   const [deleting, setDeleting] = useState(false);
@@ -73,10 +73,10 @@ function HeroSection() {
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Link
-            href="/products/crtx"
+            href="/products/cortex"
             className="group relative inline-flex items-center gap-2 px-7 py-3.5 bg-blue-500 hover:bg-blue-400 text-white font-semibold rounded-lg transition-all duration-200 text-sm"
           >
-            Explore CRTX
+            Explore Cortex
             <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
@@ -125,11 +125,11 @@ function OverviewSection() {
         >
           {[
             {
-              title: "CRTX",
-              label: "Released",
+              title: "Cortex",
+              label: "Products",
               labelStyle: "text-green-400 bg-green-500/10 border-green-500/20",
-              desc: "Our flagship inference engine. Sub-20ms latency, deterministic outputs, SLA-backed guarantees.",
-              href: "/products/crtx",
+              desc: "Our flagship inference engine. Cortex orchestration, CalendarSync integration, Bullpen training, and Smap visualization.",
+              href: "/products/cortex",
               color: "violet",
             },
             {
@@ -149,9 +149,10 @@ function OverviewSection() {
               color: "cyan",
             },
           ].map(({ title, label, labelStyle, desc, href, color }, i) => (
-            <Link
+            <a
               key={title}
-              href={href}
+              href={href.startsWith("http") ? href : href}
+              {...(href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
               className={`group block p-7 rounded-xl border border-[hsl(220,30%,14%)] bg-[hsl(222,44%,7%)] hover:border-${color}-500/30 transition-all duration-300 hover:-translate-y-1`}
               style={{ transitionDelay: `${i * 80}ms` }}
             >
@@ -166,7 +167,7 @@ function OverviewSection() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </div>
-            </Link>
+            </a>
           ))}
         </div>
       </div>
@@ -217,8 +218,8 @@ function CTASection() {
             <span className="shimmer-text block mt-1">real AI infrastructure?</span>
           </h2>
           <p className="text-[hsl(215,20%,55%)] mb-8 leading-relaxed">
-            Talk to our team about CRTX deployment, enterprise licensing, or early access
-            to upcoming products.
+            Talk to our team about Cortex deployment, enterprise licensing, or early access
+            to our suite of products.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link
@@ -228,10 +229,10 @@ function CTASection() {
               Contact our team
             </Link>
             <Link
-              href="/products/crtx"
+              href="/products/cortex"
               className="px-7 py-3.5 border border-[hsl(220,30%,20%)] hover:border-blue-500/40 text-[hsl(210,40%,75%)] hover:text-white rounded-lg transition-all text-sm"
             >
-              Explore CRTX
+              Explore Cortex
             </Link>
           </div>
         </div>

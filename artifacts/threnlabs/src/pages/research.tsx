@@ -37,7 +37,7 @@ function PublicationsSection() {
       tag: "Attention Mechanisms",
       tagColor: "text-blue-300 bg-blue-500/10 border-blue-500/20",
       abstract: "We introduce a novel sparse attention pattern that reduces memory complexity from O(n²) to O(n log n) while maintaining 99.2% of full-attention performance on downstream tasks. The method is compatible with flash attention and achieves 2.8x speedup on sequences longer than 32k tokens.",
-      impact: "Adopted in CRTX v2.3+ for long-context language model inference.",
+      impact: "Adopted in Cortex v2.3+ for long-context language model inference.",
     },
     {
       id: "icml",
@@ -67,7 +67,7 @@ function PublicationsSection() {
       tag: "AutoML",
       tagColor: "text-orange-300 bg-orange-500/10 border-orange-500/20",
       abstract: "We propose a surrogate-based approach to hardware-aware NAS that reduces search cost by 91% compared to one-shot methods. A Gaussian process surrogate trained on a small initial population accurately predicts architecture performance, enabling Bayesian optimization over the search space without gradient computation.",
-      impact: "Backbone of Project Axon's automated architecture optimization pipeline.",
+      impact: "Backbone of CalendarSync's automated architecture optimization pipeline.",
     },
   ];
 
@@ -149,12 +149,62 @@ function ResearchAreasSection() {
 
         <div className="grid md:grid-cols-3 gap-5">
           {[
-            { id: "inference", icon: "⚡", title: "Inference Optimization", desc: "Faster model serving through kernel fusion, speculative decoding, continuous batching, and hardware-specific compilation." },
-            { id: "efficiency", icon: "🔬", title: "Model Efficiency", desc: "Compression, quantization, distillation, and pruning methods that preserve accuracy at a fraction of the compute cost." },
-            { icon: "🔗", title: "Distributed Systems", desc: "Scheduling, communication, and fault tolerance in heterogeneous GPU clusters running large-scale inference workloads." },
-            { icon: "📐", title: "AutoML & NAS", desc: "Automated discovery of model architectures optimized for specific hardware targets and latency constraints." },
-            { icon: "🔒", title: "Reliable AI", desc: "Determinism, calibration, uncertainty estimation, and formal verification methods for production ML systems." },
-            { icon: "🌊", title: "Streaming Inference", desc: "Long-context, streaming, and incremental inference for real-time applications with strict latency budgets." },
+            { 
+              id: "inference", 
+              icon: (
+                <svg className="w-6 h-6 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              ), 
+              title: "Inference Optimization", 
+              desc: "Faster model serving through kernel fusion, speculative decoding, continuous batching, and hardware-specific compilation." 
+            },
+            { 
+              id: "efficiency", 
+              icon: (
+                <svg className="w-6 h-6 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+              ), 
+              title: "Model Efficiency", 
+              desc: "Compression, quantization, distillation, and pruning methods that preserve accuracy at a fraction of the compute cost." 
+            },
+            { 
+              icon: (
+                <svg className="w-6 h-6 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+                </svg>
+              ), 
+              title: "Distributed Systems", 
+              desc: "Scheduling, communication, and fault tolerance in heterogeneous GPU clusters running large-scale inference workloads." 
+            },
+            { 
+              icon: (
+                <svg className="w-6 h-6 text-orange-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
+                </svg>
+              ), 
+              title: "AutoML & NAS", 
+              desc: "Automated discovery of model architectures optimized for specific hardware targets and latency constraints." 
+            },
+            { 
+              icon: (
+                <svg className="w-6 h-6 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+              ), 
+              title: "Reliable AI", 
+              desc: "Determinism, calibration, uncertainty estimation, and formal verification methods for production ML systems." 
+            },
+            { 
+              icon: (
+                <svg className="w-6 h-6 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-7.714 2.143L11 21l-2.286-6.857L1 12l7.714-2.143L11 3z" />
+                </svg>
+              ), 
+              title: "Streaming Inference", 
+              desc: "Long-context, streaming, and incremental inference for real-time applications with strict latency budgets." 
+            },
           ].map(({ icon, title, desc, id }, i) => (
             <div
               key={title}
@@ -166,7 +216,7 @@ function ResearchAreasSection() {
                 transition: `all 0.5s ease ${i * 80}ms`,
               }}
             >
-              <div className="text-2xl mb-3">{icon}</div>
+              <div className="mb-4">{icon}</div>
               <h3 className="text-white font-semibold mb-2">{title}</h3>
               <p className="text-sm text-[hsl(215,20%,48%)] leading-relaxed">{desc}</p>
             </div>
