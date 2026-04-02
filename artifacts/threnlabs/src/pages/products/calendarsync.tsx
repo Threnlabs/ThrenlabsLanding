@@ -27,7 +27,7 @@ function CalendarSyncHero() {
           </h1>
           <p className="text-xl text-[hsl(215,20%,55%)] max-w-2xl leading-relaxed mb-8">
             Enterprise-grade real-time calendar orchestration. Synchronize across all major
-            platforms with sub-50ms latency, conflict resolution, and zero data loss guarantees.
+            platforms with industry-leading latency, conflict resolution, and zero data loss guarantees.
           </p>
           <div className="flex flex-wrap gap-4">
             <Link
@@ -39,38 +39,7 @@ function CalendarSyncHero() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </Link>
-            <span className="inline-flex items-center px-4 py-3 text-sm text-[hsl(215,20%,50%)] border border-[hsl(220,30%,16%)] rounded-lg">
-              <span className="w-2 h-2 rounded-full bg-blue-400 pulse-dot mr-2" />
-              Alpha — 72% complete
-            </span>
           </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function CalendarSyncProgress() {
-  const { ref, inView } = useInView();
-  return (
-    <section ref={ref} className="py-12 px-6 lg:px-8 border-y border-[hsl(220,30%,12%)]">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          {[
-            { value: "sub-50ms", label: "Sync latency target" },
-            { value: "12+", label: "Platforms supported" },
-            { value: "99.99%", label: "Uptime SLA" },
-            { value: "Q3 2025", label: "General availability" },
-          ].map(({ value, label }, i) => (
-            <div
-              key={label}
-              className="text-center"
-              style={{ opacity: inView ? 1 : 0, transform: inView ? "translateY(0)" : "translateY(20px)", transition: `all 0.5s ease ${i * 80}ms` }}
-            >
-              <div className="text-3xl font-bold text-white tabular-nums mb-1">{value}</div>
-              <div className="text-xs text-[hsl(215,20%,45%)]">{label}</div>
-            </div>
-          ))}
         </div>
       </div>
     </section>
@@ -98,7 +67,7 @@ function CalendarSyncFeatures() {
                 </svg>
               ),
               title: "Real-Time Synchronization",
-              desc: "Sub-50ms event propagation across Google Calendar, Outlook, Apple Calendar, and 9 additional platforms. Changes appear everywhere before users notice.",
+              desc: "High-performance event propagation across Google Calendar, Outlook, Apple Calendar, and 9 additional platforms. Changes appear everywhere before users notice.",
               color: "blue",
             },
             {
@@ -208,9 +177,9 @@ export default function CalendarSyncPage() {
   return (
     <PageShell>
       <CalendarSyncHero />
-      <CalendarSyncProgress />
       <CalendarSyncFeatures />
       <CalendarSyncCTA />
     </PageShell>
   );
 }
+

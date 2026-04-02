@@ -88,20 +88,6 @@ function HeroSection() {
             Our Technology
           </Link>
         </div>
-
-        {/* Stats row */}
-        <div className="mt-20 grid grid-cols-3 gap-8 max-w-lg mx-auto">
-          {[
-            { value: "99.7%", label: "Model Accuracy" },
-            { value: "<12ms", label: "Inference Latency" },
-            { value: "1B+", label: "Parameters Served" },
-          ].map(({ value, label }) => (
-            <div key={label} className="text-center">
-              <div className="text-2xl md:text-3xl font-bold text-white tabular-nums">{value}</div>
-              <div className="text-xs text-[hsl(215,20%,45%)] mt-1 tracking-wide">{label}</div>
-            </div>
-          ))}
-        </div>
       </div>
 
       {/* Scroll indicator */}
@@ -136,13 +122,13 @@ function OverviewSection() {
               title: "Technology",
               label: "Infrastructure",
               labelStyle: "text-blue-400 bg-blue-500/10 border-blue-500/20",
-              desc: "Custom CUDA kernels, a priority-aware scheduler, and a 40GB/s data pipeline — built for production.",
+              desc: "Custom CUDA kernels, a priority-aware scheduler, and a high-performance data pipeline — built for production.",
               href: "/technology",
               color: "blue",
             },
             {
               title: "Research",
-              label: "6 Publications",
+              label: "Publications",
               labelStyle: "text-cyan-400 bg-cyan-500/10 border-cyan-500/20",
               desc: "NeurIPS, ICML, MLSys. We publish the methods behind our products — not just the results.",
               href: "/research",
@@ -168,33 +154,6 @@ function OverviewSection() {
                 </svg>
               </div>
             </a>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function MetricsSection() {
-  const { ref, inView } = useInView();
-  return (
-    <section ref={ref} className="relative py-16 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-r from-blue-950/20 via-transparent to-violet-950/20 pointer-events-none" />
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div
-          className="grid grid-cols-2 md:grid-cols-4 gap-px bg-[hsl(220,30%,14%)] rounded-2xl overflow-hidden border border-[hsl(220,30%,14%)]"
-          style={{ opacity: inView ? 1 : 0, transition: "all 0.7s ease" }}
-        >
-          {[
-            { value: "340+", label: "Enterprise Clients", color: "text-blue-400" },
-            { value: "4.2B", label: "Daily Inferences", color: "text-violet-400" },
-            { value: "18ms", label: "P99 Latency", color: "text-cyan-400" },
-            { value: "6", label: "Published Papers", color: "text-blue-400" },
-          ].map(({ value, label, color }) => (
-            <div key={label} className="bg-[hsl(222,44%,7%)] p-8 text-center hover:bg-[hsl(222,44%,9%)] transition-colors">
-              <div className={`text-3xl md:text-4xl font-bold tabular-nums mb-2 ${color}`}>{value}</div>
-              <div className="text-sm text-[hsl(215,20%,45%)]">{label}</div>
-            </div>
           ))}
         </div>
       </div>
@@ -246,8 +205,8 @@ export default function Home() {
     <div className="min-h-screen bg-[hsl(222,47%,5%)] text-white">
       <HeroSection />
       <OverviewSection />
-      <MetricsSection />
       <CTASection />
     </div>
   );
 }
+

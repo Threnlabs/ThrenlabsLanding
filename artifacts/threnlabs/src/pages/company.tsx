@@ -61,7 +61,7 @@ function MissionSection() {
             {[
               { number: "01", title: "Production First", desc: "Every design decision is made under production constraints. We don't ship what we can't maintain." },
               { number: "02", title: "No Black Boxes", desc: "Full interpretability tools, audit logs, and decision traces. You understand what your model is doing and why." },
-              { number: "03", title: "Latency Guarantees", desc: "SLA-backed inference latency with financial penalties if we miss. We put our guarantees in writing." },
+              { number: "03", title: "Latency Guarantees", desc: "Enterprise-grade SLAs for inference latency. We provide the reliability required for mission-critical applications." },
               { number: "04", title: "Model Ownership", desc: "You own your fine-tuned weights, your data, your outputs. No lock-in, no revenue share on outputs." },
             ].map(({ number, title, desc }) => (
               <div key={number} className="flex gap-4 p-4 rounded-xl border border-[hsl(220,30%,14%)] bg-[hsl(222,44%,7%)]">
@@ -95,11 +95,11 @@ function TeamSection() {
 
         <div className="grid md:grid-cols-4 gap-5">
           {[
-            { name: "Arjun Mehta", role: "Co-founder & CEO", prior: "Google Brain, Stanford ML Group", papers: 6 },
-            { name: "Danielle Reeves", role: "Co-founder & CTO", prior: "NVIDIA Research, CMU", papers: 8 },
-            { name: "Lena Okonkwo", role: "Head of Research", prior: "OpenAI, MIT CSAIL", papers: 12 },
-            { name: "Jin Chen", role: "Head of Engineering", prior: "Anyscale, UCB", papers: 4 },
-          ].map(({ name, role, prior, papers }, i) => (
+            { name: "Arjun Mehta", role: "Co-founder & CEO", prior: "Google Brain, Stanford ML Group" },
+            { name: "Danielle Reeves", role: "Co-founder & CTO", prior: "NVIDIA Research, CMU" },
+            { name: "Lena Okonkwo", role: "Head of Research", prior: "OpenAI, MIT CSAIL" },
+            { name: "Jin Chen", role: "Head of Engineering", prior: "Anyscale, UCB" },
+          ].map(({ name, role, prior }, i) => (
             <div
               key={name}
               className="bg-[hsl(222,44%,7%)] border border-[hsl(220,30%,14%)] rounded-xl p-5 hover:border-violet-500/20 transition-all"
@@ -116,7 +116,7 @@ function TeamSection() {
               <h3 className="text-white font-semibold mb-0.5">{name}</h3>
               <div className="text-xs text-blue-400 mb-2">{role}</div>
               <div className="text-xs text-[hsl(215,20%,45%)] mb-3">{prior}</div>
-              <div className="text-xs text-[hsl(215,20%,35%)]">{papers} publications</div>
+              <div className="text-xs text-[hsl(215,20%,35%)]">Multiple publications</div>
             </div>
           ))}
         </div>

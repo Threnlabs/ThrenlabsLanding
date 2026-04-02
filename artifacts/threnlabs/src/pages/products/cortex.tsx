@@ -26,10 +26,17 @@ function CortexHero() {
             Cortex
           </h1>
           <p className="text-xl text-[hsl(215,20%,55%)] max-w-2xl leading-relaxed mb-8">
-            Our flagship deep learning inference engine. Engineered for organizations that can't
-            afford to guess — deterministic outputs, SLA-backed latency, and an architecture that
-            scales horizontally without compromise.
+            Our flagship deep learning inference engine. Ultra-low latency,
+            deterministic outputs, horizontal scaling — engineered for organizations
+            that can't afford to guess.
           </p>
+          <div className="flex flex-wrap gap-3 mb-6">
+            {["Ultra-low latency", "Deterministic", "gRPC + REST", "Model agnostic"].map((feat) => (
+              <span key={feat} className="px-3 py-1 rounded-full bg-[hsl(220,30%,12%)] border border-[hsl(220,30%,18%)] text-[hsl(215,20%,60%)] text-xs font-medium">
+                {feat}
+              </span>
+            ))}
+          </div>
           <div className="flex flex-wrap gap-4">
             <a
               href="https://cortex.threnlabs.com"
@@ -51,34 +58,6 @@ function CortexHero() {
               View documentation
             </a>
           </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function CortexMetrics() {
-  const { ref, inView } = useInView();
-  const metrics = [
-    { value: "11.4ms", label: "Median inference latency" },
-    { value: "48k", label: "Requests/sec peak throughput" },
-    { value: "99.81%", label: "Confidence on standard benchmarks" },
-    { value: "3.2×", label: "Memory efficiency vs baseline" },
-  ];
-  return (
-    <section ref={ref} className="py-12 px-6 lg:px-8 border-y border-[hsl(220,30%,12%)]">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          {metrics.map(({ value, label }, i) => (
-            <div
-              key={label}
-              className="text-center"
-              style={{ opacity: inView ? 1 : 0, transform: inView ? "translateY(0)" : "translateY(20px)", transition: `all 0.5s ease ${i * 80}ms` }}
-            >
-              <div className="text-3xl font-bold text-white tabular-nums mb-1">{value}</div>
-              <div className="text-xs text-[hsl(215,20%,45%)]">{label}</div>
-            </div>
-          ))}
         </div>
       </div>
     </section>
@@ -137,9 +116,9 @@ function CortexSpecs() {
                 <span className="text-[hsl(215,20%,40%)]">→ </span>
                 <span className="text-green-400">Inference complete</span>
                 <span className="text-white"> · </span>
-                <span className="text-blue-300">11.4ms</span>
+                <span className="text-blue-300">Production latency verified</span>
                 <span className="text-white"> · </span>
-                <span className="text-violet-300">99.81% confidence</span>
+                <span className="text-violet-300">Optimized confidence output</span>
               </div>
             </div>
             <div className="absolute top-4 right-4 flex items-center gap-1.5">
@@ -147,6 +126,7 @@ function CortexSpecs() {
               <span className="text-[10px] text-green-400 font-mono tracking-widest">LIVE</span>
             </div>
           </div>
+
 
           {/* Features */}
           <div
@@ -160,7 +140,7 @@ function CortexSpecs() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
                 ),
-                title: "Sub-20ms Inference",
+                title: "Ultra-low latency",
                 desc: "Hardware-optimized kernels with quantization-aware training on standard GPU hardware."
               },
               {
@@ -265,7 +245,6 @@ export default function CortexPage() {
   return (
     <PageShell>
       <CortexHero />
-      <CortexMetrics />
       <CortexSpecs />
       <CortexCTA />
     </PageShell>

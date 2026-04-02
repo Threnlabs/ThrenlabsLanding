@@ -60,44 +60,6 @@
     <priority>0.8</priority>
   </url>
 
-  <!-- Technology anchors (in-page sections) -->
-  <url>
-    <loc>https://threnlabs.com/technology#runtime</loc>
-    <lastmod>2026-04-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://threnlabs.com/technology#scheduler</loc>
-    <lastmod>2026-04-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://threnlabs.com/technology#datamesh</loc>
-    <lastmod>2026-04-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://threnlabs.com/technology#nas</loc>
-    <lastmod>2026-04-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://threnlabs.com/technology#compression</loc>
-    <lastmod>2026-04-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://threnlabs.com/technology#distributed</loc>
-    <lastmod>2026-04-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
   <!-- Research -->
   <url>
     <loc>https://threnlabs.com/research</loc>
@@ -106,76 +68,12 @@
     <priority>0.8</priority>
   </url>
 
-  <!-- Research anchors (publications) -->
-  <url>
-    <loc>https://threnlabs.com/research#neurips</loc>
-    <lastmod>2026-04-02</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://threnlabs.com/research#icml</loc>
-    <lastmod>2026-04-02</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://threnlabs.com/research#mlsys</loc>
-    <lastmod>2026-04-02</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://threnlabs.com/research#inference</loc>
-    <lastmod>2026-04-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://threnlabs.com/research#efficiency</loc>
-    <lastmod>2026-04-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-
   <!-- Company -->
   <url>
     <loc>https://threnlabs.com/company</loc>
     <lastmod>2026-04-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-  </url>
-
-  <!-- Company anchors -->
-  <url>
-    <loc>https://threnlabs.com/company#mission</loc>
-    <lastmod>2026-04-02</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://threnlabs.com/company#team</loc>
-    <lastmod>2026-04-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://threnlabs.com/company#careers</loc>
-    <lastmod>2026-04-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://threnlabs.com/company#blog</loc>
-    <lastmod>2026-04-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://threnlabs.com/company#contact</loc>
-    <lastmod>2026-04-02</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
   </url>
 
 </urlset>

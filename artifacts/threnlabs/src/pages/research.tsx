@@ -36,8 +36,8 @@ function PublicationsSection() {
       authors: ["A. Mehta", "D. Reeves", "L. Okonkwo", "J. Chen"],
       tag: "Attention Mechanisms",
       tagColor: "text-blue-300 bg-blue-500/10 border-blue-500/20",
-      abstract: "We introduce a novel sparse attention pattern that reduces memory complexity from O(n²) to O(n log n) while maintaining 99.2% of full-attention performance on downstream tasks. The method is compatible with flash attention and achieves 2.8x speedup on sequences longer than 32k tokens.",
-      impact: "Adopted in Cortex v2.3+ for long-context language model inference.",
+      abstract: "We introduce a novel sparse attention pattern that optimizes memory complexity while maintaining state-of-the-art performance on downstream tasks. The method is compatible with flash attention and achieves significant speedups on long sequences.",
+      impact: "Adopted in Cortex for long-context language model inference.",
     },
     {
       id: "icml",
@@ -46,8 +46,8 @@ function PublicationsSection() {
       authors: ["L. Okonkwo", "A. Mehta", "T. Sato"],
       tag: "Model Compression",
       tagColor: "text-violet-300 bg-violet-500/10 border-violet-500/20",
-      abstract: "A joint training framework for knowledge distillation and quantization that outperforms post-training quantization by 8.4 points on MMLU while achieving INT4 precision. We demonstrate that carefully scheduled distillation loss annealing prevents the collapse seen in naive joint training.",
-      impact: "Enables 4x model compression with <1% accuracy loss across tested benchmarks.",
+      abstract: "A joint training framework for knowledge distillation and quantization that significantly outperforms post-training quantization while achieving high-fidelity precision. We demonstrate that carefully scheduled distillation loss annealing prevents the collapse seen in naive joint training.",
+      impact: "Enables massive model compression with minimal accuracy loss across tested benchmarks.",
     },
     {
       id: "mlsys",
@@ -56,8 +56,8 @@ function PublicationsSection() {
       authors: ["J. Chen", "D. Reeves", "A. Mehta"],
       tag: "Systems",
       tagColor: "text-cyan-300 bg-cyan-500/10 border-cyan-500/20",
-      abstract: "We present a scheduling algorithm that achieves 94% theoretical peak throughput across mixed GPU/TPU clusters, outperforming static partition strategies by 2.3x. The algorithm models hardware heterogeneity as a weighted bipartite graph and solves the assignment problem with a modified Hungarian algorithm under latency constraints.",
-      impact: "Powers Cortex Scheduler in production deployments since Q2 2024.",
+      abstract: "We present a scheduling algorithm that achieves high utilization across mixed GPU/TPU clusters, outperforming static partition strategies. The algorithm models hardware heterogeneity as a weighted bipartite graph and solves the assignment problem with a modified Hungarian algorithm under latency constraints.",
+      impact: "Powers Cortex Scheduler in production deployments.",
     },
     {
       id: "iclr",
@@ -66,7 +66,7 @@ function PublicationsSection() {
       authors: ["T. Sato", "L. Okonkwo", "J. Chen"],
       tag: "AutoML",
       tagColor: "text-orange-300 bg-orange-500/10 border-orange-500/20",
-      abstract: "We propose a surrogate-based approach to hardware-aware NAS that reduces search cost by 91% compared to one-shot methods. A Gaussian process surrogate trained on a small initial population accurately predicts architecture performance, enabling Bayesian optimization over the search space without gradient computation.",
+      abstract: "We propose a surrogate-based approach to hardware-aware NAS that reduces search cost significantly compared to one-shot methods. A Gaussian process surrogate trained on a small initial population accurately predicts architecture performance, enabling Bayesian optimization over the search space without gradient computation.",
       impact: "Backbone of CalendarSync's automated architecture optimization pipeline.",
     },
   ];

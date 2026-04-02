@@ -39,38 +39,7 @@ function BullpenHero() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </Link>
-            <span className="inline-flex items-center px-4 py-3 text-sm text-[hsl(215,20%,50%)] border border-[hsl(220,30%,16%)] rounded-lg">
-              <span className="w-2 h-2 rounded-full bg-violet-400 pulse-dot mr-2" />
-              Alpha — 45% complete
-            </span>
           </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function BullpenMetrics() {
-  const { ref, inView } = useInView();
-  return (
-    <section ref={ref} className="py-12 px-6 lg:px-8 border-y border-[hsl(220,30%,12%)]">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          {[
-            { value: "60%", label: "Training cost reduction" },
-            { value: "256+", label: "GPU node scaling" },
-            { value: "3 types", label: "Parallelism strategies" },
-            { value: "Zero", label: "Convergence sacrifice" },
-          ].map(({ value, label }, i) => (
-            <div
-              key={label}
-              className="text-center"
-              style={{ opacity: inView ? 1 : 0, transform: inView ? "translateY(0)" : "translateY(20px)", transition: `all 0.5s ease ${i * 80}ms` }}
-            >
-              <div className="text-3xl font-bold text-white tabular-nums mb-1">{value}</div>
-              <div className="text-xs text-[hsl(215,20%,45%)]">{label}</div>
-            </div>
-          ))}
         </div>
       </div>
     </section>
@@ -212,9 +181,9 @@ export default function BullpenPage() {
   return (
     <PageShell>
       <BullpenHero />
-      <BullpenMetrics />
       <BullpenFeatures />
       <BullpenTimeline />
     </PageShell>
   );
 }
+

@@ -53,33 +53,6 @@ function SmapHero() {
   );
 }
 
-function SmapProgress() {
-  const { ref, inView } = useInView();
-  return (
-    <section ref={ref} className="py-12 px-6 lg:px-8 border-y border-[hsl(220,30%,12%)]">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          {[
-            { value: "28%", label: "Development progress" },
-            { value: "~2026", label: "Estimated release" },
-            { value: "Zero", label: "Code changes needed" },
-            { value: "Any", label: "Framework support" },
-          ].map(({ value, label }, i) => (
-            <div
-              key={label}
-              className="text-center"
-              style={{ opacity: inView ? 1 : 0, transform: inView ? "translateY(0)" : "translateY(20px)", transition: `all 0.5s ease ${i * 80}ms` }}
-            >
-              <div className="text-3xl font-bold text-white tabular-nums mb-1">{value}</div>
-              <div className="text-xs text-[hsl(215,20%,45%)]">{label}</div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 function SmapFeatures() {
   const { ref, inView } = useInView();
   return (
@@ -211,9 +184,9 @@ export default function SmapPage() {
   return (
     <PageShell>
       <SmapHero />
-      <SmapProgress />
       <SmapFeatures />
       <SmapResearchLink />
     </PageShell>
   );
 }
+

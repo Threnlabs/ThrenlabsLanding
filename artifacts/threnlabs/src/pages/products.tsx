@@ -53,12 +53,12 @@ function FlagshipProduct() {
                   Cortex
                 </h2>
                 <p className="text-[hsl(215,20%,55%)] leading-relaxed mb-6">
-                  Our flagship deep learning inference engine. Sub-20ms latency,
+                  Our flagship deep learning inference engine. Ultra-low latency,
                   deterministic outputs, horizontal scaling — engineered for organizations
                   that can't afford to guess.
                 </p>
                 <div className="flex flex-wrap gap-3 mb-6">
-                  {["Sub-20ms inference", "Deterministic", "gRPC + REST", "Model agnostic"].map((feat) => (
+                  {["Ultra-low latency", "Deterministic", "gRPC + REST", "Model agnostic"].map((feat) => (
                     <span key={feat} className="text-xs px-3 py-1 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-300">
                       {feat}
                     </span>
@@ -74,13 +74,13 @@ function FlagshipProduct() {
 
               <div className="grid grid-cols-2 gap-4">
                 {[
-                  { value: "11.4ms", label: "Median latency" },
-                  { value: "48k", label: "Req/sec peak" },
-                  { value: "99.81%", label: "Benchmark confidence" },
-                  { value: "3.2×", label: "Memory efficiency" },
+                  { value: "Verified", label: "Production Latency" },
+                  { value: "Sustained", label: "High Throughput" },
+                  { value: "High", label: "Benchmark Confidence" },
+                  { value: "Optimized", label: "Memory Efficiency" },
                 ].map(({ value, label }) => (
                   <div key={label} className="rounded-xl border border-[hsl(220,30%,16%)] bg-[hsl(222,44%,5%)] p-5">
-                    <div className="text-2xl font-bold text-white tabular-nums mb-1">{value}</div>
+                    <div className="text-xl font-bold text-white tabular-nums mb-1">{value}</div>
                     <div className="text-xs text-[hsl(215,20%,42%)]">{label}</div>
                   </div>
                 ))}
@@ -100,29 +100,29 @@ function UpcomingProducts() {
     {
       href: "/products/calendarsync",
       codename: "CalendarSync",
-      tag: "Alpha — Q3 2025",
-      desc: "Enterprise-grade real-time calendar orchestration. Synchronize across all major platforms with sub-50ms latency.",
-      progress: 72,
+      tag: "Alpha Development",
+      desc: "Enterprise-grade real-time calendar orchestration. Synchronize across all major platforms with industry-leading latency.",
+      progress: 75,
       color: "blue",
-      features: ["12+ platforms", "sub-50ms sync", "SOC 2 certified"],
+      features: ["Multi-platform", "Real-time sync", "Security focused"],
     },
     {
       href: "/products/bullpen",
       codename: "Bullpen",
       tag: "Internal Testing",
-      desc: "Distributed training framework for multi-modal foundation models. 60% cost reduction without sacrificing convergence.",
+      desc: "Distributed training framework for multi-modal foundation models. Significant cost reduction without sacrificing convergence.",
       progress: 45,
       color: "violet",
-      features: ["3-way parallelism", "256+ GPU scaling", "Fault tolerant"],
+      features: ["Parallel training", "Linear scaling", "Fault tolerant"],
     },
     {
       href: "/products/smap",
       codename: "Smap",
       tag: "Research Phase",
       desc: "A unified observability layer for AI systems — inference tracing, attention visualization, and anomaly detection.",
-      progress: 28,
+      progress: 30,
       color: "cyan",
-      features: ["Zero-code setup", "Drift detection", "Attention viz"],
+      features: ["Deep observability", "Drift detection", "Attention viz"],
     },
   ];
 
@@ -174,14 +174,8 @@ function UpcomingProducts() {
                   ))}
                 </div>
 
-                <div className="mb-4">
-                  <div className="flex justify-between text-xs mb-1.5">
-                    <span className={`font-medium ${c.tag}`}>{tag}</span>
-                    <span className="font-mono text-[hsl(215,20%,40%)]">{progress}%</span>
-                  </div>
-                  <div className="h-1 rounded-full bg-[hsl(220,30%,12%)]">
-                    <div className={`h-full rounded-full ${c.bar}`} style={{ width: `${progress}%` }} />
-                  </div>
+                <div className="mb-6">
+                  <div className={`text-xs font-medium ${c.tag}`}>{tag}</div>
                 </div>
 
                 <div className={`flex items-center gap-1 text-xs font-medium ${c.tag} group-hover:gap-2 transition-all`}>
