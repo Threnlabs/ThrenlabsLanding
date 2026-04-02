@@ -7,10 +7,7 @@ export function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-12">
           <div className="col-span-2 md:col-span-1">
             <Link href="/" className="flex items-center gap-2.5 mb-4">
-              <div className="relative w-7 h-7">
-                <div className="absolute inset-0 bg-blue-500 rounded-sm rotate-45 scale-75" />
-                <div className="absolute inset-0 bg-violet-500 rounded-sm rotate-45 scale-50 opacity-70" />
-              </div>
+              <img src="/favicon.svg" alt="Threnlabs Logo" className="w-7 h-7" />
               <span className="text-white font-bold tracking-tight">
                 Thren<span className="text-blue-400">labs</span>
               </span>

@@ -4,7 +4,7 @@ import { useInView, GridBackground, RadialGlow } from "@/lib/shared";
 
 function HeroSection() {
   const [typed, setTyped] = useState("");
-  const words = ["Production AI.", "Real Intelligence.", "Cortex.", "CalendarSync.", "Bullpen.", "Smap."];
+  const words = ["Responsible AI", "Real Intelligence.", "Cortex.", "CalendarSync."];
   const [wordIdx, setWordIdx] = useState(0);
   const [charIdx, setCharIdx] = useState(0);
   const [deleting, setDeleting] = useState(false);
@@ -32,8 +32,8 @@ function HeroSection() {
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-16">
       <GridBackground />
-      <RadialGlow color="blue" className="w-[800px] h-[600px] -top-40 -left-40" />
-      <RadialGlow color="violet" className="w-[600px] h-[500px] -bottom-20 -right-20" />
+      <RadialGlow color="blue" className="w-[50rem] h-[37.5rem] -top-40 -left-40" />
+      <RadialGlow color="violet" className="w-[37.5rem] h-[31.25rem] -bottom-20 -right-20" />
 
       {/* Floating particles */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -165,7 +165,7 @@ function CTASection() {
   const { ref, inView } = useInView();
   return (
     <section ref={ref} className="relative py-24 px-6 lg:px-8 overflow-hidden">
-      <RadialGlow color="blue" className="w-[600px] h-[400px] top-0 left-1/2 -translate-x-1/2" />
+      <RadialGlow color="blue" className="w-[37.5rem] h-[25rem] top-0 left-1/2 -translate-x-1/2" />
       <GridBackground />
       <div className="max-w-2xl mx-auto text-center">
         <div

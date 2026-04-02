@@ -5,7 +5,7 @@ function BullpenHero() {
   const { ref, inView } = useInView();
   return (
     <section ref={ref} className="relative pt-28 pb-16 px-6 lg:px-8 overflow-hidden">
-      <RadialGlow color="violet" className="w-[700px] h-[500px] -top-20 right-0" />
+      <RadialGlow color="violet" className="w-[43.75rem] h-[31.25rem] -top-20 right-0" />
       <GridBackground />
       <div className="max-w-7xl mx-auto">
         <div

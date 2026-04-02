@@ -5,7 +5,7 @@ function ProductsHero() {
   const { ref, inView } = useInView();
   return (
     <section ref={ref} className="relative pt-28 pb-16 px-6 lg:px-8 overflow-hidden">
-      <RadialGlow color="blue" className="w-[800px] h-[600px] -top-20 left-1/2 -translate-x-1/2" />
+      <RadialGlow color="blue" className="w-[50rem] h-[37.5rem] -top-20 left-1/2 -translate-x-1/2" />
       <GridBackground />
       <div className="max-w-7xl mx-auto">
         <div
@@ -46,7 +46,7 @@ function FlagshipProduct() {
           style={{ opacity: inView ? 1 : 0, transform: inView ? "translateY(0)" : "translateY(30px)", transition: "all 0.7s ease" }}
         >
           <div className="relative rounded-2xl border border-violet-500/20 bg-[hsl(222,44%,7%)] p-8 lg:p-12 overflow-hidden hover:border-violet-500/40 transition-all duration-300">
-            <RadialGlow color="violet" className="w-[600px] h-[400px] -top-20 right-0 opacity-40" />
+            <RadialGlow color="violet" className="w-[37.5rem] h-[25rem] -top-20 right-0 opacity-40" />
             <div className="relative z-10 grid md:grid-cols-2 gap-10 items-center">
               <div>
                 <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight mb-4 group-hover:text-violet-200 transition-colors">

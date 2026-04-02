@@ -236,7 +236,7 @@ function DropdownPanel({ columns, visible }: { columns: NavColumn[]; visible: bo
         <div className="w-2.5 h-2.5 rotate-45 bg-[hsl(222,44%,10%)] border-l border-t border-[hsl(220,30%,20%)]" style={{ marginBottom: "-1px" }} />
       </div>
 
-      <div className="bg-[hsl(222,44%,10%)] border border-[hsl(220,30%,20%)] rounded-xl shadow-2xl overflow-hidden min-w-[520px]">
+      <div className="bg-[hsl(222,44%,10%)] border border-[hsl(220,30%,20%)] rounded-xl shadow-2xl overflow-hidden min-w-[32.5rem]">
         <div className={`grid divide-x divide-[hsl(220,30%,17%)] ${columns.length === 2 ? "grid-cols-2" : "grid-cols-3"}`}>
           {columns.map((col, ci) => (
             <div key={ci} className="p-4">
@@ -341,10 +341,7 @@ export function Nav() {
 
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2.5 group flex-shrink-0 z-10">
-          <div className="relative w-8 h-8">
-            <div className="absolute inset-0 bg-blue-500 rounded-sm rotate-45 scale-75 group-hover:scale-90 transition-transform duration-300" />
-            <div className="absolute inset-0 bg-violet-500 rounded-sm rotate-45 scale-50 opacity-70 group-hover:scale-60 transition-transform duration-300" />
-          </div>
+          <img src="/favicon.svg" alt="Threnlabs Logo" className="w-8 h-8 group-hover:scale-110 transition-transform duration-300" />
           <span className="text-white font-bold text-lg tracking-tight">
             Thren<span className="text-blue-400">labs</span>
           </span>

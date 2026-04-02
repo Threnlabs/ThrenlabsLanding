@@ -4,7 +4,7 @@ function TechHero() {
   const { ref, inView } = useInView();
   return (
     <section ref={ref} className="relative pt-20 pb-16 px-6 lg:px-8 overflow-hidden">
-      <RadialGlow color="blue" className="w-[800px] h-[600px] -top-20 -left-40" />
+      <RadialGlow color="blue" className="w-[50rem] h-[37.5rem] -top-20 -left-40" />
       <GridBackground />
       <div className="max-w-7xl mx-auto">
         <div
