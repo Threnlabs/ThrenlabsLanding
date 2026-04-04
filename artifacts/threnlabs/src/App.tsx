@@ -11,7 +11,7 @@ import ProductsPage from "@/pages/products";
 import TechnologyPage from "@/pages/technology";
 import ResearchPage from "@/pages/research";
 import CompanyPage from "@/pages/company";
-import CervixPage from "@/pages/products/cervix";
+import CosmosPage from "@/pages/products/cosmos";
 import CalendarSyncPage from "@/pages/products/calendarsync";
 
 const queryClient = new QueryClient();
@@ -24,7 +24,7 @@ function Router() {
         <Route path="/" component={Home} />
         {/* Products routes */}
         <Route path="/products" component={ProductsPage} />
-        <Route path="/products/cervix" component={CervixPage} />
+        <Route path="/products/cosmos" component={CosmosPage} />
         <Route path="/products/calendarsync" component={CalendarSyncPage} />
         {/* Other pages */}
         <Route path="/technology" component={TechnologyPage} />

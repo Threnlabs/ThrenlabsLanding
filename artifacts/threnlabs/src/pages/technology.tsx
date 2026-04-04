@@ -44,7 +44,7 @@ function InfrastructureSection() {
           {[
             {
               id: "runtime",
-              title: "Cervix Runtime",
+              title: "Cosmos Runtime",
               tag: "Compute Layer",
               tagColor: "text-blue-300 bg-blue-500/10 border-blue-500/20",
               border: "border-blue-500/15",
@@ -53,11 +53,11 @@ function InfrastructureSection() {
             },
             {
               id: "scheduler",
-              title: "Cervix Scheduler",
+              title: "Cosmos Scheduler",
               tag: "Orchestration",
               tagColor: "text-violet-300 bg-violet-500/10 border-violet-500/20",
               border: "border-violet-500/15",
-              desc: "Priority-aware job scheduling with GPU memory defragmentation and preemptive context switching. Cervix Scheduler manages the full lifecycle of inference jobs across a cluster — admission control, priority queuing, SLA-aware preemption, and hardware-aware placement.",
+              desc: "Priority-aware job scheduling with GPU memory defragmentation and preemptive context switching. Cosmos Scheduler manages the full lifecycle of inference jobs across a cluster — admission control, priority queuing, SLA-aware preemption, and hardware-aware placement.",
               detail: "Jobs are represented as DAGs with per-node SLA constraints. The scheduler solves bin-packing under memory and latency constraints in real time, rebalancing as workloads shift without service interruption.",
             },
             {
@@ -104,7 +104,7 @@ function TechStackSection() {
           style={{ opacity: inView ? 1 : 0, transform: inView ? "translateY(0)" : "translateY(20px)" }}
         >
           <h2 className="text-3xl font-bold text-white mb-2">Compatible with your stack</h2>
-          <p className="text-[hsl(215,20%,55%)]">Cervix adapts to what you already use — no migration required.</p>
+          <p className="text-[hsl(215,20%,55%)]">Cosmos adapts to what you already use — no migration required.</p>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -139,15 +139,15 @@ function TechStackSection() {
 export default function TechnologyPage() {
   return (
     <PageShell>
-      <SEO 
-        title="Core Infrastructure Technology — Threnlabs" 
+      <SEO
+        title="Core Infrastructure Technology — Threnlabs"
         description="Explore the core infrastructure powering Threnlabs' AI products. From custom CUDA kernels to distributed inference scheduling, we build on first principles."
         canonical="https://threnlabs.com/technology"
         jsonLd={{
           "@context": "https://schema.org",
           "@type": "WebPage",
           "name": "Core Infrastructure Technology",
-          "description": "Deep dive into the technology stack of Threnlabs, including Cervix Runtime, Scheduler, and DataMesh Pipeline.",
+          "description": "Deep dive into the technology stack of Threnlabs, including Cosmos Runtime, Scheduler, and DataMesh Pipeline.",
           "publisher": {
             "@type": "Organization",
             "name": "Threnlabs"

@@ -20,7 +20,7 @@ export function Footer() {
             <div className="text-xs font-semibold text-[hsl(215,20%,55%)] tracking-widest uppercase mb-4">Products</div>
             <ul className="space-y-2.5">
               {[
-                { label: "Cervix", href: "/products/cervix" },
+                { label: "Cosmos", href: "/products/cosmos" },
                 { label: "CalendarSync", href: "/products/calendarsync" },
                 { label: "All Products", href: "/products" },
               ].map(({ label, href }) => {

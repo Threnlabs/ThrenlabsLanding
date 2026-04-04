@@ -42,7 +42,7 @@ function FlagshipProduct() {
           </SectionLabel>
         </div>
         <Link
-          href="/products/cervix"
+          href="/products/cosmos"
           className="block group"
           style={{ opacity: inView ? 1 : 0, transform: inView ? "translateY(0)" : "translateY(30px)", transition: "all 0.7s ease" }}
         >
@@ -51,7 +51,7 @@ function FlagshipProduct() {
             <div className="relative z-10 grid md:grid-cols-2 gap-10 items-center">
               <div>
                 <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight mb-2 group-hover:text-violet-200 transition-colors">
-                  Cervix
+                  Cosmos
                 </h2>
                 <div className="text-xl text-blue-400 font-semibold mb-4">The Reasoning First Code Editor.</div>
                 <p className="text-[hsl(215,20%,55%)] leading-relaxed mb-6">
@@ -66,7 +66,7 @@ function FlagshipProduct() {
                   ))}
                 </div>
                 <div className="inline-flex items-center gap-2 text-blue-400 group-hover:text-blue-300 transition-colors font-medium text-sm">
-                  View Cervix details
+                  View Cosmos details
                   <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
@@ -251,9 +251,9 @@ function UpcomingProducts() {
 export default function ProductsPage() {
   return (
     <PageShell>
-      <SEO 
-        title="AI Infrastructure Product Suite" 
-        description="Explore Threnlabs' production-grade AI infrastructure products. Cervix: The Reasoning First Code Editor, CalendarSync, and upcoming research projects like Bullpen and Smap."
+      <SEO
+        title="AI Infrastructure Product Suite"
+        description="Explore Threnlabs' production-grade AI infrastructure products. Cosmos: The Reasoning First Code Editor, CalendarSync, and upcoming research projects like Bullpen and Smap."
         canonical="https://threnlabs.com/products"
         jsonLd={{
           "@context": "https://schema.org",
@@ -262,8 +262,8 @@ export default function ProductsPage() {
             {
               "@type": "ListItem",
               "position": 1,
-              "name": "Cervix - Reasoning First Code Editor",
-              "url": "https://cervix.threnlabs.com"
+              "name": "Cosmos - Reasoning First Code Editor",
+              "url": "https://cosmos.threnlabs.com"
             },
             {
               "@type": "ListItem",

@@ -19,7 +19,7 @@ export function SEO({
 }: SEOProps) {
   const siteTitle = "Threnlabs";
   const fullTitle = title ? `${title} | ${siteTitle}` : siteTitle;
-  const defaultDescription = "Threnlabs builds production-grade AI infrastructure. Cervix: The Reasoning First Code Editor, CalendarSync, Bullpen, and Smap.";
+  const defaultDescription = "Threnlabs builds production-grade AI infrastructure. Cosmos: The Reasoning First Code Editor, CalendarSync, Bullpen, and Smap.";
 
   return (
     <Helmet>

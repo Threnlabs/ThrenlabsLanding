@@ -37,9 +37,9 @@ const navItems: NavItem[] = [
         heading: "Available Now",
         items: [
           {
-            label: "Cervix",
+            label: "Cosmos",
             desc: "The Reasoning First Code Editor",
-            href: "/products/cervix",
+            href: "/products/cosmos",
             tag: "Stable",
           },
           {
@@ -60,7 +60,7 @@ const navItems: NavItem[] = [
         heading: "Infrastructure",
         items: [
           {
-            label: "Cervix-MAP",
+            label: "Cosmos-MAP",
             desc: "",
             href: "/technology#runtime",
           },
@@ -162,7 +162,7 @@ const navItems: NavItem[] = [
         items: [
           {
             label: "Contact Us",
-            desc: "Talk to our team about Cervix or partnerships",
+            desc: "Talk to our team about Cosmos or partnerships",
             href: "/company#contact",
           },
           {
@@ -439,12 +439,12 @@ export function Nav() {
               Sign in
             </Link>
             <a
-              href="https://cervix.threnlabs.com"
+              href="https://cosmos.threnlabs.com"
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm text-center py-2.5 bg-blue-500 hover:bg-blue-400 text-white font-bold rounded-lg transition-all shadow-lg shadow-blue-500/20"
             >
-              Launch Cervix
+              Launch Cosmos
             </a>
           </div>
         </div>

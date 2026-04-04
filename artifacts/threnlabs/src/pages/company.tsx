@@ -197,7 +197,7 @@ function ContactSection() {
         >
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">Get in touch</h2>
           <p className="text-[hsl(215,20%,55%)] mb-8 leading-relaxed">
-            Talk to our team about Cervix deployment, enterprise licensing, or early access to upcoming products.
+            Talk to our team about Cosmos deployment, enterprise licensing, or early access to upcoming products.
             No sales deck. No fluff. Engineers talking to engineers.
           </p>
 
@@ -242,8 +242,8 @@ function ContactSection() {
 export default function CompanyPage() {
   return (
     <PageShell>
-      <SEO 
-        title="About Threnlabs — Production-First AI Infrastructure" 
+      <SEO
+        title="About Threnlabs — Production-First AI Infrastructure"
         description="Threnlabs is an AI infrastructure company building production-grade tools for serious engineering teams. Founded by engineers, for engineers."
         canonical="https://threnlabs.com/company"
         jsonLd={{

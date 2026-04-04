@@ -2,7 +2,7 @@ import { Link } from "wouter";
 import { useInView, GridBackground, RadialGlow, SectionLabel, PageShell } from "@/lib/shared";
 import { SEO } from "@/components/seo";
 
-function CervixHero() {
+function CosmosHero() {
   const { ref, inView } = useInView();
   return (
     <section ref={ref} className="relative pt-24 pb-24 px-6 lg:px-8 overflow-hidden">
@@ -20,18 +20,18 @@ function CervixHero() {
             All Products
           </Link>
           <h1 className="text-5xl md:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-white/60 tracking-tight mb-6">
-            CERVIX
+            COSMOS
           </h1>
           <p className="text-2xl md:text-3xl text-blue-400 font-bold mb-6">
             The AI Remains Accountable.
           </p>
           <p className="text-xl md:text-2xl text-[hsl(215,20%,55%)] max-w-4xl leading-relaxed mb-12 mx-auto">
-            CERVIX maintains a persistent code-context graph with two-factor validation,
+            COSMOS maintains a persistent code-context graph with two-factor validation,
             ensuring every AI change is intentional, traceable, and structurally sound.
           </p>
           <div className="flex flex-wrap gap-6 justify-center">
             <a
-              href="https://cervix.threnlabs.com"
+              href="https://cosmos.threnlabs.com"
               target="_blank"
               rel="noopener noreferrer"
               className="group inline-flex items-center gap-3 px-10 py-5 bg-white/[0.03] border border-[hsl(220,30%,20%)] hover:bg-gradient-to-br hover:from-blue-600 hover:to-indigo-700 text-white font-black rounded-2xl transition-all hover:scale-105 hover:shadow-[0_20px_50px_-12px_rgba(59,130,246,0.5)] text-lg shadow-xl shadow-blue-500/10 active:scale-95 hover:border-transparent"
@@ -54,7 +54,7 @@ function CervixHero() {
   );
 }
 
-function CervixProblem() {
+function CosmosProblem() {
   const { ref, inView } = useInView();
   return (
     <section ref={ref} id="product" className="py-24 px-6 lg:px-8 border-y border-[hsl(220,30%,10%)] bg-[hsl(222,47%,4%)]">
@@ -110,7 +110,7 @@ function CervixProblem() {
   );
 }
 
-function CervixSolution() {
+function CosmosSolution() {
   const { ref, inView } = useInView();
   return (
     <section ref={ref} className="py-24 px-6 lg:px-8">
@@ -122,7 +122,7 @@ function CervixSolution() {
           <SectionLabel color="blue">The Solution</SectionLabel>
           <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">Reason first. Act second.</h2>
           <p className="text-xl text-[hsl(215,20%,55%)] max-w-3xl mx-auto mb-16">
-            CERVIX eliminates the frustration of AI building the wrong solution.
+            COSMOS eliminates the frustration of AI building the wrong solution.
             We preserve your intent, so the code remains transparent and accountable.
           </p>
 
@@ -168,14 +168,14 @@ function CervixSolution() {
   );
 }
 
-function CervixComparison() {
+function CosmosComparison() {
   const { ref, inView } = useInView();
   return (
     <section ref={ref} id="comparison" className="py-24 px-6 lg:px-8 bg-[hsl(222,47%,3%)]">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <SectionLabel color="blue">The Difference</SectionLabel>
-          <h2 className="text-4xl font-bold text-white mt-4">Why CERVIX is "Reasoning First"</h2>
+          <h2 className="text-4xl font-bold text-white mt-4">Why COSMOS is "Reasoning First"</h2>
           <p className="text-[hsl(215,20%,55%)] mt-4">Comparing the next generation of development.</p>
         </div>
 
@@ -184,22 +184,22 @@ function CervixComparison() {
             <thead>
               <tr className="border-b border-[hsl(220,30%,14%)]">
                 <th className="py-6 px-4 text-sm font-bold text-[hsl(215,20%,35%)] uppercase tracking-widest">Capabilities</th>
-                <th className="py-6 px-4 text-sm font-bold text-blue-400 uppercase tracking-widest bg-blue-500/5">CERVIX</th>
+                <th className="py-6 px-4 text-sm font-bold text-blue-400 uppercase tracking-widest bg-blue-500/5">COSMOS</th>
                 <th className="py-6 px-4 text-sm font-bold text-[hsl(215,20%,35%)] uppercase tracking-widest">Typical "Vibe" Apps</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-[hsl(220,30%,10%)] text-[hsl(210,40%,80%)]">
               {[
-                { feat: "Architectural Memory", cervix: "Persistent intent-node graph traversal", other: "Single session or simple RAG" },
-                { feat: "Change Validation", cervix: "Two-Factor Structural Dry-run", other: "Blind file overwriting" },
-                { feat: "Code Accountability", cervix: "Audited back to implementation nodes", other: "Opaque LLM generations" },
-                { feat: "Complex Maintenance", cervix: "Scales with project depth", other: "Context loss over time" },
-                { feat: "Workflow Basis", cervix: "Reasoning First (Plan -> Validate -> Execute)", other: "Action First (Query -> File Change)" },
-                { feat: "Cost Efficiency", cervix: "1/4th vs competitors (Targeted reasoning)", other: "High (Token wastage on redundant files)" },
+                { feat: "Architectural Memory", cosmos: "Persistent intent-node graph traversal", other: "Single session or simple RAG" },
+                { feat: "Change Validation", cosmos: "Two-Factor Structural Dry-run", other: "Blind file overwriting" },
+                { feat: "Code Accountability", cosmos: "Audited back to implementation nodes", other: "Opaque LLM generations" },
+                { feat: "Complex Maintenance", cosmos: "Scales with project depth", other: "Context loss over time" },
+                { feat: "Workflow Basis", cosmos: "Reasoning First (Plan -> Validate -> Execute)", other: "Action First (Query -> File Change)" },
+                { feat: "Cost Efficiency", cosmos: "1/4th vs competitors (Targeted reasoning)", other: "High (Token wastage on redundant files)" },
               ].map((row, i) => (
                 <tr key={i} className="hover:bg-white/[0.02] transition-colors group">
                   <td className="py-5 px-4 font-medium text-white">{row.feat}</td>
-                  <td className="py-5 px-4 bg-blue-500/5 text-blue-300 font-semibold">{row.cervix}</td>
+                  <td className="py-5 px-4 bg-blue-500/5 text-blue-300 font-semibold">{row.cosmos}</td>
                   <td className="py-5 px-4 text-[hsl(215,20%,45%)]">{row.other}</td>
                 </tr>
               ))}
@@ -212,17 +212,17 @@ function CervixComparison() {
 }
 
 
-export default function CervixPage() {
+export default function CosmosPage() {
   return (
     <PageShell>
       <SEO
-        title="CERVIX — The Reasoning First Code Editor"
-        description="CERVIX maintains a persistent code-context graph with two-factor validation, ensuring every AI change is intentional, traceable, and structurally sound."
-        canonical="https://cervix.threnlabs.com/"
+        title="COSMOS — The Reasoning First Code Editor"
+        description="COSMOS maintains a persistent code-context graph with two-factor validation, ensuring every AI change is intentional, traceable, and structurally sound."
+        canonical="https://cosmos.threnlabs.com/"
         jsonLd={{
           "@context": "https://schema.org",
           "@type": "SoftwareApplication",
-          "name": "Cervix",
+          "name": "Cosmos",
           "operatingSystem": "Agnostic",
           "applicationCategory": "DeveloperApplication",
           "description": "The Reasoning First Code Editor — built for complex projects and architectural context.",
@@ -233,10 +233,10 @@ export default function CervixPage() {
           }
         }}
       />
-      <CervixHero />
-      <CervixProblem />
-      <CervixSolution />
-      <CervixComparison />
+      <CosmosHero />
+      <CosmosProblem />
+      <CosmosSolution />
+      <CosmosComparison />
     </PageShell>
   );
 }

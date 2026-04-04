@@ -39,7 +39,7 @@ function PublicationsSection() {
       tag: "Attention Mechanisms",
       tagColor: "text-blue-300 bg-blue-500/10 border-blue-500/20",
       abstract: "We introduce a novel sparse attention pattern that optimizes memory complexity while maintaining state-of-the-art performance on downstream tasks. The method is compatible with flash attention and achieves significant speedups on long sequences.",
-      impact: "Adopted in Cervix for long-context language model inference.",
+      impact: "Adopted in Cosmos for long-context language model inference.",
     },
     {
       id: "icml",
@@ -59,7 +59,7 @@ function PublicationsSection() {
       tag: "Systems",
       tagColor: "text-cyan-300 bg-cyan-500/10 border-cyan-500/20",
       abstract: "We present a scheduling algorithm that achieves high utilization across mixed GPU/TPU clusters, outperforming static partition strategies. The algorithm models hardware heterogeneity as a weighted bipartite graph and solves the assignment problem with a modified Hungarian algorithm under latency constraints.",
-      impact: "Powers Cervix Scheduler in production deployments.",
+      impact: "Powers Cosmos Scheduler in production deployments.",
     },
     {
       id: "iclr",
@@ -151,61 +151,61 @@ function ResearchAreasSection() {
 
         <div className="grid md:grid-cols-3 gap-5">
           {[
-            { 
-              id: "inference", 
+            {
+              id: "inference",
               icon: (
                 <svg className="w-6 h-6 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
-              ), 
-              title: "Inference Optimization", 
-              desc: "Faster model serving through kernel fusion, speculative decoding, continuous batching, and hardware-specific compilation." 
+              ),
+              title: "Inference Optimization",
+              desc: "Faster model serving through kernel fusion, speculative decoding, continuous batching, and hardware-specific compilation."
             },
-            { 
-              id: "efficiency", 
+            {
+              id: "efficiency",
               icon: (
                 <svg className="w-6 h-6 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
-              ), 
-              title: "Model Efficiency", 
-              desc: "Compression, quantization, distillation, and pruning methods that preserve accuracy at a fraction of the compute cost." 
+              ),
+              title: "Model Efficiency",
+              desc: "Compression, quantization, distillation, and pruning methods that preserve accuracy at a fraction of the compute cost."
             },
-            { 
+            {
               icon: (
                 <svg className="w-6 h-6 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
                 </svg>
-              ), 
-              title: "Distributed Systems", 
-              desc: "Scheduling, communication, and fault tolerance in heterogeneous GPU clusters running large-scale inference workloads." 
+              ),
+              title: "Distributed Systems",
+              desc: "Scheduling, communication, and fault tolerance in heterogeneous GPU clusters running large-scale inference workloads."
             },
-            { 
+            {
               icon: (
                 <svg className="w-6 h-6 text-orange-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
                 </svg>
-              ), 
-              title: "AutoML & NAS", 
-              desc: "Automated discovery of model architectures optimized for specific hardware targets and latency constraints." 
+              ),
+              title: "AutoML & NAS",
+              desc: "Automated discovery of model architectures optimized for specific hardware targets and latency constraints."
             },
-            { 
+            {
               icon: (
                 <svg className="w-6 h-6 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
-              ), 
-              title: "Reliable AI", 
-              desc: "Determinism, calibration, uncertainty estimation, and formal verification methods for production ML systems." 
+              ),
+              title: "Reliable AI",
+              desc: "Determinism, calibration, uncertainty estimation, and formal verification methods for production ML systems."
             },
-            { 
+            {
               icon: (
                 <svg className="w-6 h-6 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-7.714 2.143L11 21l-2.286-6.857L1 12l7.714-2.143L11 3z" />
                 </svg>
-              ), 
-              title: "Streaming Inference", 
-              desc: "Long-context, streaming, and incremental inference for real-time applications with strict latency budgets." 
+              ),
+              title: "Streaming Inference",
+              desc: "Long-context, streaming, and incremental inference for real-time applications with strict latency budgets."
             },
           ].map(({ icon, title, desc, id }, i) => (
             <div
@@ -232,8 +232,8 @@ function ResearchAreasSection() {
 export default function ResearchPage() {
   return (
     <PageShell>
-      <SEO 
-        title="Research at Threnlabs — AI Efficiency and Infrastructure" 
+      <SEO
+        title="Research at Threnlabs — AI Efficiency and Infrastructure"
         description="Threnlabs conducts peer-reviewed research in inference optimization, model efficiency, and distributed systems. We build better foundations for every product we ship."
         canonical="https://threnlabs.com/research"
         jsonLd={{
