@@ -31,7 +31,7 @@ function CervixHero() {
           </p>
           <div className="flex flex-wrap gap-6 justify-center">
             <a
-              href="https://cervix.ai"
+              href="https://cervix.threnlabs.com"
               target="_blank"
               rel="noopener noreferrer"
               className="group inline-flex items-center gap-3 px-10 py-5 bg-white/[0.03] border border-[hsl(220,30%,20%)] hover:bg-gradient-to-br hover:from-blue-600 hover:to-indigo-700 text-white font-black rounded-2xl transition-all hover:scale-105 hover:shadow-[0_20px_50px_-12px_rgba(59,130,246,0.5)] text-lg shadow-xl shadow-blue-500/10 active:scale-95 hover:border-transparent"

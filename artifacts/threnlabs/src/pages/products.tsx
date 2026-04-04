@@ -1,5 +1,6 @@
 import { Link } from "wouter";
 import { useInView, GridBackground, RadialGlow, SectionLabel, PageShell } from "@/lib/shared";
+import { SEO } from "@/components/seo";
 
 function ProductsHero() {
   const { ref, inView } = useInView();
@@ -250,6 +251,29 @@ function UpcomingProducts() {
 export default function ProductsPage() {
   return (
     <PageShell>
+      <SEO 
+        title="AI Infrastructure Product Suite" 
+        description="Explore Threnlabs' production-grade AI infrastructure products. Cervix: The Reasoning First Code Editor, CalendarSync, and upcoming research projects like Bullpen and Smap."
+        canonical="https://threnlabs.com/products"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Cervix - Reasoning First Code Editor",
+              "url": "https://cervix.threnlabs.com"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "CalendarSync - Academic Timetabling",
+              "url": "https://cync.threnlabs.com"
+            }
+          ]
+        }}
+      />
       <ProductsHero />
       <FlagshipProduct />
       <AvailableProducts />

@@ -74,7 +74,7 @@ function HeroSection() {
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Link
-            href="/products/cervix"
+            href="https://cervix.threnlabs.com"
             className="group relative inline-flex items-center gap-2 px-7 py-3.5 bg-blue-500 hover:bg-blue-400 text-white font-semibold rounded-lg transition-all duration-200 text-sm"
           >
             Explore Cervix
@@ -204,8 +204,8 @@ function CTASection() {
 export default function Home() {
   return (
     <div className="min-h-screen bg-[hsl(222,47%,5%)] text-white">
-      <SEO 
-        title="Responsible AI & Production-Grade Infrastructure" 
+      <SEO
+        title="Responsible AI & Production-Grade Infrastructure"
         description="Threnlabs builds production-grade AI and deep learning systems developers can trust. Home of Cervix and CalendarSync."
         canonical="https://threnlabs.com/"
         jsonLd={{
