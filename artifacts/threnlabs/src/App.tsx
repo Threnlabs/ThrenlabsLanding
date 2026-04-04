@@ -1,5 +1,6 @@
 import { Switch, Route, Router as WouterRouter } from "wouter";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { HelmetProvider } from "react-helmet-async";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Nav } from "@/components/nav";
@@ -10,10 +11,8 @@ import ProductsPage from "@/pages/products";
 import TechnologyPage from "@/pages/technology";
 import ResearchPage from "@/pages/research";
 import CompanyPage from "@/pages/company";
-import CortexPage from "@/pages/products/cortex";
-import BullpenPage from "@/pages/products/bullpen";
+import CervixPage from "@/pages/products/cervix";
 import CalendarSyncPage from "@/pages/products/calendarsync";
-import SmapPage from "@/pages/products/smap";
 
 const queryClient = new QueryClient();
 
@@ -25,10 +24,8 @@ function Router() {
         <Route path="/" component={Home} />
         {/* Products routes */}
         <Route path="/products" component={ProductsPage} />
-        <Route path="/products/cortex" component={CortexPage} />
-        <Route path="/products/bullpen" component={BullpenPage} />
+        <Route path="/products/cervix" component={CervixPage} />
         <Route path="/products/calendarsync" component={CalendarSyncPage} />
-        <Route path="/products/smap" component={SmapPage} />
         {/* Other pages */}
         <Route path="/technology" component={TechnologyPage} />
         <Route path="/research" component={ResearchPage} />
@@ -42,15 +39,18 @@ function Router() {
 
 function App() {
   return (
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
-          <Router />
-        </WouterRouter>
-        <Toaster />
-      </TooltipProvider>
-    </QueryClientProvider>
+    <HelmetProvider>
+      <QueryClientProvider client={queryClient}>
+        <TooltipProvider>
+          <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
+            <Router />
+          </WouterRouter>
+          <Toaster />
+        </TooltipProvider>
+      </QueryClientProvider>
+    </HelmetProvider>
   );
 }
 
 export default App;
+

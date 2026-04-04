@@ -16,6 +16,7 @@ type NavColumn = {
 type NavItem = {
   label: string;
   columns: NavColumn[];
+  hidden?: boolean;
 };
 
 const navItems: NavItem[] = [
@@ -23,20 +24,8 @@ const navItems: NavItem[] = [
     label: "Products",
     columns: [
       {
-        heading: "Available Now",
+        heading: "Overview",
         items: [
-          {
-            label: "Cortex",
-            desc: "Flagship inference engine for production workloads",
-            href: "/products/cortex",
-            tag: "Stable",
-          },
-          {
-            label: "CalendarSync",
-            desc: "Enterprise-grade real-time calendar orchestration",
-            href: "/products/calendarsync",
-            tag: "Alpha",
-          },
           {
             label: "Products Overview",
             desc: "All Threnlabs products and release status",
@@ -45,43 +34,39 @@ const navItems: NavItem[] = [
         ],
       },
       {
-        heading: "In Development",
+        heading: "Available Now",
         items: [
           {
-            label: "Bullpen",
-            desc: "Distributed training for multi-modal models",
-            href: "/products/bullpen",
-            tag: "Alpha",
+            label: "Cervix",
+            desc: "The Reasoning First Code Editor",
+            href: "/products/cervix",
+            tag: "Stable",
           },
           {
-            label: "Smap",
-            desc: "Real-time model adaptation and drift detection",
-            href: "/products/smap",
-            tag: "Testing",
+            label: "CalendarSync",
+            desc: "The open-source academic timetabling system",
+            href: "/products/calendarsync",
+            tag: "Stable",
           },
-        ],
-      },
+        ]
+      }
     ],
   },
   {
     label: "Technology",
+    hidden: true,
     columns: [
       {
         heading: "Infrastructure",
         items: [
           {
-            label: "Cortex Runtime",
-            desc: "Custom CUDA kernels and memory management",
+            label: "Cervix-MAP",
+            desc: "",
             href: "/technology#runtime",
           },
           {
-            label: "Cortex Scheduler",
-            desc: "Priority-aware GPU job orchestration",
-            href: "/technology#scheduler",
-          },
-          {
-            label: "DataMesh Pipeline",
-            desc: "High-throughput data ingestion at 40 GB/s",
+            label: "Calendar Bitmap",
+            desc: "Optimizing calendar data structures for algorithmic ingestion",
             href: "/technology#datamesh",
           },
         ],
@@ -90,8 +75,8 @@ const navItems: NavItem[] = [
         heading: "Capabilities",
         items: [
           {
-            label: "Neural Architecture Search",
-            desc: "Automated model architecture optimization",
+            label: "CP-Aware Scheduling",
+            desc: "Constraints and Preferencential scheduling",
             href: "/technology#nas",
           },
           {
@@ -110,6 +95,7 @@ const navItems: NavItem[] = [
   },
   {
     label: "Research",
+    hidden: true,
     columns: [
       {
         heading: "Publications",
@@ -166,18 +152,8 @@ const navItems: NavItem[] = [
           },
           {
             label: "Founder",
-            desc: "A personal letter from our founder",
+            desc: "Know more about the founder",
             href: "https://founder.threnlabs.com",
-          },
-          {
-            label: "The Team",
-            desc: "Engineers, researchers, and builders",
-            href: "/company#team",
-          },
-          {
-            label: "Careers",
-            desc: "Open roles and how we work",
-            href: "/company#careers",
           },
         ],
       },
@@ -185,24 +161,19 @@ const navItems: NavItem[] = [
         heading: "Connect",
         items: [
           {
-            label: "Engineering Blog",
-            desc: "Technical deep-dives and product insights",
-            href: "/company#blog",
-          },
-          {
-            label: "Press and Media",
-            desc: "Coverage, announcements, and press kit",
-            href: "/company",
-          },
-          {
             label: "Contact Us",
-            desc: "Talk to our team about Cortex or partnerships",
+            desc: "Talk to our team about Cervix or partnerships",
             href: "/company#contact",
           },
           {
             label: "Instagram",
             desc: "Follow our journey and office culture",
             href: "https://www.instagram.com/threnlabs.ai",
+          },
+          {
+            label: "LinkedIn",
+            desc: "Follow our journey and office culture",
+            href: "https://www.linkedin.com/company/threnlabs",
           },
         ],
       },
@@ -333,29 +304,30 @@ export function Nav() {
     <nav
       ref={navRef}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
-          ? "bg-[hsl(222,47%,5%)]/95 backdrop-blur-xl border-b border-[hsl(220,30%,14%)]"
-          : "bg-transparent"
+        ? "bg-[hsl(222,47%,5%)]/95 backdrop-blur-xl border-b border-[hsl(220,30%,14%)]"
+        : "bg-transparent"
         }`}
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div className="max-w-6.5xl mx-auto px-6 lg:px-8 h-16 flex items-center justify-between">
 
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2.5 group flex-shrink-0 z-10">
-          <img src="/favicon.svg" alt="Threnlabs Logo" className="w-8 h-8 group-hover:scale-110 transition-transform duration-300" />
-          <span className="text-white font-bold text-lg tracking-tight">
-            Thren<span className="text-blue-400">labs</span>
-          </span>
+        <Link href="/" className="flex items-center group flex-shrink-2 z-10 h-5">
+          <img
+            src="/threnlabs.svg"
+            alt="Threnlabs Logo"
+            className="h-full w-auto group-hover:scale-105 transition-transform duration-300"
+          />
         </Link>
 
         {/* Desktop nav items */}
         <div className="hidden md:flex items-center gap-1">
-          {navItems.map((item) => (
+          {navItems.filter(i => !i.hidden).map((item) => (
             <div key={item.label} className="relative">
               <button
                 onClick={() => handleNavClick(item.label)}
                 className={`flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-150 select-none ${openMenu === item.label
-                    ? "text-white bg-[hsl(220,30%,13%)]"
-                    : "text-[hsl(215,20%,58%)] hover:text-white hover:bg-[hsl(220,30%,11%)]"
+                  ? "text-white bg-[hsl(220,30%,13%)]"
+                  : "text-[hsl(215,20%,58%)] hover:text-white hover:bg-[hsl(220,30%,11%)]"
                   }`}
               >
                 {item.label}
@@ -381,16 +353,8 @@ export function Nav() {
             href="/company#contact"
             className="text-sm text-[hsl(215,20%,55%)] hover:text-white transition-colors px-4 py-1.5 rounded-lg hover:bg-[hsl(220,30%,11%)]"
           >
-            Sign in
+            Connect
           </Link>
-          <a
-            href="https://cortex.threnlabs.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sm bg-blue-500 hover:bg-blue-400 text-white px-4 py-2 rounded-lg transition-all duration-150 font-semibold shadow-lg shadow-blue-500/20"
-          >
-            Get Cortex
-          </a>
         </div>
 
         {/* Mobile hamburger */}
@@ -411,7 +375,7 @@ export function Nav() {
           }`}
       >
         <div className="bg-[hsl(222,44%,6%)] border-t border-[hsl(220,30%,14%)] overflow-y-auto">
-          {navItems.map((item) => (
+          {navItems.filter(i => !i.hidden).map((item) => (
             <div key={item.label} className="border-b border-[hsl(220,30%,11%)]">
               <button
                 onClick={() => setMobileExpanded(mobileExpanded === item.label ? null : item.label)}
@@ -475,12 +439,12 @@ export function Nav() {
               Sign in
             </Link>
             <a
-              href="https://cortex.threnlabs.com"
+              href="https://cervix.threnlabs.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm text-center py-2.5 bg-blue-500 hover:bg-blue-400 text-white rounded-lg font-semibold transition-all"
+              className="text-sm text-center py-2.5 bg-blue-500 hover:bg-blue-400 text-white font-bold rounded-lg transition-all shadow-lg shadow-blue-500/20"
             >
-              Get Cortex
+              Launch Cervix
             </a>
           </div>
         </div>

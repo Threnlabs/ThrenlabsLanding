@@ -9,8 +9,7 @@ export function Footer() {
             <Link href="/" className="flex items-center gap-2.5 mb-4">
               <img src="/favicon.svg" alt="Threnlabs Logo" className="w-7 h-7" />
               <span className="text-white font-bold tracking-tight">
-                Thren<span className="text-blue-400">labs</span>
-              </span>
+                Threnlabs</span>
             </Link>
             <p className="text-sm text-[hsl(215,20%,40%)] leading-relaxed max-w-xs">
               Engineering production AI systems that teams can actually trust.
@@ -21,10 +20,8 @@ export function Footer() {
             <div className="text-xs font-semibold text-[hsl(215,20%,55%)] tracking-widest uppercase mb-4">Products</div>
             <ul className="space-y-2.5">
               {[
-                { label: "Cortex", href: "/products/cortex" },
+                { label: "Cervix", href: "/products/cervix" },
                 { label: "CalendarSync", href: "/products/calendarsync" },
-                { label: "Bullpen", href: "/products/bullpen" },
-                { label: "Smap", href: "/products/smap" },
                 { label: "All Products", href: "/products" },
               ].map(({ label, href }) => {
                 const isExternal = href.startsWith("http");

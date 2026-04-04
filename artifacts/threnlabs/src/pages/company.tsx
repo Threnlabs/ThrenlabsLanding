@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { useInView, GridBackground, RadialGlow, SectionLabel, PageShell } from "@/lib/shared";
+import { SEO } from "@/components/seo";
+
 
 function CompanyHero() {
   const { ref, inView } = useInView();
@@ -79,102 +81,99 @@ function MissionSection() {
   );
 }
 
-function TeamSection() {
-  const { ref, inView } = useInView();
-  return (
-    <section id="team" ref={ref} className="relative py-20 px-6 lg:px-8 overflow-hidden">
-      <GridBackground />
-      <div className="max-w-7xl mx-auto">
-        <div
-          className="mb-12 transition-all duration-700"
-          style={{ opacity: inView ? 1 : 0, transform: inView ? "translateY(0)" : "translateY(20px)" }}
-        >
-          <h2 className="text-3xl font-bold text-white mb-2">The team</h2>
-          <p className="text-[hsl(215,20%,55%)]">Engineers and researchers who publish at NeurIPS, ICML, and MLSys.</p>
-        </div>
+// function TeamSection() {
+//   const { ref, inView } = useInView();
+//   return (
+//     <section id="team" ref={ref} className="relative py-20 px-6 lg:px-8 overflow-hidden">
+//       <GridBackground />
+//       <div className="max-w-7xl mx-auto">
+//         <div
+//           className="mb-12 transition-all duration-700"
+//           style={{ opacity: inView ? 1 : 0, transform: inView ? "translateY(0)" : "translateY(20px)" }}
+//         >
+//           <h2 className="text-3xl font-bold text-white mb-2">The team</h2>
+//           <p className="text-[hsl(215,20%,55%)]">Engineers and researchers who publish at NeurIPS, ICML, and MLSys.</p>
+//         </div>
 
-        <div className="grid md:grid-cols-4 gap-5">
-          {[
-            { name: "Arjun Mehta", role: "Co-founder & CEO", prior: "Google Brain, Stanford ML Group" },
-            { name: "Danielle Reeves", role: "Co-founder & CTO", prior: "NVIDIA Research, CMU" },
-            { name: "Lena Okonkwo", role: "Head of Research", prior: "OpenAI, MIT CSAIL" },
-            { name: "Jin Chen", role: "Head of Engineering", prior: "Anyscale, UCB" },
-          ].map(({ name, role, prior }, i) => (
-            <div
-              key={name}
-              className="bg-[hsl(222,44%,7%)] border border-[hsl(220,30%,14%)] rounded-xl p-5 hover:border-violet-500/20 transition-all"
-              style={{
-                opacity: inView ? 1 : 0,
-                transform: inView ? "translateY(0)" : "translateY(20px)",
-                transition: `all 0.6s ease ${i * 80}ms`,
-              }}
-            >
-              {/* Avatar placeholder */}
-              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500/30 to-violet-500/30 border border-[hsl(220,30%,20%)] flex items-center justify-center text-white font-bold mb-4">
-                {name.split(" ").map((n) => n[0]).join("")}
-              </div>
-              <h3 className="text-white font-semibold mb-0.5">{name}</h3>
-              <div className="text-xs text-blue-400 mb-2">{role}</div>
-              <div className="text-xs text-[hsl(215,20%,45%)] mb-3">{prior}</div>
-              <div className="text-xs text-[hsl(215,20%,35%)]">Multiple publications</div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
+//         <div className="grid md:grid-cols-4 gap-5">
+//           {[
+//             { name: "Soham Agarwal", role: "Founder & CEO", prior: "Indian Institute of Technology, Kharagpur" }
+//           ].map(({ name, role, prior }, i) => (
+//             <div
+//               key={name}
+//               className="bg-[hsl(222,44%,7%)] border border-[hsl(220,30%,14%)] rounded-xl p-5 hover:border-violet-500/20 transition-all"
+//               style={{
+//                 opacity: inView ? 1 : 0,
+//                 transform: inView ? "translateY(0)" : "translateY(20px)",
+//                 transition: `all 0.6s ease ${i * 80}ms`,
+//               }}
+//             >
+//               {/* Avatar placeholder */}
+//               <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500/30 to-violet-500/30 border border-[hsl(220,30%,20%)] flex items-center justify-center text-white font-bold mb-4">
+//                 {name.split(" ").map((n) => n[0]).join("")}
+//               </div>
+//               <h3 className="text-white font-semibold mb-0.5">{name}</h3>
+//               <div className="text-xs text-blue-400 mb-2">{role}</div>
+//               <div className="text-xs text-[hsl(215,20%,45%)] mb-3">{prior}</div>
+//               <div className="text-xs text-[hsl(215,20%,35%)]">Multiple publications</div>
+//             </div>
+//           ))}
+//         </div>
+//       </div>
+//     </section>
+//   );
+// }
 
-function CareersSection() {
-  const { ref, inView } = useInView();
-  return (
-    <section id="careers" ref={ref} className="py-20 px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        <div
-          className="mb-10 transition-all duration-700"
-          style={{ opacity: inView ? 1 : 0, transform: inView ? "translateY(0)" : "translateY(20px)" }}
-        >
-          <h2 className="text-3xl font-bold text-white mb-2">Open roles</h2>
-          <p className="text-[hsl(215,20%,55%)]">We're hiring people who want to work on hard problems in production AI.</p>
-        </div>
+// function CareersSection() {
+//   const { ref, inView } = useInView();
+//   return (
+//     <section id="careers" ref={ref} className="py-20 px-6 lg:px-8">
+//       <div className="max-w-7xl mx-auto">
+//         <div
+//           className="mb-10 transition-all duration-700"
+//           style={{ opacity: inView ? 1 : 0, transform: inView ? "translateY(0)" : "translateY(20px)" }}
+//         >
+//           <h2 className="text-3xl font-bold text-white mb-2">Open roles</h2>
+//           <p className="text-[hsl(215,20%,55%)]">We're hiring people who want to work on hard problems in production AI.</p>
+//         </div>
 
-        <div className="space-y-3">
-          {[
-            { title: "Senior Inference Engineer", team: "Infrastructure", location: "Remote (US/EU)", type: "Full-time" },
-            { title: "ML Research Scientist — Compression", team: "Research", location: "San Francisco / Remote", type: "Full-time" },
-            { title: "Systems Software Engineer (CUDA)", team: "Core Runtime", location: "San Francisco", type: "Full-time" },
-            { title: "Technical Product Manager", team: "Product", location: "Remote (US)", type: "Full-time" },
-            { title: "Developer Relations Engineer", team: "Growth", location: "Remote", type: "Full-time" },
-          ].map(({ title, team, location, type }, i) => (
-            <div
-              key={title}
-              className="group flex items-center justify-between gap-4 p-5 border border-[hsl(220,30%,14%)] bg-[hsl(222,44%,7%)] rounded-xl hover:border-violet-500/25 transition-all cursor-pointer"
-              style={{
-                opacity: inView ? 1 : 0,
-                transform: inView ? "translateY(0)" : "translateY(10px)",
-                transition: `all 0.5s ease ${i * 60}ms`,
-              }}
-            >
-              <div>
-                <h3 className="text-white font-semibold mb-1 group-hover:text-violet-300 transition-colors">{title}</h3>
-                <div className="flex flex-wrap gap-3 text-xs text-[hsl(215,20%,45%)]">
-                  <span>{team}</span>
-                  <span>·</span>
-                  <span>{location}</span>
-                  <span>·</span>
-                  <span>{type}</span>
-                </div>
-              </div>
-              <svg className="w-4 h-4 text-[hsl(215,20%,35%)] group-hover:text-violet-400 flex-shrink-0 transition-colors group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
+//         <div className="space-y-3">
+//           {[
+//             { title: "Senior Inference Engineer", team: "Infrastructure", location: "Remote (US/EU)", type: "Full-time" },
+//             { title: "ML Research Scientist — Compression", team: "Research", location: "San Francisco / Remote", type: "Full-time" },
+//             { title: "Systems Software Engineer (CUDA)", team: "Core Runtime", location: "San Francisco", type: "Full-time" },
+//             { title: "Technical Product Manager", team: "Product", location: "Remote (US)", type: "Full-time" },
+//             { title: "Developer Relations Engineer", team: "Growth", location: "Remote", type: "Full-time" },
+//           ].map(({ title, team, location, type }, i) => (
+//             <div
+//               key={title}
+//               className="group flex items-center justify-between gap-4 p-5 border border-[hsl(220,30%,14%)] bg-[hsl(222,44%,7%)] rounded-xl hover:border-violet-500/25 transition-all cursor-pointer"
+//               style={{
+//                 opacity: inView ? 1 : 0,
+//                 transform: inView ? "translateY(0)" : "translateY(10px)",
+//                 transition: `all 0.5s ease ${i * 60}ms`,
+//               }}
+//             >
+//               <div>
+//                 <h3 className="text-white font-semibold mb-1 group-hover:text-violet-300 transition-colors">{title}</h3>
+//                 <div className="flex flex-wrap gap-3 text-xs text-[hsl(215,20%,45%)]">
+//                   <span>{team}</span>
+//                   <span>·</span>
+//                   <span>{location}</span>
+//                   <span>·</span>
+//                   <span>{type}</span>
+//                 </div>
+//               </div>
+//               <svg className="w-4 h-4 text-[hsl(215,20%,35%)] group-hover:text-violet-400 flex-shrink-0 transition-colors group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+//                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+//               </svg>
+//             </div>
+//           ))}
+//         </div>
+//       </div>
+//     </section>
+//   );
+// }
 
 function ContactSection() {
   const { ref, inView } = useInView();
@@ -198,7 +197,7 @@ function ContactSection() {
         >
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">Get in touch</h2>
           <p className="text-[hsl(215,20%,55%)] mb-8 leading-relaxed">
-            Talk to our team about Cortex deployment, enterprise licensing, or early access to upcoming products.
+            Talk to our team about Cervix deployment, enterprise licensing, or early access to upcoming products.
             No sales deck. No fluff. Engineers talking to engineers.
           </p>
 
@@ -243,10 +242,28 @@ function ContactSection() {
 export default function CompanyPage() {
   return (
     <PageShell>
+      <SEO 
+        title="About Threnlabs — Production-First AI Infrastructure" 
+        description="Threnlabs is an AI infrastructure company building production-grade tools for serious engineering teams. Founded by engineers, for engineers."
+        canonical="https://threnlabs.com/company"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "Threnlabs",
+          "url": "https://threnlabs.com",
+          "logo": "https://threnlabs.com/logo.png",
+          "description": "Production-grade AI infrastructure and tools for modern engineering teams.",
+          "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "US"
+          }
+        }}
+      />
       <CompanyHero />
       <MissionSection />
-      <TeamSection />
-      <CareersSection />
+
+      {/* <TeamSection /> */}
+      {/* <CareersSection /> */}
       <ContactSection />
     </PageShell>
   );

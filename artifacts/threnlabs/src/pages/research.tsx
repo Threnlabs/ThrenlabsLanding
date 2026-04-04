@@ -1,4 +1,6 @@
 import { useInView, GridBackground, RadialGlow, SectionLabel, PageShell } from "@/lib/shared";
+import { SEO } from "@/components/seo";
+
 
 function ResearchHero() {
   const { ref, inView } = useInView();
@@ -37,7 +39,7 @@ function PublicationsSection() {
       tag: "Attention Mechanisms",
       tagColor: "text-blue-300 bg-blue-500/10 border-blue-500/20",
       abstract: "We introduce a novel sparse attention pattern that optimizes memory complexity while maintaining state-of-the-art performance on downstream tasks. The method is compatible with flash attention and achieves significant speedups on long sequences.",
-      impact: "Adopted in Cortex for long-context language model inference.",
+      impact: "Adopted in Cervix for long-context language model inference.",
     },
     {
       id: "icml",
@@ -57,7 +59,7 @@ function PublicationsSection() {
       tag: "Systems",
       tagColor: "text-cyan-300 bg-cyan-500/10 border-cyan-500/20",
       abstract: "We present a scheduling algorithm that achieves high utilization across mixed GPU/TPU clusters, outperforming static partition strategies. The algorithm models hardware heterogeneity as a weighted bipartite graph and solves the assignment problem with a modified Hungarian algorithm under latency constraints.",
-      impact: "Powers Cortex Scheduler in production deployments.",
+      impact: "Powers Cervix Scheduler in production deployments.",
     },
     {
       id: "iclr",
@@ -230,7 +232,23 @@ function ResearchAreasSection() {
 export default function ResearchPage() {
   return (
     <PageShell>
+      <SEO 
+        title="Research at Threnlabs — AI Efficiency and Infrastructure" 
+        description="Threnlabs conducts peer-reviewed research in inference optimization, model efficiency, and distributed systems. We build better foundations for every product we ship."
+        canonical="https://threnlabs.com/research"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "name": "Research at Threnlabs",
+          "description": "Peer-reviewed research and publications in AI efficiency, inference optimization, and distributed systems.",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Threnlabs"
+          }
+        }}
+      />
       <ResearchHero />
+
       <PublicationsSection />
       <ResearchAreasSection />
     </PageShell>

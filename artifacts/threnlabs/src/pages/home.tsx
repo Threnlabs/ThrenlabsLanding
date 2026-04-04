@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { Link } from "wouter";
 import { useInView, GridBackground, RadialGlow } from "@/lib/shared";
+import { SEO } from "@/components/seo";
 
 function HeroSection() {
   const [typed, setTyped] = useState("");
-  const words = ["Responsible AI", "Real Intelligence.", "Cortex.", "CalendarSync."];
+  const words = ["Responsible AI", "Real Intelligence.", "Cervix.", "CalendarSync."];
   const [wordIdx, setWordIdx] = useState(0);
   const [charIdx, setCharIdx] = useState(0);
   const [deleting, setDeleting] = useState(false);
@@ -73,10 +74,10 @@ function HeroSection() {
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Link
-            href="/products/cortex"
+            href="/products/cervix"
             className="group relative inline-flex items-center gap-2 px-7 py-3.5 bg-blue-500 hover:bg-blue-400 text-white font-semibold rounded-lg transition-all duration-200 text-sm"
           >
-            Explore Cortex
+            Explore Cervix
             <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
@@ -111,11 +112,11 @@ function OverviewSection() {
         >
           {[
             {
-              title: "Cortex",
+              title: "Cervix",
               label: "Products",
               labelStyle: "text-green-400 bg-green-500/10 border-green-500/20",
-              desc: "Our flagship inference engine. Cortex orchestration, CalendarSync integration, Bullpen training, and Smap visualization.",
-              href: "/products/cortex",
+              desc: "The Reasoning First Code Editor — built for complex projects and architectural context, alongside CalendarSync academic scheduling.",
+              href: "/products",
               color: "violet",
             },
             {
@@ -177,7 +178,7 @@ function CTASection() {
             <span className="shimmer-text block mt-1">real AI infrastructure?</span>
           </h2>
           <p className="text-[hsl(215,20%,55%)] mb-8 leading-relaxed">
-            Talk to our team about Cortex deployment, enterprise licensing, or early access
+            Talk to our team about Cervix deployment, enterprise licensing, or early access
             to our suite of products.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
@@ -188,10 +189,10 @@ function CTASection() {
               Contact our team
             </Link>
             <Link
-              href="/products/cortex"
+              href="/products/cervix"
               className="px-7 py-3.5 border border-[hsl(220,30%,20%)] hover:border-blue-500/40 text-[hsl(210,40%,75%)] hover:text-white rounded-lg transition-all text-sm"
             >
-              Explore Cortex
+              Explore Cervix
             </Link>
           </div>
         </div>
@@ -203,10 +204,27 @@ function CTASection() {
 export default function Home() {
   return (
     <div className="min-h-screen bg-[hsl(222,47%,5%)] text-white">
+      <SEO 
+        title="Responsible AI & Production-Grade Infrastructure" 
+        description="Threnlabs builds production-grade AI and deep learning systems developers can trust. Home of Cervix and CalendarSync."
+        canonical="https://threnlabs.com/"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "Threnlabs",
+          "url": "https://threnlabs.com/",
+          "logo": "https://threnlabs.com/logo.png",
+          "description": "Threnlabs engineers production-grade AI and deep learning systems.",
+          "sameAs": [
+            "https://twitter.com/threnlabs"
+          ]
+        }}
+      />
       <HeroSection />
       <OverviewSection />
       <CTASection />
     </div>
   );
 }
+
 
