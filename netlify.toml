@@ -1,0 +1,43 @@
+# ============================================================================
+# NETLIFY DEPLOYMENT CONFIGURATION
+# ============================================================================
+
+[build]
+  # Build command to typecheck and compile the frontend inside the monorepo
+  command = "pnpm run build"
+  
+  # The path to the compiled HTML/JS/CSS assets ready for hosting
+  publish = "artifacts/threnlabs/dist"
+
+[build.environment]
+  # Ensure Netlify uses Node 20
+  NODE_VERSION = "20"
+  
+  # Configure pnpm store path to optimize installation and caching
+  PNPM_FLAGS = "--store-dir=.pnpm-store"
+
+# ============================================================================
+# ROUTING & SPA REDIRECTS
+# ============================================================================
+# Ensures client-side routing (wouter/react-router) works properly by directing
+# all requests back to index.html instead of showing a Netlify 404 page.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# ============================================================================
+# PERFORMANCE & CACHING HEADERS
+# ============================================================================
+
+# Cache compiled asset bundles (Vite outputs hashed JS/CSS in the assets folder)
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Cache static SVGs and images
+[[headers]]
+  for = "/*.svg"
+  [headers.values]
+    Cache-Control = "public, max-age=86400, must-revalidate"
