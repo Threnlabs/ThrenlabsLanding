@@ -84,10 +84,22 @@ export function SectionLabel({
     cyan: "border-cyan-500/30 bg-cyan-500/10 text-cyan-300",
     yellow: "border-yellow-500/30 bg-yellow-500/10 text-yellow-300",
   };
+  const markerColors = {
+    blue: "fill-blue-400",
+    violet: "fill-violet-400",
+    cyan: "fill-cyan-400",
+    yellow: "fill-yellow-400",
+  };
   return (
     <div
-      className={`inline-flex items-center gap-2 px-3 py-1 rounded border ${styles[color]} text-xs tracking-widest uppercase mb-5 font-medium`}
+      className={`inline-flex items-center px-3.5 py-1.5 rounded border ${styles[color]} text-[10px] tracking-wider uppercase mb-5 font-semibold font-mono`}
     >
+      <svg className={`w-2.5 h-2.5 ${markerColors[color]} mr-2 opacity-80`} viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+        <rect x="1" y="1" width="2.5" height="2.5" rx="0.5" />
+        <rect x="8.5" y="1" width="2.5" height="2.5" rx="0.5" />
+        <rect x="1" y="8.5" width="2.5" height="2.5" rx="0.5" />
+        <rect x="8.5" y="8.5" width="2.5" height="2.5" rx="0.5" />
+      </svg>
       {children}
     </div>
   );

@@ -26,21 +26,18 @@ function CosmosHero() {
             The AI Remains Accountable.
           </p>
           <p className="text-xl md:text-2xl text-[hsl(215,20%,55%)] max-w-4xl leading-relaxed mb-12 mx-auto">
-            COSMOS maintains a persistent code-context graph with two-factor validation,
-            ensuring every AI change is intentional, traceable, and structurally sound.
+            COSMOS is a reasoning-first coding workspace built for advancing AI in educational institutions. It maintains a persistent code-context graph that enables researchers, students, and lab directors to collaborate on complex codebase development with strict integrity.
           </p>
           <div className="flex flex-wrap gap-6 justify-center">
-            <a
-              href="https://cosmos.threnlabs.com"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/company#contact"
               className="group inline-flex items-center gap-3 px-10 py-5 bg-white/[0.03] border border-[hsl(220,30%,20%)] hover:bg-gradient-to-br hover:from-blue-600 hover:to-indigo-700 text-white font-black rounded-2xl transition-all hover:scale-105 hover:shadow-[0_20px_50px_-12px_rgba(59,130,246,0.5)] text-lg shadow-xl shadow-blue-500/10 active:scale-95 hover:border-transparent"
             >
               Get Started
               <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
-            </a>
+            </Link>
             <a
               href="#comparison"
               className="inline-flex items-center gap-2 px-10 py-5 border border-[hsl(220,30%,20%)] hover:bg-white/[0.03] text-[hsl(210,40%,75%)] hover:text-white rounded-2xl transition-all text-lg font-medium hover:border-blue-500/30"
@@ -216,16 +213,16 @@ export default function CosmosPage() {
   return (
     <PageShell>
       <SEO
-        title="COSMOS — The Reasoning First Code Editor"
-        description="COSMOS maintains a persistent code-context graph with two-factor validation, ensuring every AI change is intentional, traceable, and structurally sound."
-        canonical="https://cosmos.threnlabs.com/"
+        title="Cosmos | Reasoning-First IDE for University Research Labs"
+        description="Advancing AI in education with COSMOS, the reasoning-first code editor and development workspace. Ideal for university computer science labs and academic research."
+        canonical="https://threnlabs.com/products/cosmos"
         jsonLd={{
           "@context": "https://schema.org",
           "@type": "SoftwareApplication",
           "name": "Cosmos",
-          "operatingSystem": "Agnostic",
+          "operatingSystem": "All",
           "applicationCategory": "DeveloperApplication",
-          "description": "The Reasoning First Code Editor — built for complex projects and architectural context.",
+          "description": "Reasoning-first code editor and development workspace for advancing AI applications in university laboratories, schools, and academic research.",
           "offers": {
             "@type": "Offer",
             "price": "0.00",

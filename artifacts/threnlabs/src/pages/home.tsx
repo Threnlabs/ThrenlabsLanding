@@ -1,35 +1,8 @@
-import { useEffect, useState } from "react";
 import { Link } from "wouter";
 import { useInView, GridBackground, RadialGlow } from "@/lib/shared";
 import { SEO } from "@/components/seo";
 
 function HeroSection() {
-  const [typed, setTyped] = useState("");
-  const words = ["Responsible AI", "Real Intelligence.", "Cosmos.", "CalendarSync."];
-  const [wordIdx, setWordIdx] = useState(0);
-  const [charIdx, setCharIdx] = useState(0);
-  const [deleting, setDeleting] = useState(false);
-
-  useEffect(() => {
-    const current = words[wordIdx];
-    const delay = deleting ? 40 : charIdx === current.length ? 2000 : 60;
-    const timeout = setTimeout(() => {
-      if (!deleting && charIdx < current.length) {
-        setTyped(current.slice(0, charIdx + 1));
-        setCharIdx((c) => c + 1);
-      } else if (!deleting && charIdx === current.length) {
-        setDeleting(true);
-      } else if (deleting && charIdx > 0) {
-        setTyped(current.slice(0, charIdx - 1));
-        setCharIdx((c) => c - 1);
-      } else {
-        setDeleting(false);
-        setWordIdx((i) => (i + 1) % words.length);
-      }
-    }, delay);
-    return () => clearTimeout(timeout);
-  }, [charIdx, deleting, wordIdx]);
-
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-16">
       <GridBackground />
@@ -52,24 +25,12 @@ function HeroSection() {
       </div>
 
       <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
-        <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-300 text-xs font-medium tracking-widest uppercase mb-8">
-          <span className="w-1.5 h-1.5 rounded-full bg-blue-400 pulse-dot" />
-          AI/DL Products — Production Grade
-        </div>
-
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white leading-[1.05] tracking-tight mb-6">
-          We build
-          <br />
-          <span className="shimmer-text">
-            {typed}
-            <span className="cursor-blink text-blue-400">|</span>
-          </span>
+        <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold text-white tracking-tight mb-6">
+          Threnlabs
         </h1>
 
         <p className="text-lg md:text-xl text-[hsl(215,20%,55%)] max-w-2xl mx-auto leading-relaxed mb-10">
-          Threnlabs engineers production-grade AI and deep learning systems that
-          developers and enterprises can actually trust — not demos, not previews,
-          but infrastructure that holds under pressure.
+          Threnlabs delivers premium B2B AI SaaS solutions advancing AI for educational institutions. We design enterprise-grade academic operations software and reasoning-first developer tools that universities, colleges, and research labs can trust under pressure.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -115,7 +76,7 @@ function OverviewSection() {
               title: "Cosmos",
               label: "Products",
               labelStyle: "text-green-400 bg-green-500/10 border-green-500/20",
-              desc: "The Reasoning First Code Editor — built for complex projects and architectural context, alongside CalendarSync academic scheduling.",
+              desc: "The Reasoning First Code Editor — built for complex projects and architectural context, alongside ScholarsAnchor operational AI scheduling.",
               href: "/products",
               color: "violet",
             },
@@ -205,16 +166,18 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-[hsl(222,47%,5%)] text-white">
       <SEO
-        title="Responsible AI & Production-Grade Infrastructure"
-        description="Threnlabs builds production-grade AI and deep learning systems developers can trust. Home of Cosmos and CalendarSync."
+        title="Threnlabs | Advancing AI for Educational Institutions"
+        description="Threnlabs (Thren) engineers production-grade B2B AI SaaS solutions for educational institutions, specializing in academic scheduling and reasoning-first developer tools."
         canonical="https://threnlabs.com/"
+        keywords="Threnlabs, Thren, Thren AI, Threnlabs AI, B2B AI SaaS, Educational AI, ScholarsAnchor, Cosmos IDE"
         jsonLd={{
           "@context": "https://schema.org",
           "@type": "Organization",
           "name": "Threnlabs",
+          "alternateName": "Thren",
           "url": "https://threnlabs.com/",
           "logo": "https://threnlabs.com/logo.png",
-          "description": "Threnlabs engineers production-grade AI and deep learning systems.",
+          "description": "Threnlabs (Thren) builds premium B2B AI SaaS solutions advancing AI for educational institutions through operations scheduling and research tools.",
           "sameAs": [
             "https://twitter.com/threnlabs"
           ]

@@ -21,7 +21,7 @@ export function Footer() {
             <ul className="space-y-2.5">
               {[
                 { label: "Cosmos", href: "/products/cosmos" },
-                { label: "CalendarSync", href: "/products/calendarsync" },
+                { label: "ScholarsAnchor", href: "/products/scholarsanchor" },
                 { label: "All Products", href: "/products" },
               ].map(({ label, href }) => {
                 const isExternal = href.startsWith("http");
@@ -44,9 +44,7 @@ export function Footer() {
             <ul className="space-y-2.5">
               {[
                 { label: "About", href: "/company#mission" },
-                { label: "Founder", href: "https://founder.threnlabs.com" },
                 { label: "Research", href: "/research" },
-                { label: "Careers", href: "/company#careers" },
                 { label: "Contact", href: "/company#contact" },
               ].map(({ label, href }) => {
                 const isExternal = href.startsWith("http");

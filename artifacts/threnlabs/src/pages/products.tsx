@@ -13,13 +13,12 @@ function ProductsHero() {
           className="text-center transition-all duration-700"
           style={{ opacity: inView ? 1 : 0, transform: inView ? "translateY(0)" : "translateY(30px)" }}
         >
-          <SectionLabel color="blue">Product Suite</SectionLabel>
-          <h1 className="text-5xl md:text-7xl font-bold text-white tracking-tight mb-5">
-            Real Intelligence.<br />Production Bound.
+          <SectionLabel color="blue">B2B AI SaaS Suite</SectionLabel>
+          <h1 className="text-4xl md:text-6xl font-bold text-white tracking-tight mb-6 max-w-4xl mx-auto leading-[1.15]">
+            Advancing AI for Educational Institutions
           </h1>
           <p className="text-xl text-[hsl(215,20%,55%)] max-w-2xl mx-auto leading-relaxed">
-            From the reasoning-first code editor to institutional academic scheduling —
-            we build infrastructure that preserves intent and scales under pressure.
+            Leading B2B AI SaaS solutions built specifically for school, college, and university operations. From reasoning-first research tools to automated academic scheduling, we advance education through secure and reliable AI.
           </p>
         </div>
       </div>
@@ -37,7 +36,6 @@ function FlagshipProduct() {
           style={{ opacity: inView ? 1 : 0, transform: inView ? "translateY(0)" : "translateY(20px)" }}
         >
           <SectionLabel color="violet">
-            <span className="w-1.5 h-1.5 rounded-full bg-violet-400 pulse-dot" />
             Join Waitlist
           </SectionLabel>
         </div>
@@ -53,13 +51,12 @@ function FlagshipProduct() {
                 <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight mb-2 group-hover:text-violet-200 transition-colors">
                   Cosmos
                 </h2>
-                <div className="text-xl text-blue-400 font-semibold mb-4">The Reasoning First Code Editor.</div>
+                <div className="text-xl text-blue-400 font-semibold mb-4">The Reasoning-First IDE for University Labs.</div>
                 <p className="text-[hsl(215,20%,55%)] leading-relaxed mb-6">
-                  Build industry-level complex projects with a partner that reasons as a friend and scales at 1/4th the price.
-                  Context preservation that eliminates structural drift.
+                  Accelerate scientific and computer science research in college laboratories. Cosmos maintains deep architectural context and validations, enabling students and researchers to build complex AI applications reliably and at a fraction of the cost.
                 </p>
                 <div className="flex flex-wrap gap-3 mb-6">
-                  {["Reasoning First", "1/4th Cost", "Context Preservation", "Complex Projects"].map((feat) => (
+                  {["Academic Research", "Reasoning-First IDE", "Context Preservation", "Low Token Cost"].map((feat) => (
                     <span key={feat} className="text-xs px-3 py-1 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-300">
                       {feat}
                     </span>
@@ -104,14 +101,13 @@ function AvailableProducts() {
           style={{ opacity: inView ? 1 : 0, transform: inView ? "translateY(0)" : "translateY(20px)" }}
         >
           <SectionLabel color="blue">
-            <span className="w-1.5 h-1.5 rounded-full bg-blue-400 pulse-dot" />
             Publicly Available
           </SectionLabel>
           <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mt-4">Active Suite</h2>
         </div>
 
         <Link
-          href="/products/calendarsync"
+          href="/products/scholarsanchor"
           className="block group"
           style={{ opacity: inView ? 1 : 0, transform: inView ? "translateY(0)" : "translateY(30px)", transition: "all 0.7s ease" }}
         >
@@ -120,21 +116,20 @@ function AvailableProducts() {
             <div className="relative z-10 grid md:grid-cols-2 gap-10 items-center">
               <div>
                 <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight mb-4 group-hover:text-blue-200 transition-colors">
-                  CalendarSync
+                  ScholarsAnchor
                 </h2>
                 <p className="text-[hsl(215,20%,55%)] leading-relaxed mb-6">
-                  The open-source academic timetabling system. Privacy-focused and AI-powered
-                  scheduling for academic excellence. Built for scale and reliability.
+                  The complete end-to-end B2B AI operations and management suite for educational institutions. Unifies CalendarSync algorithm-grounded scheduling and BenchRex doubt solving under one comprehensive campus control canopy.
                 </p>
                 <div className="flex flex-wrap gap-3 mb-6">
-                  {["AI-Powered", "Open Source", "Privacy First", "Academic Ready"].map((feat) => (
+                  {["AI Academic Scheduling", "BenchRex Doubt Solver", "Student Dashboard", "E2E Institutional Control"].map((feat) => (
                     <span key={feat} className="text-xs px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-300">
                       {feat}
                     </span>
                   ))}
                 </div>
                 <div className="inline-flex items-center gap-2 text-blue-400 group-hover:text-blue-300 transition-colors font-medium text-sm">
-                  View CalendarSync details
+                  View ScholarsAnchor details
                   <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
@@ -143,8 +138,8 @@ function AvailableProducts() {
 
               <div className="grid grid-cols-2 gap-4">
                 {[
-                  { value: "v1.0", label: "Current Version" },
-                  { value: "OSS", label: "License Type" },
+                  { value: "v2.0", label: "Unified Release" },
+                  { value: "SaaS", label: "License Type" },
                   { value: "End-to-End", label: "Encryption" },
                   { value: "Stable", label: "Production Status" },
                 ].map(({ value, label }) => (
@@ -174,13 +169,6 @@ function UpcomingProducts() {
       features: ["Parallel training", "Linear scaling", "Fault tolerant"],
     },
     {
-      codename: "Dotter",
-      tag: "Internal Testing",
-      desc: "The Educational Doubt Solver. AI-powered academic assistance for students and educators.",
-      color: "violet",
-      features: ["Query Resolution", "Context Awareness", "Multilingual"],
-    },
-    {
       codename: "Smap",
       tag: "Research Phase",
       desc: "A unified observability layer for AI systems — inference tracing, attention visualization, and anomaly detection.",
@@ -204,14 +192,13 @@ function UpcomingProducts() {
           style={{ opacity: inView ? 1 : 0, transform: inView ? "translateY(0)" : "translateY(30px)" }}
         >
           <SectionLabel color="yellow">
-            <span className="w-1.5 h-1.5 rounded-full bg-yellow-400 pulse-dot" />
             In Development
           </SectionLabel>
           <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-3">Coming next</h2>
           <p className="text-[hsl(215,20%,55%)] max-w-xl">Future Products, Join us to know more.</p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 gap-6 max-w-4xl">
           {products.map(({ codename, tag, desc, color, features }, i) => {
             const c = colorMap[color];
             return (
@@ -252,24 +239,26 @@ export default function ProductsPage() {
   return (
     <PageShell>
       <SEO
-        title="AI Infrastructure Product Suite"
-        description="Explore Threnlabs' production-grade AI infrastructure products. Cosmos: The Reasoning First Code Editor, CalendarSync, and upcoming research projects like Bullpen and Smap."
+        title="B2B AI SaaS Products for Educational Institutions"
+        description="Explore Threnlabs' B2B AI SaaS suite advancing AI for educational institutions. Discover ScholarsAnchor operations platform and Cosmos reasoning-first code editor."
         canonical="https://threnlabs.com/products"
         jsonLd={{
           "@context": "https://schema.org",
           "@type": "ItemList",
+          "name": "B2B AI SaaS Products for Educational Institutions",
+          "description": "Threnlabs' suite of artificial intelligence software designed for universities, colleges, and schools.",
           "itemListElement": [
             {
               "@type": "ListItem",
               "position": 1,
-              "name": "Cosmos - Reasoning First Code Editor",
-              "url": "https://cosmos.threnlabs.com"
+              "name": "ScholarsAnchor - E2E AI Operational Scheduling & Doubt Solving Platform",
+              "url": "https://threnlabs.com/products/scholarsanchor"
             },
             {
               "@type": "ListItem",
               "position": 2,
-              "name": "CalendarSync - Academic Timetabling",
-              "url": "https://cync.threnlabs.com"
+              "name": "Cosmos - Reasoning-First Developer Environment for Research Labs",
+              "url": "https://threnlabs.com/products/cosmos"
             }
           ]
         }}

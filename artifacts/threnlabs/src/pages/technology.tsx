@@ -14,8 +14,8 @@ function TechHero() {
           style={{ opacity: inView ? 1 : 0, transform: inView ? "translateY(0)" : "translateY(30px)" }}
         >
           <SectionLabel color="blue">Core Infrastructure</SectionLabel>
-          <h1 className="text-5xl md:text-7xl font-bold text-white tracking-tight mb-5">
-            Built on<br />first principles
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight leading-[1.15] mb-6 max-w-3xl">
+            Built on first principles
           </h1>
           <p className="text-xl text-[hsl(215,20%,55%)] max-w-2xl leading-relaxed">
             Every layer of our stack is designed under production constraints.
@@ -140,16 +140,16 @@ export default function TechnologyPage() {
   return (
     <PageShell>
       <SEO
-        title="Core Infrastructure Technology — Threnlabs"
-        description="Explore the core infrastructure powering Threnlabs' AI products. From custom CUDA kernels to distributed inference scheduling, we build on first principles."
+        title="AI Infrastructure Technology for Educational Institutions"
+        description="Explore the high-performance AI infrastructure powering Threnlabs' educational B2B SaaS applications. Custom CUDA kernels, schedulers, and data meshes."
         canonical="https://threnlabs.com/technology"
         jsonLd={{
           "@context": "https://schema.org",
           "@type": "WebPage",
-          "name": "Core Infrastructure Technology",
-          "description": "Deep dive into the technology stack of Threnlabs, including Cosmos Runtime, Scheduler, and DataMesh Pipeline.",
+          "name": "AI Infrastructure Technology for Educational Institutions",
+          "description": "Deep dive into the high-performance AI B2B SaaS infrastructure technology stack of Threnlabs, including Cosmos Runtime, Scheduler, and DataMesh Pipeline.",
           "publisher": {
-            "@type": "Organization",
+            "@type": "EducationalOrganization",
             "name": "Threnlabs"
           }
         }}

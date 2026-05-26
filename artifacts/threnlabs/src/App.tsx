@@ -1,4 +1,4 @@
-import { Switch, Route, Router as WouterRouter } from "wouter";
+import { Switch, Route, Redirect, Router as WouterRouter } from "wouter";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { HelmetProvider } from "react-helmet-async";
 import { Toaster } from "@/components/ui/toaster";
@@ -12,7 +12,7 @@ import TechnologyPage from "@/pages/technology";
 import ResearchPage from "@/pages/research";
 import CompanyPage from "@/pages/company";
 import CosmosPage from "@/pages/products/cosmos";
-import CalendarSyncPage from "@/pages/products/calendarsync";
+import ScholarsAnchorPage from "@/pages/products/scholarsanchor";
 
 const queryClient = new QueryClient();
 
@@ -25,7 +25,10 @@ function Router() {
         {/* Products routes */}
         <Route path="/products" component={ProductsPage} />
         <Route path="/products/cosmos" component={CosmosPage} />
-        <Route path="/products/calendarsync" component={CalendarSyncPage} />
+        <Route path="/products/scholarsanchor" component={ScholarsAnchorPage} />
+        <Route path="/products/calendarsync">
+          <Redirect to="/products/scholarsanchor" />
+        </Route>
         {/* Other pages */}
         <Route path="/technology" component={TechnologyPage} />
         <Route path="/research" component={ResearchPage} />

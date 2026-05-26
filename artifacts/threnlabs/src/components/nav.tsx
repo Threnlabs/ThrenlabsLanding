@@ -43,9 +43,9 @@ const navItems: NavItem[] = [
             tag: "Stable",
           },
           {
-            label: "CalendarSync",
-            desc: "The open-source academic timetabling system",
-            href: "/products/calendarsync",
+            label: "ScholarsAnchor",
+            desc: "E2E AI scheduling and doubt solving platform",
+            href: "/products/scholarsanchor",
             tag: "Stable",
           },
         ]
@@ -149,11 +149,6 @@ const navItems: NavItem[] = [
             label: "Our Mission",
             desc: "Why we started Threnlabs and what drives us",
             href: "/company#mission",
-          },
-          {
-            label: "Founder",
-            desc: "Know more about the founder",
-            href: "https://founder.threnlabs.com",
           },
         ],
       },
@@ -438,14 +433,12 @@ export function Nav() {
             >
               Sign in
             </Link>
-            <a
-              href="https://cosmos.threnlabs.com"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/products/cosmos"
               className="text-sm text-center py-2.5 bg-blue-500 hover:bg-blue-400 text-white font-bold rounded-lg transition-all shadow-lg shadow-blue-500/20"
             >
-              Launch Cosmos
-            </a>
+              Learn About Cosmos
+            </Link>
           </div>
         </div>
       </div>

@@ -14,8 +14,8 @@ function ResearchHero() {
           style={{ opacity: inView ? 1 : 0, transform: inView ? "translateY(0)" : "translateY(30px)" }}
         >
           <SectionLabel color="cyan">Research</SectionLabel>
-          <h1 className="text-5xl md:text-7xl font-bold text-white tracking-tight mb-5">
-            We publish<br />what we learn
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight leading-[1.15] mb-6 max-w-3xl">
+            We publish what we learn
           </h1>
           <p className="text-xl text-[hsl(215,20%,55%)] max-w-2xl leading-relaxed">
             Research isn't a marketing channel for us. It's how we build a better foundation
@@ -69,7 +69,7 @@ function PublicationsSection() {
       tag: "AutoML",
       tagColor: "text-orange-300 bg-orange-500/10 border-orange-500/20",
       abstract: "We propose a surrogate-based approach to hardware-aware NAS that reduces search cost significantly compared to one-shot methods. A Gaussian process surrogate trained on a small initial population accurately predicts architecture performance, enabling Bayesian optimization over the search space without gradient computation.",
-      impact: "Backbone of CalendarSync's automated architecture optimization pipeline.",
+      impact: "Backbone of ScholarsAnchor's automated architecture optimization pipeline.",
     },
   ];
 
@@ -233,16 +233,16 @@ export default function ResearchPage() {
   return (
     <PageShell>
       <SEO
-        title="Research at Threnlabs — AI Efficiency and Infrastructure"
-        description="Threnlabs conducts peer-reviewed research in inference optimization, model efficiency, and distributed systems. We build better foundations for every product we ship."
+        title="AI Academic Research & Publications | Threnlabs"
+        description="Discover Threnlabs' academic research in AI efficiency, inference scheduling, and model optimization, advancing AI for educational institutions."
         canonical="https://threnlabs.com/research"
         jsonLd={{
           "@context": "https://schema.org",
           "@type": "WebPage",
-          "name": "Research at Threnlabs",
-          "description": "Peer-reviewed research and publications in AI efficiency, inference optimization, and distributed systems.",
+          "name": "AI Academic Research & Publications",
+          "description": "Peer-reviewed research and publications in AI efficiency, inference optimization, and scheduling, advancing AI for educational institutions.",
           "publisher": {
-            "@type": "Organization",
+            "@type": "EducationalOrganization",
             "name": "Threnlabs"
           }
         }}

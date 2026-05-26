@@ -6,6 +6,7 @@ interface SEOProps {
   canonical?: string;
   type?: string;
   image?: string;
+  keywords?: string;
   jsonLd?: Record<string, any>;
 }
 
@@ -15,17 +16,21 @@ export function SEO({
   canonical,
   type = "website",
   image = "/opengraph.jpg",
+  keywords = "Threnlabs, Thren, Thren AI, Threnlabs AI, B2B AI SaaS, Educational AI, ScholarsAnchor, Cosmos IDE",
   jsonLd,
 }: SEOProps) {
   const siteTitle = "Threnlabs";
-  const fullTitle = title ? `${title} | ${siteTitle}` : siteTitle;
-  const defaultDescription = "Threnlabs builds production-grade AI infrastructure. Cosmos: The Reasoning First Code Editor, CalendarSync, Bullpen, and Smap.";
+  const fullTitle = title 
+    ? (title.includes("Threnlabs") ? title : `${title} | ${siteTitle}`) 
+    : siteTitle;
+  const defaultDescription = "Threnlabs (Thren) builds production-grade AI infrastructure. Cosmos: The Reasoning First Code Editor, ScholarsAnchor, Bullpen, and Smap.";
 
   return (
     <Helmet>
       {/* Basic Meta Tags */}
       <title>{fullTitle}</title>
       <meta name="description" content={description || defaultDescription} />
+      {keywords && <meta name="keywords" content={keywords} />}
       {canonical && <link rel="canonical" href={canonical} />}
 
       {/* Open Graph / Facebook */}

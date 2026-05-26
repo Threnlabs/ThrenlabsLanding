@@ -3,10 +3,67 @@ import { useInView, GridBackground, RadialGlow, SectionLabel, PageShell } from "
 import { SEO } from "@/components/seo";
 
 
+function SystemArchitectureDiagram() {
+  return (
+    <div className="relative w-full aspect-[4/3] rounded-2xl border border-[hsl(220,30%,14%)] bg-[hsl(222,44%,4%)] p-6 overflow-hidden shadow-2xl">
+      {/* Decorative technical grid background */}
+      <div className="absolute inset-0 grid-bg opacity-20 pointer-events-none" />
+      
+      {/* Schematic overlay */}
+      <svg className="w-full h-full text-[hsl(215,20%,25%)]" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+        {/* Alignment corner marks */}
+        <path d="M10 20h8M10 20v8M390 20h-8M390 20v8M10 280h8M10 280v-8M390 280h-8M390 280v-8" stroke="currentColor" strokeWidth="1" />
+        
+        {/* Connection flow lines */}
+        <path d="M95 80h105M95 220h105M270 150h55" stroke="currentColor" strokeWidth="1.2" strokeDasharray="3 3" />
+        <path d="M200 80v45M200 220v-45" stroke="currentColor" strokeWidth="1.2" strokeDasharray="3 3" />
+        <path d="M200 150h15" stroke="currentColor" strokeWidth="1.2" />
+
+        {/* Input Node: Texts/Notes */}
+        <g transform="translate(15, 60)">
+          <rect width="80" height="40" rx="4" fill="hsl(222,44%,6%)" stroke="hsl(220,30%,16%)" strokeWidth="1" />
+          <text x="40" y="24" fill="#fff" fontSize="8" fontWeight="bold" fontFamily="monospace" textAnchor="middle">TEXT/NOTES</text>
+          <circle cx="80" cy="20" r="2.5" fill="#3b82f6" />
+        </g>
+
+        {/* Input Node: Calendars */}
+        <g transform="translate(15, 200)">
+          <rect width="80" height="40" rx="4" fill="hsl(222,44%,6%)" stroke="hsl(220,30%,16%)" strokeWidth="1" />
+          <text x="40" y="24" fill="#fff" fontSize="8" fontWeight="bold" fontFamily="monospace" textAnchor="middle">CALENDARS</text>
+          <circle cx="80" cy="20" r="2.5" fill="#8b5cf6" />
+        </g>
+
+        {/* Processing Core Node */}
+        <g transform="translate(145, 120)">
+          <rect width="110" height="60" rx="6" fill="hsl(222,44%,8%)" stroke="#3b82f6" strokeWidth="1.5" />
+          <text x="55" y="25" fill="#3b82f6" fontSize="9" fontWeight="bold" fontFamily="monospace" textAnchor="middle">CORE ENGINE</text>
+          <text x="55" y="40" fill="#94a3b8" fontSize="7" fontFamily="sans-serif" textAnchor="middle">Constraint Solver</text>
+          <circle cx="0" cy="30" r="3.5" fill="#3b82f6" />
+          <circle cx="110" cy="30" r="3.5" fill="#10b981" />
+        </g>
+
+        {/* Output Node */}
+        <g transform="translate(290, 130)">
+          <rect width="95" height="40" rx="4" fill="hsl(222,44%,6%)" stroke="hsl(220,30%,16%)" strokeWidth="1" />
+          <text x="47.5" y="24" fill="#10b981" fontSize="8" fontWeight="bold" fontFamily="monospace" textAnchor="middle">RESOLVED AI</text>
+          <circle cx="0" cy="20" r="2.5" fill="#10b981" />
+        </g>
+
+        {/* Pipeline Status Pill */}
+        <g transform="translate(130, 260)">
+          <rect width="140" height="20" rx="10" fill="rgba(16,185,129,0.05)" stroke="rgba(16,185,129,0.2)" strokeWidth="1" />
+          <circle cx="15" cy="10" r="2.5" fill="#10b981" className="animate-pulse" />
+          <text x="28" y="13" fill="#a7f3d0" fontSize="7" fontWeight="bold" fontFamily="monospace">PIPELINE: SECURE (FERPA)</text>
+        </g>
+      </svg>
+    </div>
+  );
+}
+
 function CompanyHero() {
   const { ref, inView } = useInView();
   return (
-    <section ref={ref} className="relative pt-20 pb-16 px-6 lg:px-8 overflow-hidden">
+    <section ref={ref} className="relative pt-24 pb-20 px-6 lg:px-8 overflow-hidden">
       <RadialGlow color="violet" className="w-[43.75rem] h-[31.25rem] -top-20 left-0" />
       <GridBackground />
       <div className="max-w-7xl mx-auto">
@@ -14,14 +71,20 @@ function CompanyHero() {
           className="transition-all duration-700"
           style={{ opacity: inView ? 1 : 0, transform: inView ? "translateY(0)" : "translateY(30px)" }}
         >
-          <SectionLabel color="violet">Company</SectionLabel>
-          <h1 className="text-5xl md:text-7xl font-bold text-white tracking-tight mb-5">
-            We build what<br />we'd use ourselves
-          </h1>
-          <p className="text-xl text-[hsl(215,20%,55%)] max-w-2xl leading-relaxed">
-            Threnlabs was started by engineers who were tired of AI products that couldn't hold up
-            under real production pressure. So we built the infrastructure we wished existed.
-          </p>
+          <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            <div className="lg:col-span-7">
+              <SectionLabel color="violet">About Threnlabs</SectionLabel>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-[1.15] mb-6">
+                Advancing AI for Educational Institutions
+              </h1>
+              <p className="text-lg text-[hsl(215,20%,55%)] leading-relaxed max-w-2xl">
+                Threnlabs is a premier B2B AI SaaS provider dedicated to advancing AI for educational institutions. We design production-grade infrastructure, reasoning-first code environments, and intelligent operations tools tailored to the needs of modern universities, research laboratories, and schools.
+              </p>
+            </div>
+            <div className="lg:col-span-5 relative w-full max-w-md mx-auto lg:max-w-none">
+              <SystemArchitectureDiagram />
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -38,21 +101,16 @@ function MissionSection() {
             style={{ opacity: inView ? 1 : 0, transition: "all 0.7s ease", transform: inView ? "translateX(0)" : "translateX(-30px)" }}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight">
-              The quiet backbone of the AI revolution
+              B2B AI SaaS designed for modern academia
             </h2>
             <p className="text-[hsl(215,20%,55%)] leading-relaxed mb-5">
-              Most AI companies optimize for demos. We optimize for production. That means slower
-              initial releases, more rigorous testing, and a development culture that treats
-              reliability as a core feature — not a bolt-on.
+              Educational institutions deserve AI infrastructure that is as rigorous as their research. Most software companies optimize for quick demonstrations. We optimize for institutional scale, security, and absolute reliability. We are committed to advancing AI for educational institutions by building tools that streamline complex operations and support high-level academic research.
             </p>
             <p className="text-[hsl(215,20%,55%)] leading-relaxed mb-5">
-              Our mission is to make production-grade AI accessible to any team with a serious
-              problem to solve. Not just companies with the budget for a dedicated ML platform
-              team. Anyone who needs AI that works.
+              Our mission is to provide universities, colleges, and research labs with access to production-grade B2B AI SaaS solutions. From optimizing administrative workflows with constraint-aware scheduling to empowering computer science students and faculty with reasoning-first IDEs, we bridge the gap between advanced research and daily academic execution.
             </p>
             <p className="text-[hsl(215,20%,55%)] leading-relaxed">
-              We believe the infrastructure layer for AI is still being written.
-              That's why we're here.
+              By putting safety, data privacy, and explainability first, we enable educational institutions to lead the AI revolution rather than just keep pace with it.
             </p>
           </div>
 
@@ -243,20 +301,24 @@ export default function CompanyPage() {
   return (
     <PageShell>
       <SEO
-        title="About Threnlabs — Production-First AI Infrastructure"
-        description="Threnlabs is an AI infrastructure company building production-grade tools for serious engineering teams. Founded by engineers, for engineers."
+        title="About Threnlabs | Advancing AI for Educational Institutions"
+        description="Discover how Threnlabs (Thren) is advancing AI for educational institutions with our production-grade B2B AI SaaS products. Empowering university scheduling and advanced research."
         canonical="https://threnlabs.com/company"
+        keywords="About Threnlabs, Threnlabs, Thren, Thren AI, Threnlabs AI, B2B AI SaaS, Educational AI, ScholarsAnchor, Cosmos IDE"
         jsonLd={{
           "@context": "https://schema.org",
           "@type": "Organization",
           "name": "Threnlabs",
+          "alternateName": "Thren",
           "url": "https://threnlabs.com",
           "logo": "https://threnlabs.com/logo.png",
-          "description": "Production-grade AI infrastructure and tools for modern engineering teams.",
-          "address": {
-            "@type": "PostalAddress",
-            "addressCountry": "US"
-          }
+          "description": "Leading B2B AI SaaS provider advancing AI for educational institutions through production-grade operations and research infrastructure.",
+          "knowsAbout": [
+            "Advancing AI for educational institutions",
+            "B2B AI SaaS for education",
+            "AI academic scheduling",
+            "Reasoning-first developer environments"
+          ]
         }}
       />
       <CompanyHero />
