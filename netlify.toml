@@ -19,8 +19,21 @@
 # ============================================================================
 # ROUTING & SPA REDIRECTS
 # ============================================================================
+
+# Explicitly bypass SPA routing for sitemap.xml
+[[redirects]]
+  from = "/sitemap.xml"
+  to = "/sitemap.xml"
+  status = 200
+
+# Explicitly bypass SPA routing for robots.txt
+[[redirects]]
+  from = "/robots.txt"
+  to = "/robots.txt"
+  status = 200
+
 # Ensures client-side routing (wouter/react-router) works properly by directing
-# all requests back to index.html instead of showing a Netlify 404 page.
+# all other requests back to index.html instead of showing a Netlify 404 page.
 [[redirects]]
   from = "/*"
   to = "/index.html"
@@ -29,6 +42,20 @@
 # ============================================================================
 # PERFORMANCE & CACHING HEADERS
 # ============================================================================
+
+# Ensure sitemap.xml is served with correct XML Content-Type and is not cached stale
+[[headers]]
+  for = "/sitemap.xml"
+  [headers.values]
+    Content-Type = "application/xml; charset=utf-8"
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# Ensure robots.txt is served with correct plain text Content-Type and is not cached stale
+[[headers]]
+  for = "/robots.txt"
+  [headers.values]
+    Content-Type = "text/plain; charset=utf-8"
+    Cache-Control = "public, max-age=0, must-revalidate"
 
 # Cache compiled asset bundles (Vite outputs hashed JS/CSS in the assets folder)
 [[headers]]
@@ -41,3 +68,4 @@
   for = "/*.svg"
   [headers.values]
     Cache-Control = "public, max-age=86400, must-revalidate"
+
