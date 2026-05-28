@@ -20,17 +20,7 @@
 # ROUTING & SPA REDIRECTS
 # ============================================================================
 
-# Explicitly bypass SPA routing for sitemap.xml
-[[redirects]]
-  from = "/sitemap.xml"
-  to = "/sitemap.xml"
-  status = 200
 
-# Explicitly bypass SPA routing for robots.txt
-[[redirects]]
-  from = "/robots.txt"
-  to = "/robots.txt"
-  status = 200
 
 # Ensures client-side routing (wouter/react-router) works properly by directing
 # all other requests back to index.html instead of showing a Netlify 404 page.
