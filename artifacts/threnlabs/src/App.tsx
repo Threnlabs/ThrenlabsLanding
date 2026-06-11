@@ -1,6 +1,7 @@
-import { Switch, Route, Redirect, Router as WouterRouter } from "wouter";
+import { Switch, Route, Redirect, Router as WouterRouter, useLocation } from "wouter";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { HelmetProvider } from "react-helmet-async";
+import { useEffect } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Nav } from "@/components/nav";
@@ -16,9 +17,48 @@ import ScholarsAnchorPage from "@/pages/products/scholarsanchor";
 
 const queryClient = new QueryClient();
 
+function ScrollToHashAndTop() {
+  const [location] = useLocation();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const hash = window.location.hash;
+      if (hash) {
+        const id = hash.substring(1);
+        let attempts = 0;
+        const tryScroll = () => {
+          const element = document.getElementById(id);
+          if (element) {
+            const headerOffset = 80;
+            const elementPosition = element.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.scrollY - headerOffset;
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: "smooth"
+            });
+          } else if (attempts < 10) {
+            attempts++;
+            setTimeout(tryScroll, 50);
+          }
+        };
+        tryScroll();
+      } else {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    };
+
+    handleScroll();
+    window.addEventListener("hashchange", handleScroll);
+    return () => window.removeEventListener("hashchange", handleScroll);
+  }, [location]);
+
+  return null;
+}
+
 function Router() {
   return (
     <>
+      <ScrollToHashAndTop />
       <Nav />
       <Switch>
         <Route path="/" component={Home} />

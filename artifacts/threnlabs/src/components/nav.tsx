@@ -191,23 +191,27 @@ function TagBadge({ tag }: { tag: string }) {
   );
 }
 
-function DropdownPanel({ columns, visible }: { columns: NavColumn[]; visible: boolean }) {
+function DropdownPanel({ columns, visible, align = "center" }: { columns: NavColumn[]; visible: boolean; align?: "center" | "right" }) {
+  const alignClasses = align === "right" 
+    ? "right-[-16px] origin-top-right" 
+    : "left-1/2 -translate-x-1/2 origin-top";
+
   return (
     <div
-      className={`absolute top-full left-1/2 -translate-x-1/2 mt-2 z-50 transition-all duration-150 ${visible ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-1 pointer-events-none"
+      className={`absolute top-full mt-2 z-50 transition-all duration-150 ${alignClasses} ${visible ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-1 pointer-events-none"
         }`}
     >
       {/* Caret arrow */}
-      <div className="flex justify-center">
+      <div className={`flex ${align === "right" ? "justify-end pr-10" : "justify-center"}`}>
         <div className="w-2.5 h-2.5 rotate-45 bg-card border-l border-t border-border" style={{ marginBottom: "-1px" }} />
       </div>
 
-      <div className="bg-card border border-border rounded-xl shadow-lg overflow-hidden min-w-[32.5rem]">
+      <div className={`bg-card border border-border rounded-xl shadow-lg overflow-hidden ${columns.length === 2 ? "min-w-[24rem]" : "min-w-[32rem]"}`}>
         <div className={`grid divide-x divide-border ${columns.length === 2 ? "grid-cols-2" : "grid-cols-3"}`}>
           {columns.map((col, ci) => (
-            <div key={ci} className="p-4">
+            <div key={ci} className="p-3.5">
               {/* Column heading */}
-              <div className="text-[10px] font-bold tracking-[0.12em] text-muted-foreground/80 uppercase mb-3 px-2">
+              <div className="text-[9px] font-bold tracking-[0.15em] text-muted-foreground/75 uppercase mb-2 px-2">
                 {col.heading}
               </div>
 
@@ -222,15 +226,15 @@ function DropdownPanel({ columns, visible }: { columns: NavColumn[]; visible: bo
                     <LinkComponent
                       key={item.href}
                       {...(linkProps as any)}
-                      className="group flex flex-col gap-0.5 px-2 py-2.5 rounded-lg hover:bg-muted/50 transition-colors duration-100 cursor-pointer"
+                      className="group flex flex-col gap-0.5 px-2 py-2 rounded-lg hover:bg-muted/50 transition-colors duration-100 cursor-pointer"
                     >
-                      <div className="flex items-center gap-2">
-                        <span className="text-sm font-medium text-foreground group-hover:text-primary transition-colors leading-none">
+                      <div className="flex items-center gap-1.5">
+                        <span className="text-xs font-semibold text-foreground group-hover:text-primary transition-colors leading-none">
                           {item.label}
                         </span>
                         {item.tag && <TagBadge tag={item.tag} />}
                       </div>
-                      <span className="text-xs text-muted-foreground leading-snug">
+                      <span className="text-[11px] text-muted-foreground/85 leading-snug">
                         {item.desc}
                       </span>
                     </LinkComponent>
@@ -242,14 +246,14 @@ function DropdownPanel({ columns, visible }: { columns: NavColumn[]; visible: bo
         </div>
 
         {/* Footer strip */}
-        <div className="border-t border-border px-5 py-2.5 flex items-center justify-between bg-muted/30">
-          <span className="text-[11px] text-muted-foreground/70">Threnlabs AI/DL Platform</span>
+        <div className="border-t border-border px-4 py-2 flex items-center justify-between bg-muted/30">
+          <span className="text-[10px] text-muted-foreground/70">Threnlabs AI/DL Platform</span>
           <Link
             href="/products"
-            className="text-[11px] text-primary hover:text-primary/80 transition-colors flex items-center gap-1"
+            className="text-[10px] text-primary hover:text-primary/80 transition-colors flex items-center gap-1 font-medium"
           >
             View all products
-            <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg className="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
           </Link>
@@ -306,7 +310,7 @@ export function Nav() {
       <div className="max-w-6.5xl mx-auto px-6 lg:px-8 h-16 flex items-center justify-between">
 
         {/* Logo */}
-        <Link href="/" className="flex items-center group flex-shrink-2 z-10 h-5">
+        <Link href="/" className="flex items-center group flex-shrink-0 z-10 h-6">
           <img
             src="/threnlabs.svg"
             alt="Threnlabs Logo"
@@ -314,42 +318,49 @@ export function Nav() {
           />
         </Link>
 
-        {/* Desktop nav items */}
-        <div className="hidden md:flex items-center gap-1">
-          {navItems.filter(i => !i.hidden).map((item) => (
-            <div key={item.label} className="relative">
-              <button
-                onClick={() => handleNavClick(item.label)}
-                className={`flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-150 select-none ${openMenu === item.label
-                  ? "text-foreground bg-muted"
-                  : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
-                  }`}
-              >
-                {item.label}
-                <svg
-                  className={`w-3.5 h-3.5 transition-transform duration-200 ${openMenu === item.label ? "rotate-180 text-primary" : "text-muted-foreground/60"}`}
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
+        {/* Desktop nav and action buttons aligned to the right */}
+        <div className="hidden md:flex items-center gap-5 ml-auto z-10">
+          {/* Desktop nav items */}
+          <div className="flex items-center gap-1">
+            {navItems.filter(i => !i.hidden).map((item) => (
+              <div key={item.label} className="relative">
+                <button
+                  onClick={() => handleNavClick(item.label)}
+                  className={`flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-150 select-none ${openMenu === item.label
+                    ? "text-foreground bg-muted"
+                    : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+                    }`}
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
+                  {item.label}
+                  <svg
+                    className={`w-3.5 h-3.5 transition-transform duration-200 ${openMenu === item.label ? "rotate-180 text-primary" : "text-muted-foreground/60"}`}
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
 
-              <DropdownPanel columns={item.columns} visible={openMenu === item.label} />
-            </div>
-          ))}
-        </div>
+                <DropdownPanel 
+                  columns={item.columns} 
+                  visible={openMenu === item.label} 
+                  align={item.label === "Company" ? "right" : "center"}
+                />
+              </div>
+            ))}
+          </div>
 
-        {/* Desktop action buttons */}
-        <div className="hidden md:flex items-center gap-3 z-10">
-          <Link
-            href="/company#contact"
-            className="text-sm text-muted-foreground hover:text-foreground transition-colors px-4 py-1.5 rounded-lg hover:bg-muted/50"
-          >
-            Connect
-          </Link>
+          {/* Desktop action buttons */}
+          <div className="flex items-center gap-3">
+            <Link
+              href="/company#contact"
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors px-4 py-1.5 rounded-lg hover:bg-muted/50 font-medium"
+            >
+              Connect
+            </Link>
+          </div>
         </div>
 
         {/* Mobile hamburger */}

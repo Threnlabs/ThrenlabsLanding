@@ -40,11 +40,15 @@ export function Footer() {
           </div>
 
           <div>
-            <div className="text-xs font-semibold text-muted-foreground/75 tracking-widest uppercase mb-4">Company</div>
+            <div className="text-xs font-semibold text-muted-foreground/75 tracking-widest uppercase mb-4">
+              <Link href="/company" className="hover:text-foreground transition-colors">
+                Company
+              </Link>
+            </div>
             <ul className="space-y-2.5">
               {[
-                { label: "About", href: "/company#mission" },
-                { label: "Research", href: "/research" },
+                { label: "Mission", href: "/company#mission" },
+                { label: "Team", href: "/company#team" },
                 { label: "Contact", href: "/company#contact" },
               ].map(({ label, href }) => {
                 const isExternal = href.startsWith("http");
@@ -82,9 +86,8 @@ export function Footer() {
           </div>
           <div className="flex items-center gap-5 mt-4 md:mt-0">
             {[
-              { label: "Twitter", href: "#" },
-              { label: "GitHub", href: "#" },
-              { label: "LinkedIn", href: "#" },
+              { label: "GitHub", href: "https://github.com/Threnlabs/" },
+              { label: "LinkedIn", href: "https://www.linkedin.com/company/threnlabs/" },
               { label: "Instagram", href: "https://www.instagram.com/threnlabs.ai" }
             ].map((social) => (
               <a

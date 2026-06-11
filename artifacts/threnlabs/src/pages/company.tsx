@@ -8,12 +8,12 @@ function SystemArchitectureDiagram() {
     <div className="relative w-full aspect-[4/3] rounded-2xl border border-border bg-card p-6 overflow-hidden shadow-md">
       {/* Decorative technical grid background */}
       <div className="absolute inset-0 grid-bg opacity-10 pointer-events-none" />
-      
+
       {/* Schematic overlay */}
       <svg className="w-full h-full text-muted-foreground/30" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
         {/* Alignment corner marks */}
         <path d="M10 20h8M10 20v8M390 20h-8M390 20v8M10 280h8M10 280v-8M390 280h-8M390 280v-8" stroke="currentColor" strokeWidth="1" />
-        
+
         {/* Connection flow lines */}
         <path d="M95 80h105M95 220h105M270 150h55" stroke="currentColor" strokeWidth="1.2" strokeDasharray="3 3" />
         <path d="M200 80v45M200 220v-45" stroke="currentColor" strokeWidth="1.2" strokeDasharray="3 3" />
@@ -139,6 +139,74 @@ function MissionSection() {
   );
 }
 
+function TeamSection() {
+  const { ref, inView } = useInView();
+
+  const members = [
+    {
+      name: "Soham Agarwal",
+      role: "Founder & CTO",
+      prior: "IIT Kharagpur",
+      desc: "Building the core technology and systems that help universities manage their complex operations.",
+    },
+    {
+      name: "Keshab Agarwal",
+      role: "Co-Founder and CTO",
+      prior: "IIT Kharagpur",
+      desc: "Focusing on making our developer tools run fast, smooth, and reliably under heavy use.",
+    },
+    {
+      name: "Chirag Khandelwal",
+      role: "Co-founder and CMO",
+      prior: "IIT Kharagpur",
+      desc: "Helping universities understand how our software can improve their scheduling and student experience.",
+    },
+    {
+      name: "Aditya Nautiyal",
+      role: "Contributor",
+      prior: "IIT Kharagpur",
+      desc: "Working on the smart algorithms that match student preferences with department schedules.",
+    },
+  ];
+
+  return (
+    <section id="team" ref={ref} className="relative py-20 px-6 lg:px-8 overflow-hidden bg-background">
+      <GridBackground />
+      <div className="max-w-7xl mx-auto">
+        <div
+          className="mb-12 transition-all duration-700"
+          style={{ opacity: inView ? 1 : 0, transform: inView ? "translateY(0)" : "translateY(20px)" }}
+        >
+          <h2 className="text-3xl font-bold text-foreground mb-2">The team</h2>
+          <p className="text-muted-foreground">Engineers and researchers building AI infrastructure for academia.</p>
+        </div>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {members.map(({ name, role, prior, desc }, i) => (
+            <div
+              key={name}
+              className="bg-card border border-border rounded-xl p-6 hover:border-primary/30 transition-all duration-300 shadow-sm"
+              style={{
+                opacity: inView ? 1 : 0,
+                transform: inView ? "translateY(0)" : "translateY(25px)",
+                transition: `all 0.6s ease ${i * 80}ms`,
+              }}
+            >
+              <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary font-bold text-lg mb-4 select-none">
+                {name.split(" ").map((n) => n[0]).join("")}
+              </div>
+              <h3 className="text-foreground font-bold text-base mb-0.5">{name}</h3>
+              <div className="text-xs text-primary font-semibold mb-2">{role}</div>
+              <div className="text-[11px] text-muted-foreground font-medium mb-3">{prior}</div>
+              <p className="text-xs text-muted-foreground leading-relaxed">{desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function ContactSection() {
   const { ref, inView } = useInView();
   const [email, setEmail] = useState("");
@@ -229,6 +297,7 @@ export default function CompanyPage() {
       />
       <CompanyHero />
       <MissionSection />
+      <TeamSection />
       <ContactSection />
     </PageShell>
   );
