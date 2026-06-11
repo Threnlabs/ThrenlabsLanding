@@ -1,56 +1,36 @@
-# See https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
-
-# compiled output
-dist
-tmp
-out-tsc
-*.tsbuildinfo
-.expo
-.expo-shared
-
-# dependencies
-node_modules
-
-# IDEs and editors
-/.idea
-.project
-.classpath
-.c9/
-*.launch
-.settings/
-*.sublime-workspace
-
-# IDE - VSCode
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-
-# Misc
-.sass-cache/
-/connect.lock
-/coverage/
-/libpeerconnection.log
+# Logs
+logs
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
-testem.log
-/typings
+lerna-debug.log*
 
-# System Files
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
 .DS_Store
-Thumbs.db
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
 
-# Build/Dev Caches
-.cache/
-.local/
-.turbo/
+# Vercel
 .vercel
-.netlify
-.next
 
-# Workspace-specific
-.cursor/rules/nx-rules.mdc
-.github/instructions/nx.instructions.md
+# Sandbox / Temporary
+.gemini
+tmp
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local

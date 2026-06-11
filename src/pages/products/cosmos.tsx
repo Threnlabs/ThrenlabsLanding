@@ -45,6 +45,89 @@ function CosmosHero() {
               Product Comparison
             </a>
           </div>
+
+          {/* Cosmos IDE Mockup Placeholder */}
+          <div className="mt-16 w-full max-w-4xl mx-auto border border-border bg-card rounded-2xl shadow-2xl p-4 md:p-6 flex flex-col aspect-[16/10] text-left">
+            {/* Window bar */}
+            <div className="flex items-center justify-between border-b border-border pb-3 mb-4">
+              <div className="flex gap-2">
+                <span className="w-3 h-3 rounded-full bg-red-400/40" />
+                <span className="w-3 h-3 rounded-full bg-yellow-400/40" />
+                <span className="w-3 h-3 rounded-full bg-green-400/40" />
+              </div>
+              <span className="text-xs font-mono text-muted-foreground/60 select-none">cosmos-ide — inference.cu</span>
+            </div>
+
+            {/* Editor Workspace */}
+            <div className="flex-1 flex gap-4 overflow-hidden">
+              {/* File tree */}
+              <div className="w-1/5 border-r border-border pr-4 flex flex-col gap-3">
+                <div className="text-[10px] font-bold tracking-widest text-muted-foreground/60 uppercase">Workspace</div>
+                <div className="h-3.5 w-11/12 bg-muted rounded" />
+                <div className="h-3.5 w-5/6 bg-primary/10 border border-primary/20 text-primary px-1.5 py-0.5 rounded text-[10px] font-mono">inference.cu</div>
+                <div className="h-3.5 w-4/5 bg-muted rounded" />
+                <div className="h-3.5 w-3/4 bg-muted rounded" />
+              </div>
+              
+              {/* Code window with tokens */}
+              <div className="flex-1 flex flex-col gap-3 font-mono text-xs overflow-y-auto">
+                <div className="flex gap-2">
+                  <span className="text-blue-500 font-bold">#include</span>
+                  <span className="text-green-600">"cosmos_runtime.h"</span>
+                </div>
+                <div className="flex gap-2">
+                  <span className="text-purple-500 font-bold">__global__ void</span>
+                  <span className="text-yellow-600">fused_attention_kernel</span>
+                  <span className="text-muted-foreground">{"(...) {"}</span>
+                </div>
+                <div className="pl-4 flex flex-col gap-2 border-l border-border">
+                  <div className="text-slate-400">// Load KV cache to shared memory using zero-copy primitive</div>
+                  <div className="flex gap-2">
+                    <span className="text-blue-500">extern __shared__</span>
+                    <span className="text-purple-500">float</span>
+                    <span>s_mem[];</span>
+                  </div>
+                  <div className="flex gap-2">
+                    <span className="text-purple-500">int</span>
+                    <span>tid = threadIdx.x;</span>
+                  </div>
+                  <div className="flex gap-2">
+                    <span className="text-purple-500">if</span>
+                    <span>{"(tid < max_context_len) {"}</span>
+                  </div>
+                  <div className="pl-4 border-l border-border/50 text-slate-400">
+                    s_mem[tid] = __ldg(&amp;global_attention_weights[tid]);
+                  </div>
+                  <span>{"}"}</span>
+                </div>
+                <span>{"}"}</span>
+              </div>
+
+              {/* Context Graph Sidebar (exclusive to Cosmos) */}
+              <div className="w-1/4 border-l border-border pl-4 flex flex-col gap-4">
+                <div className="text-[10px] font-bold tracking-widest text-muted-foreground/60 uppercase">Context Graph</div>
+                <div className="rounded-lg bg-primary/5 border border-primary/20 p-3 flex flex-col gap-2">
+                  <div className="text-[10px] font-mono text-primary font-bold">ACTIVE INTENTS</div>
+                  <div className="h-1.5 w-full bg-primary/20 rounded" />
+                  <div className="h-1.5 w-5/6 bg-primary/10 rounded" />
+                </div>
+                <div className="flex flex-col gap-2 text-[10px] font-mono text-muted-foreground">
+                  <div className="flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
+                    <span>0.25x token cost target</span>
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
+                    <span>Memory leaks checked</span>
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-yellow-500 animate-pulse" />
+                    <span>Validating drift...</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

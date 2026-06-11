@@ -9,4 +9,4 @@ echo "Installing dependencies..."
 pnpm install
 
 echo "Starting Threnlabs frontend on port $PORT..."
-PORT=$PORT pnpm --filter @workspace/threnlabs run dev
+PORT=$PORT pnpm run dev

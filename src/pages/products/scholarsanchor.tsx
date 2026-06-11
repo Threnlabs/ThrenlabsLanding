@@ -624,6 +624,114 @@ export default function ScholarsAnchorPage() {
                 Interactive Playground
               </a>
             </div>
+
+            {/* ScholarsAnchor Mockup Placeholder */}
+            <div className="mt-16 w-full max-w-4xl mx-auto border border-border bg-card rounded-2xl shadow-2xl p-4 md:p-6 flex flex-col aspect-[16/10] text-left">
+              {/* Window bar */}
+              <div className="flex items-center justify-between border-b border-border pb-3 mb-4">
+                <div className="flex gap-2">
+                  <span className="w-3 h-3 rounded-full bg-red-400/40" />
+                  <span className="w-3 h-3 rounded-full bg-yellow-400/40" />
+                  <span className="w-3 h-3 rounded-full bg-green-400/40" />
+                </div>
+                <span className="text-xs font-mono text-muted-foreground/60 select-none">scholarsanchor — calendar_sync_engine</span>
+              </div>
+
+              {/* Dashboard Workspace */}
+              <div className="flex-1 flex gap-4 overflow-hidden">
+                {/* Left sidebar: constraints config */}
+                <div className="w-1/4 border-r border-border pr-4 flex flex-col gap-4">
+                  <div className="text-[10px] font-bold tracking-widest text-muted-foreground/60 uppercase">Scheduler Options</div>
+                  <div className="flex flex-col gap-2.5">
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs text-foreground/80 font-medium">Faculty Conflicts</span>
+                      <span className="text-[10px] px-1.5 py-0.5 rounded bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 font-bold font-mono">RESOLVED</span>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs text-foreground/80 font-medium">Room Allocation</span>
+                      <span className="text-[10px] px-1.5 py-0.5 rounded bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 font-bold font-mono">100% OK</span>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs text-foreground/80 font-medium">Cohort Balance</span>
+                      <span className="text-[10px] px-1.5 py-0.5 rounded bg-primary/10 border border-primary/20 text-primary font-bold font-mono">OPTIMAL</span>
+                    </div>
+                  </div>
+                  <div className="border-t border-border pt-3 mt-1">
+                    <div className="text-[9px] font-mono text-muted-foreground">CP-SAT solver variable count:</div>
+                    <div className="text-sm font-bold text-foreground mt-1">42,810 clauses</div>
+                  </div>
+                </div>
+
+                {/* Main Area: Calendar grid */}
+                <div className="flex-1 flex flex-col gap-3">
+                  <div className="flex justify-between items-center bg-muted/20 border border-border px-3 py-2 rounded-lg">
+                    <span className="text-xs font-bold text-foreground">Weekly Overview (CS Department)</span>
+                    <span className="text-[10px] font-mono text-muted-foreground">Solve time: 0.12s</span>
+                  </div>
+                  
+                  <div className="flex-1 grid grid-cols-4 gap-3 overflow-y-auto">
+                    {["Monday", "Tuesday", "Wednesday", "Thursday"].map((day, dIdx) => (
+                      <div key={day} className="flex flex-col gap-2">
+                        <div className="text-[10px] font-bold text-muted-foreground/85 text-center uppercase tracking-wide py-1 bg-muted/40 rounded">{day}</div>
+                        
+                        {/* Scheduled blocks */}
+                        {dIdx === 0 && (
+                          <>
+                            <div className="bg-primary/5 border border-primary/20 rounded-lg p-2.5 flex flex-col gap-1">
+                              <div className="text-[10px] font-bold text-primary truncate">CSE-202 (Algorithms)</div>
+                              <div className="text-[8px] text-muted-foreground">Dr. Reeves | Room 402</div>
+                              <div className="w-full h-1 bg-primary/20 rounded-full mt-1"><div className="w-3/4 h-full bg-primary rounded-full"></div></div>
+                            </div>
+                            <div className="bg-muted/30 border border-border rounded-lg p-2.5 flex flex-col gap-1">
+                              <div className="text-[10px] font-bold text-foreground/80 truncate">CSE-101 (Intro)</div>
+                              <div className="text-[8px] text-muted-foreground">Prof. Sato | Room 102</div>
+                            </div>
+                          </>
+                        )}
+
+                        {dIdx === 1 && (
+                          <>
+                            <div className="bg-muted/30 border border-border rounded-lg p-2.5 flex flex-col gap-1">
+                              <div className="text-[10px] font-bold text-foreground/80 truncate">MATH-220 (Linear)</div>
+                              <div className="text-[8px] text-muted-foreground">Dr. Chen | Room 301</div>
+                            </div>
+                            <div className="bg-primary/5 border border-primary/20 rounded-lg p-2.5 flex flex-col gap-1">
+                              <div className="text-[10px] font-bold text-primary truncate">CSE-202 (Algorithms)</div>
+                              <div className="text-[8px] text-muted-foreground">Dr. Reeves | Room 402</div>
+                            </div>
+                          </>
+                        )}
+
+                        {dIdx === 2 && (
+                          <>
+                            <div className="bg-emerald-500/5 border border-emerald-500/20 rounded-lg p-2.5 flex flex-col gap-1">
+                              <div className="text-[10px] font-bold text-emerald-600 truncate">BenchRex Tutoring</div>
+                              <div className="text-[8px] text-emerald-600/80">Active doubt solving</div>
+                            </div>
+                            <div className="bg-muted/30 border border-border rounded-lg p-2.5 flex flex-col gap-1">
+                              <div className="text-[10px] font-bold text-foreground/80 truncate">CSE-101 (Intro)</div>
+                              <div className="text-[8px] text-muted-foreground">Prof. Sato | Room 102</div>
+                            </div>
+                          </>
+                        )}
+
+                        {dIdx === 3 && (
+                          <>
+                            <div className="bg-muted/30 border border-border rounded-lg p-2.5 flex flex-col gap-1">
+                              <div className="text-[10px] font-bold text-foreground/80 truncate">MATH-220 (Linear)</div>
+                              <div className="text-[8px] text-muted-foreground">Dr. Chen | Room 301</div>
+                            </div>
+                            <div className="border border-dashed border-border rounded-lg p-2.5 flex items-center justify-center min-h-[50px]">
+                              <span className="text-[9px] text-muted-foreground/60 italic">Available slot</span>
+                            </div>
+                          </>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
