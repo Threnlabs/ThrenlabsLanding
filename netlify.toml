@@ -7,7 +7,7 @@
   command = "pnpm run build"
   
   # The path to the compiled HTML/JS/CSS assets ready for hosting
-  publish = "artifacts/threnlabs/dist"
+  publish = "dist"
 
 [build.environment]
   # Ensure Netlify uses Node 20
