@@ -21,9 +21,9 @@ function HeroSection() {
     <section className="relative h-[180vh] w-full bg-background">
       {/* Sticky container that keeps the viewport content pinned */}
       <div className="sticky top-0 h-screen w-full overflow-hidden flex flex-col items-center justify-center">
-        
+
         {/* Background elements that scroll upwards */}
-        <div 
+        <div
           className="absolute inset-0 w-full h-full pointer-events-none"
           style={{ transform: `translateY(${bgTranslateY}px)` }}
         >
@@ -48,7 +48,7 @@ function HeroSection() {
 
           {/* TWO BACKGROUND IMAGE PLACEHOLDERS */}
           {/* Placeholder 1: Left (Cosmos Code IDE Mockup) */}
-          <div 
+          <div
             className="absolute left-[-20px] sm:left-[8%] bottom-[-80px] sm:bottom-[12%] w-[180px] sm:w-[320px] md:w-[420px] aspect-[16/10] border border-border bg-card rounded-xl shadow-lg p-2.5 sm:p-4 rotate-[-3deg] flex flex-col z-0 opacity-45 sm:opacity-100 transition-all duration-300"
           >
             {/* Window bar */}
@@ -60,7 +60,7 @@ function HeroSection() {
               </div>
               <span className="text-[7px] sm:text-[10px] font-mono text-muted-foreground/60 select-none">cosmos-ide</span>
             </div>
-            
+
             {/* Editor Workspace */}
             <div className="flex-1 flex gap-2 sm:gap-3 overflow-hidden">
               {/* File tree */}
@@ -87,7 +87,7 @@ function HeroSection() {
           </div>
 
           {/* Placeholder 2: Right (ScholarsAnchor Academic Scheduler Mockup) */}
-          <div 
+          <div
             className="absolute right-[-20px] sm:right-[8%] bottom-[-120px] sm:bottom-[8%] w-[180px] sm:w-[320px] md:w-[420px] aspect-[16/10] border border-border bg-card rounded-xl shadow-lg p-2.5 sm:p-4 rotate-[3deg] flex flex-col z-0 opacity-45 sm:opacity-100 transition-all duration-300"
           >
             {/* Window bar */}
@@ -99,7 +99,7 @@ function HeroSection() {
               </div>
               <span className="text-[7px] sm:text-[10px] font-mono text-muted-foreground/60 select-none">scholarsanchor-scheduler</span>
             </div>
-            
+
             {/* Calendar grid */}
             <div className="flex-1 grid grid-cols-4 gap-1.5 sm:gap-2.5 overflow-hidden">
               {[...Array(4)].map((_, colIdx) => (
@@ -149,7 +149,7 @@ function HeroSection() {
               href="/products"
               className="group relative inline-flex items-center gap-2 px-5 py-2.5 sm:px-7 sm:py-3.5 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-lg transition-all duration-200 text-xs sm:text-sm shadow-sm"
             >
-              Explore Cosmos
+              Explore Products
               <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
@@ -164,7 +164,7 @@ function HeroSection() {
         </div>
 
         {/* Scroll indicator */}
-        <div 
+        <div
           className="absolute bottom-10 left-1/2 -translate-x-1/2 flex-col items-center gap-2 transition-opacity duration-300 hidden sm:flex"
           style={{ opacity: Math.max(0, 1 - scrollY / 200) * 0.4 }}
         >
@@ -188,24 +188,24 @@ function OverviewSection() {
         >
           {[
             {
-              title: "Cosmos",
+              title: "Active Suite",
               label: "Products",
               labelStyle: "text-primary bg-primary/10 border-primary/20",
-              desc: "The Reasoning First Code Editor — built for complex projects and architectural context, alongside ScholarsAnchor operational AI scheduling.",
+              desc: "Cosmos reasoning-first IDE for college laboratories, alongside ScholarsAnchor unifying campus scheduling (CalendarSync) and student doubt solving (BenchRex).",
               href: "/products",
             },
             {
-              title: "Technology",
+              title: "Technology Stack",
               label: "Infrastructure",
               labelStyle: "text-primary bg-primary/10 border-primary/20",
-              desc: "Custom CUDA kernels, a priority-aware scheduler, and a high-performance data pipeline — built for production.",
+              desc: "Engineered under production constraints. Powers our systems with Cosmos Runtime for fused CUDA kernel inference and the stateless DataMesh pipeline.",
               href: "/technology",
             },
             {
-              title: "Research",
+              title: "Research & Publications",
               label: "Publications",
               labelStyle: "text-primary bg-primary/10 border-primary/20",
-              desc: "NeurIPS, ICML, MLSys. We publish the methods behind our products — not just the results.",
+              desc: "Peer-reviewed algorithms published at NeurIPS, MLSys, and ICLR that directly implement long-context sparsity and hardware-aware scheduling.",
               href: "/research",
             },
           ].map(({ title, label, labelStyle, desc, href }, i) => (

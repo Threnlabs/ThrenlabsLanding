@@ -40,13 +40,11 @@ const navItems: NavItem[] = [
             label: "Cosmos",
             desc: "The Reasoning First Code Editor",
             href: "/products/cosmos",
-            tag: "Stable",
           },
           {
             label: "ScholarsAnchor",
             desc: "E2E AI scheduling and doubt solving platform",
             href: "/products/scholarsanchor",
-            tag: "Stable",
           },
         ]
       }
@@ -149,6 +147,11 @@ const navItems: NavItem[] = [
             label: "Our Mission",
             desc: "Why we started Threnlabs and what drives us",
             href: "/company#mission",
+          },
+          {
+            label: "Our Team",
+            desc: "Meet the people building Threnlabs",
+            href: "/company#team",
           },
         ],
       },
@@ -302,10 +305,7 @@ export function Nav() {
   return (
     <nav
       ref={navRef}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
-        ? "bg-background/90 backdrop-blur-md border-b border-border shadow-sm"
-        : "bg-transparent"
-        }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-[#acb3ba]/20 bg-[#0f172a] shadow-[-6px_6px_0px_#acb3ba]`}
     >
       <div className="max-w-6.5xl mx-auto px-6 lg:px-8 h-16 flex items-center justify-between">
 
@@ -314,7 +314,7 @@ export function Nav() {
           <img
             src="/threnlabs.svg"
             alt="Threnlabs Logo"
-            className="h-full w-auto group-hover:scale-105 transition-transform duration-300"
+            className="h-full w-auto invert brightness-200 group-hover:scale-105 transition-transform duration-300"
           />
         </Link>
 
@@ -327,13 +327,13 @@ export function Nav() {
                 <button
                   onClick={() => handleNavClick(item.label)}
                   className={`flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-150 select-none ${openMenu === item.label
-                    ? "text-foreground bg-muted"
-                    : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+                    ? "text-white bg-white/10"
+                    : "text-slate-300 hover:text-white hover:bg-white/5"
                     }`}
                 >
                   {item.label}
                   <svg
-                    className={`w-3.5 h-3.5 transition-transform duration-200 ${openMenu === item.label ? "rotate-180 text-primary" : "text-muted-foreground/60"}`}
+                    className={`w-3.5 h-3.5 transition-transform duration-200 ${openMenu === item.label ? "rotate-180 text-white" : "text-slate-400"}`}
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -356,7 +356,7 @@ export function Nav() {
           <div className="flex items-center gap-3">
             <Link
               href="/company#contact"
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors px-4 py-1.5 rounded-lg hover:bg-muted/50 font-medium"
+              className="text-sm text-slate-300 hover:text-white transition-colors px-4 py-1.5 rounded-lg hover:bg-white/5 font-medium"
             >
               Connect
             </Link>
@@ -369,9 +369,9 @@ export function Nav() {
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
         >
-          <span className={`block w-5 h-0.5 bg-foreground transition-all duration-200 origin-center ${mobileOpen ? "rotate-45 translate-y-2" : ""}`} />
-          <span className={`block w-5 h-0.5 bg-foreground transition-all duration-200 ${mobileOpen ? "opacity-0 scale-x-0" : ""}`} />
-          <span className={`block w-5 h-0.5 bg-foreground transition-all duration-200 origin-center ${mobileOpen ? "-rotate-45 -translate-y-2" : ""}`} />
+          <span className={`block w-5 h-0.5 bg-white transition-all duration-200 origin-center ${mobileOpen ? "rotate-45 translate-y-2" : ""}`} />
+          <span className={`block w-5 h-0.5 bg-white transition-all duration-200 ${mobileOpen ? "opacity-0 scale-x-0" : ""}`} />
+          <span className={`block w-5 h-0.5 bg-white transition-all duration-200 origin-center ${mobileOpen ? "-rotate-45 -translate-y-2" : ""}`} />
         </button>
       </div>
 
@@ -380,16 +380,16 @@ export function Nav() {
         className={`md:hidden overflow-hidden transition-all duration-300 ${mobileOpen ? "max-h-[80vh]" : "max-h-0"
           }`}
       >
-        <div className="bg-background border-t border-border shadow-lg overflow-y-auto">
+        <div className="bg-[#0f172a] border-t border-[#acb3ba]/10 shadow-lg overflow-y-auto">
           {navItems.filter(i => !i.hidden).map((item) => (
-            <div key={item.label} className="border-b border-border">
+            <div key={item.label} className="border-b border-[#acb3ba]/5">
               <button
                 onClick={() => setMobileExpanded(mobileExpanded === item.label ? null : item.label)}
-                className="w-full flex items-center justify-between px-6 py-4 text-sm font-medium text-foreground/90 hover:text-foreground transition-colors"
+                className="w-full flex items-center justify-between px-6 py-4 text-sm font-medium text-slate-200 hover:text-white transition-colors"
               >
                 <span>{item.label}</span>
                 <svg
-                  className={`w-4 h-4 text-muted-foreground/60 transition-transform duration-200 ${mobileExpanded === item.label ? "rotate-180" : ""}`}
+                  className={`w-4 h-4 text-slate-400 transition-transform duration-200 ${mobileExpanded === item.label ? "rotate-180" : ""}`}
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -403,7 +403,7 @@ export function Nav() {
                 <div className="pb-3">
                   {item.columns.map((col, ci) => (
                     <div key={ci} className="px-5 mb-3">
-                       <div className="text-[10px] font-bold tracking-widest text-muted-foreground/70 uppercase mb-2 ml-1">
+                       <div className="text-[10px] font-bold tracking-widest text-slate-400 uppercase mb-2 ml-1">
                         {col.heading}
                       </div>
                       <div className="space-y-0.5">
@@ -416,13 +416,13 @@ export function Nav() {
                             <LinkComponent
                               key={link.href}
                               {...(linkProps as any)}
-                              className="flex items-center justify-between px-2 py-2.5 rounded-lg hover:bg-muted/50 transition-colors"
+                              className="flex items-center justify-between px-2 py-2.5 rounded-lg hover:bg-white/5 transition-colors"
                             >
                               <div>
-                                <div className="text-sm text-foreground/90 hover:text-foreground font-medium leading-none mb-0.5">
+                                <div className="text-sm text-slate-200 hover:text-white font-medium leading-none mb-0.5">
                                   {link.label}
                                 </div>
-                                <div className="text-xs text-muted-foreground">{link.desc}</div>
+                                <div className="text-xs text-slate-400">{link.desc}</div>
                               </div>
                               {link.tag && <TagBadge tag={link.tag} />}
                             </LinkComponent>
@@ -440,7 +440,7 @@ export function Nav() {
           <div className="px-5 py-4 flex flex-col gap-3">
             <Link
               href="/company#contact"
-              className="text-sm text-center py-2.5 border border-border rounded-lg text-muted-foreground hover:text-foreground hover:border-muted-foreground transition-all"
+              className="text-sm text-center py-2.5 border border-slate-700 rounded-lg text-slate-300 hover:text-white hover:border-slate-500 transition-all"
             >
               Sign in
             </Link>
