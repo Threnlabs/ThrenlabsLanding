@@ -29,7 +29,7 @@ export function WaveformVisual() {
       {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
         <div
           key={i}
-          className={`w-1.5 rounded-full bg-blue-400 wave-bar-${i}`}
+          className={`w-1.5 rounded-full bg-primary/70 wave-bar-${i}`}
           style={{ minHeight: "4px" }}
         />
       ))}
@@ -38,7 +38,7 @@ export function WaveformVisual() {
 }
 
 export function GridBackground() {
-  return <div className="absolute inset-0 grid-bg opacity-40 pointer-events-none" />;
+  return <div className="absolute inset-0 grid-bg opacity-15 pointer-events-none" />;
 }
 
 export function RadialGlow({
@@ -50,10 +50,10 @@ export function RadialGlow({
 }) {
   const gradient =
     color === "blue"
-      ? "radial-gradient(ellipse, rgba(59,130,246,0.15) 0%, transparent 70%)"
+      ? "radial-gradient(ellipse, rgba(59,130,246,0.03) 0%, transparent 70%)"
       : color === "violet"
-      ? "radial-gradient(ellipse, rgba(139,92,246,0.15) 0%, transparent 70%)"
-      : "radial-gradient(ellipse, rgba(34,211,238,0.12) 0%, transparent 70%)";
+      ? "radial-gradient(ellipse, rgba(139,92,246,0.03) 0%, transparent 70%)"
+      : "radial-gradient(ellipse, rgba(34,211,238,0.03) 0%, transparent 70%)";
 
   return (
     <div
@@ -65,7 +65,7 @@ export function RadialGlow({
 
 export function PageShell({ children }: { children: React.ReactNode }) {
   return (
-    <div className="min-h-screen bg-[hsl(222,47%,5%)] text-white pt-16">
+    <div className="min-h-screen bg-background text-foreground pt-16">
       {children}
     </div>
   );
@@ -79,16 +79,16 @@ export function SectionLabel({
   children: React.ReactNode;
 }) {
   const styles = {
-    blue: "border-blue-500/30 bg-blue-500/10 text-blue-300",
-    violet: "border-violet-500/30 bg-violet-500/10 text-violet-300",
-    cyan: "border-cyan-500/30 bg-cyan-500/10 text-cyan-300",
-    yellow: "border-yellow-500/30 bg-yellow-500/10 text-yellow-300",
+    blue: "border-primary/20 bg-primary/5 text-primary",
+    violet: "border-primary/20 bg-primary/5 text-primary",
+    cyan: "border-primary/20 bg-primary/5 text-primary",
+    yellow: "border-primary/20 bg-primary/5 text-primary",
   };
   const markerColors = {
-    blue: "fill-blue-400",
-    violet: "fill-violet-400",
-    cyan: "fill-cyan-400",
-    yellow: "fill-yellow-400",
+    blue: "fill-primary",
+    violet: "fill-primary",
+    cyan: "fill-primary",
+    yellow: "fill-primary",
   };
   return (
     <div

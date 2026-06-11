@@ -123,9 +123,9 @@ function InteractivePlayground() {
   };
 
   return (
-    <div className="w-full rounded-2xl border border-[hsl(220,30%,16%)] bg-[hsl(222,44%,7%)] overflow-hidden shadow-2xl">
+    <div className="w-full rounded-2xl border border-border bg-card overflow-hidden shadow-lg">
       {/* Playground tabs */}
-      <div className="flex border-b border-[hsl(220,30%,16%)] bg-[hsl(222,44%,5%)] overflow-x-auto scrollbar-none">
+      <div className="flex border-b border-border bg-muted/20 overflow-x-auto scrollbar-none">
         {[
           { id: "scheduler", label: "CalendarSync Engine", icon: Calendar },
           { id: "doubt-solver", label: "BenchRex doubt-solver", icon: Sparkles },
@@ -140,11 +140,11 @@ function InteractivePlayground() {
               onClick={() => setActiveTab(tab.id as any)}
               className={`flex items-center gap-2 px-6 py-4 text-xs font-semibold uppercase tracking-wider border-b-2 transition-all whitespace-nowrap ${
                 isActive
-                  ? "border-blue-500 text-white bg-blue-500/5"
-                  : "border-transparent text-[hsl(215,20%,45%)] hover:text-white hover:bg-white/[0.02]"
+                  ? "border-primary text-foreground bg-primary/5"
+                  : "border-transparent text-muted-foreground hover:text-foreground hover:bg-muted/50"
               }`}
             >
-              <Icon className={`w-4 h-4 ${isActive ? "text-blue-400" : "text-current"}`} />
+              <Icon className={`w-4 h-4 ${isActive ? "text-primary" : "text-current"}`} />
               {tab.label}
             </button>
           );
@@ -157,11 +157,11 @@ function InteractivePlayground() {
           <div className="space-y-6">
             <div className="flex justify-between items-start">
               <div>
-                <span className="text-[10px] font-mono text-blue-400 uppercase tracking-widest bg-blue-500/10 px-2 py-0.5 rounded border border-blue-500/20">
+                <span className="text-[10px] font-mono text-primary uppercase tracking-widest bg-primary/10 px-2 py-0.5 rounded border border-primary/20">
                   Sustained Solver Active
                 </span>
-                <h3 className="text-xl font-bold text-white mt-2">Constraint-Based Automatic Timetable Generation</h3>
-                <p className="text-sm text-[hsl(215,20%,50%)] mt-1">
+                <h3 className="text-xl font-bold text-foreground mt-2">Constraint-Based Automatic Timetable Generation</h3>
+                <p className="text-sm text-muted-foreground mt-1">
                   Orchestrate rooms, faculty capacities, and cohorts conflict-free.
                 </p>
               </div>
@@ -170,8 +170,8 @@ function InteractivePlayground() {
                 disabled={schedulingStatus === "running"}
                 className={`px-4 py-2 rounded-lg text-xs font-bold transition-all ${
                   schedulingStatus === "running"
-                    ? "bg-blue-500/20 text-blue-400 cursor-not-allowed"
-                    : "bg-blue-600 hover:bg-blue-500 text-white shadow-lg shadow-blue-500/20 active:scale-95"
+                    ? "bg-primary/20 text-primary cursor-not-allowed"
+                    : "bg-primary hover:bg-primary/90 text-primary-foreground shadow-sm active:scale-95"
                 }`}
               >
                 {schedulingStatus === "idle" && "Generate Schedule"}
@@ -181,13 +181,13 @@ function InteractivePlayground() {
             </div>
 
             {/* Grid layout representing calendar status */}
-            <div className="relative rounded-xl border border-[hsl(220,30%,12%)] bg-[hsl(222,44%,4%)] p-4 overflow-hidden">
+            <div className="relative rounded-xl border border-border bg-muted/10 p-4 overflow-hidden">
               {schedulingStatus === "running" && (
-                <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/60 backdrop-blur-[2px] z-10 space-y-3">
-                  <div className="w-16 h-1 bg-white/10 rounded overflow-hidden">
-                    <div className="h-full bg-blue-500 rounded transition-all duration-200" style={{ width: `${schedulerProgress}%` }} />
+                <div className="absolute inset-0 flex flex-col items-center justify-center bg-background/60 backdrop-blur-[2px] z-10 space-y-3">
+                  <div className="w-16 h-1 bg-muted rounded overflow-hidden">
+                    <div className="h-full bg-primary rounded transition-all duration-200" style={{ width: `${schedulerProgress}%` }} />
                   </div>
-                  <span className="text-xs font-mono text-blue-300">Satisfying {120 + schedulerProgress * 3} variables...</span>
+                  <span className="text-xs font-mono text-primary">Satisfying {120 + schedulerProgress * 3} variables...</span>
                 </div>
               )}
 
@@ -203,25 +203,25 @@ function InteractivePlayground() {
                       key={i}
                       className={`rounded-lg border p-3 flex flex-col justify-between transition-all duration-500 min-h-[4.5rem] ${
                         schedulingStatus === "success"
-                          ? "border-blue-500/30 bg-blue-500/5 hover:bg-blue-500/10 hover:border-blue-500/50"
-                          : "border-white/5 bg-transparent"
+                          ? "border-primary/30 bg-primary/5 hover:bg-primary/10 hover:border-primary/50"
+                          : "border-border bg-transparent"
                       }`}
                     >
-                      <div className="flex justify-between items-center text-[9px] font-mono text-[hsl(215,20%,40%)]">
+                      <div className="flex justify-between items-center text-[9px] font-mono text-muted-foreground">
                         <span>{day}</span>
                         <span>{slot}</span>
                       </div>
                       {schedulingStatus === "success" ? (
                         <div className="space-y-1 mt-2">
-                          <div className="w-full h-3 rounded-sm bg-blue-400/20 border border-blue-400/30 flex items-center px-1">
-                            <span className="text-[8px] font-semibold text-blue-300 truncate">CSE-102 (Room 402)</span>
+                          <div className="w-full h-3 rounded-sm bg-primary/20 border border-primary/30 flex items-center px-1">
+                            <span className="text-[8px] font-semibold text-primary truncate">CSE-102 (Room 402)</span>
                           </div>
-                          <div className="w-2/3 h-2.5 rounded-sm bg-emerald-400/10 border border-emerald-400/20 flex items-center px-1">
-                            <span className="text-[7px] text-emerald-400 truncate">Dr. Reeves</span>
+                          <div className="w-2/3 h-2.5 rounded-sm bg-emerald-500/10 border border-emerald-500/20 flex items-center px-1">
+                            <span className="text-[7px] text-emerald-600 truncate">Dr. Reeves</span>
                           </div>
                         </div>
                       ) : (
-                        <span className="text-[10px] text-[hsl(215,20%,30%)] italic mt-2">Unassigned</span>
+                        <span className="text-[10px] text-muted-foreground/60 italic mt-2">Unassigned</span>
                       )}
                     </div>
                   );
@@ -229,9 +229,9 @@ function InteractivePlayground() {
               </div>
             </div>
 
-            <div className="flex justify-between items-center text-xs text-[hsl(215,20%,40%)] font-mono border-t border-white/5 pt-4">
+            <div className="flex justify-between items-center text-xs text-muted-foreground font-mono border-t border-border pt-4">
               <span className="flex items-center gap-1">
-                <CheckCircle className="w-3.5 h-3.5 text-blue-500" />
+                <CheckCircle className="w-3.5 h-3.5 text-primary" />
                 Algorithm: Google OR-Tools CP-SAT
               </span>
               <span>
@@ -245,35 +245,35 @@ function InteractivePlayground() {
         {activeTab === "doubt-solver" && (
           <div className="space-y-5">
             {/* Header info */}
-            <div className="flex justify-between items-center bg-[hsl(222,44%,4%)] border border-white/5 rounded-xl px-4 py-2">
+            <div className="flex justify-between items-center bg-muted/10 border border-border rounded-xl px-4 py-2">
               <div className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-blue-500" />
-                <span className="text-xs font-semibold text-white">BenchRex Reasoning Platform</span>
+                <span className="w-2 h-2 rounded-full bg-primary" />
+                <span className="text-xs font-semibold text-foreground">BenchRex Reasoning Platform</span>
               </div>
               <div className="flex items-center gap-4 text-xs">
-                <span className="text-[hsl(215,20%,50%)]">Rate limit: 20 req/hr</span>
-                <div className="flex items-center gap-1 bg-blue-500/10 px-2 py-0.5 rounded border border-blue-500/20 text-blue-400 font-mono font-bold">
-                  <Coins className="w-3 h-3 text-blue-400" />
+                <span className="text-muted-foreground">Rate limit: 20 req/hr</span>
+                <div className="flex items-center gap-1 bg-primary/10 px-2 py-0.5 rounded border border-primary/20 text-primary font-mono font-bold">
+                  <Coins className="w-3 h-3 text-primary" />
                   {credits} Credits
                 </div>
               </div>
             </div>
 
             {/* Chatbox layout */}
-            <div className="h-56 rounded-xl border border-[hsl(220,30%,12%)] bg-[hsl(222,44%,4%)] p-4 overflow-y-auto space-y-3 flex flex-col justify-between">
+            <div className="h-56 rounded-xl border border-border bg-card p-4 overflow-y-auto space-y-3 flex flex-col justify-between">
               <div className="space-y-3 overflow-y-auto flex-1 scrollbar-none pr-2">
                 {doubtHistory.map((msg, i) => (
                   <div key={i} className={`flex flex-col ${msg.sender === "user" ? "items-end" : "items-start"}`}>
                     <div
                       className={`max-w-[85%] rounded-xl px-4 py-2.5 text-xs leading-relaxed ${
                         msg.sender === "user"
-                          ? "bg-blue-600 text-white rounded-br-none"
-                          : "bg-[hsl(220,30%,10%)] text-[hsl(210,40%,85%)] border border-white/5 rounded-bl-none"
+                          ? "bg-primary text-primary-foreground rounded-br-none"
+                          : "bg-muted text-foreground border border-border rounded-bl-none"
                       }`}
                     >
                       {msg.text}
                       {msg.code && (
-                        <pre className="mt-2.5 p-2 rounded bg-black/40 border border-white/5 font-mono text-[10px] text-blue-300 overflow-x-auto leading-normal">
+                        <pre className="mt-2.5 p-2 rounded bg-muted border border-border font-mono text-[10px] text-primary overflow-x-auto leading-normal">
                           {msg.code}
                         </pre>
                       )}
@@ -286,13 +286,13 @@ function InteractivePlayground() {
                               setSavedNotes([...savedNotes, msg.text]);
                             }
                           }}
-                          className="text-[9px] font-mono text-blue-400 hover:text-blue-300 transition-colors uppercase tracking-wider"
+                          className="text-[9px] font-mono text-primary hover:text-primary/80 transition-colors uppercase tracking-wider"
                         >
                           + Save to Notes Board
                         </button>
                         <a
                           href="/company#contact"
-                          className="text-[9px] font-mono text-purple-400 hover:text-purple-300 transition-colors uppercase tracking-wider"
+                          className="text-[9px] font-mono text-primary/95 hover:text-primary transition-colors uppercase tracking-wider"
                         >
                           Escalate to Expert
                         </a>
@@ -301,20 +301,20 @@ function InteractivePlayground() {
                   </div>
                 ))}
                 {isTyping && (
-                  <div className="flex items-center gap-1.5 text-xs text-[hsl(215,20%,40%)] ml-2">
-                    <span className="w-1.5 h-1.5 bg-blue-500 rounded-full animate-bounce" />
-                    <span className="w-1.5 h-1.5 bg-blue-500 rounded-full animate-bounce delay-75" />
-                    <span className="w-1.5 h-1.5 bg-blue-500 rounded-full animate-bounce delay-150" />
-                    <span className="font-mono text-[10px] text-[hsl(215,20%,45%)] ml-1">BenchRex is reasoning...</span>
+                  <div className="flex items-center gap-1.5 text-xs text-muted-foreground ml-2">
+                    <span className="w-1.5 h-1.5 bg-primary rounded-full animate-bounce" />
+                    <span className="w-1.5 h-1.5 bg-primary rounded-full animate-bounce delay-75" />
+                    <span className="w-1.5 h-1.5 bg-primary rounded-full animate-bounce delay-150" />
+                    <span className="font-mono text-[10px] text-muted-foreground/80 ml-1">BenchRex is reasoning...</span>
                   </div>
                 )}
               </div>
 
               {savedNotes.length > 0 && (
-                <div className="mt-3 pt-2.5 border-t border-white/5 flex flex-wrap items-center gap-2">
-                  <span className="text-[9px] font-mono text-[hsl(215,20%,40%)] uppercase tracking-wider">Notes Board:</span>
+                <div className="mt-3 pt-2.5 border-t border-border flex flex-wrap items-center gap-2">
+                  <span className="text-[9px] font-mono text-muted-foreground uppercase tracking-wider">Notes Board:</span>
                   {savedNotes.map((note, idx) => (
-                    <span key={idx} className="text-[9px] px-2 py-0.5 rounded bg-white/5 border border-white/10 text-[hsl(210,40%,75%)] max-w-[150px] truncate">
+                    <span key={idx} className="text-[9px] px-2 py-0.5 rounded bg-muted border border-border text-foreground/80 max-w-[150px] truncate">
                       {note}
                     </span>
                   ))}
@@ -330,28 +330,28 @@ function InteractivePlayground() {
                   value={doubtInput}
                   onChange={(e) => setDoubtInput(e.target.value)}
                   placeholder="Ask BenchRex a conceptual question..."
-                  className="flex-1 rounded-lg border border-[hsl(220,30%,14%)] bg-[hsl(220,30%,5%)] px-4 py-2.5 text-xs text-white placeholder-[hsl(215,20%,40%)] focus:outline-none focus:border-blue-500 transition-colors"
+                  className="flex-1 rounded-lg border border-border bg-card px-4 py-2.5 text-xs text-foreground placeholder-muted-foreground/60 focus:outline-none focus:border-primary transition-colors"
                   onKeyDown={(e) => e.key === "Enter" && handleAskDoubt()}
                 />
                 <button
                   onClick={() => handleAskDoubt()}
                   disabled={isTyping}
-                  className="bg-blue-600 hover:bg-blue-500 text-white rounded-lg px-5 py-2.5 text-xs font-bold transition-all shadow-lg shadow-blue-500/10 active:scale-95"
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg px-5 py-2.5 text-xs font-bold transition-all active:scale-95"
                 >
                   Ask
                 </button>
               </div>
               <div className="flex flex-wrap gap-2 items-center">
-                <span className="text-[10px] font-mono text-[hsl(215,20%,40%)] uppercase">Try:</span>
+                <span className="text-[10px] font-mono text-muted-foreground uppercase">Try:</span>
                 <button
                   onClick={() => handleAskDoubt("What is the time complexity of Heap Sort?")}
-                  className="text-[10px] px-2.5 py-1 rounded-full border border-white/5 bg-[hsl(220,30%,8%)] text-[hsl(210,40%,75%)] hover:border-blue-500/30 hover:text-white transition-colors"
+                  className="text-[10px] px-2.5 py-1 rounded-full border border-border bg-muted/50 text-muted-foreground hover:border-primary/30 hover:text-foreground transition-colors"
                 >
                   Heap Sort Time Complexity
                 </button>
                 <button
                   onClick={() => handleAskDoubt("Explain IAS 1 Balance Sheet structure")}
-                  className="text-[10px] px-2.5 py-1 rounded-full border border-white/5 bg-[hsl(220,30%,8%)] text-[hsl(210,40%,75%)] hover:border-blue-500/30 hover:text-white transition-colors"
+                  className="text-[10px] px-2.5 py-1 rounded-full border border-border bg-muted/50 text-muted-foreground hover:border-primary/30 hover:text-foreground transition-colors"
                 >
                   IAS 1 Balance Sheet Rules
                 </button>
@@ -364,32 +364,32 @@ function InteractivePlayground() {
         {activeTab === "ingestion" && (
           <div className="space-y-6">
             <div>
-              <span className="text-[10px] font-mono text-purple-400 uppercase tracking-widest bg-purple-500/10 px-2 py-0.5 rounded border border-purple-500/20">
+              <span className="text-[10px] font-mono text-primary uppercase tracking-widest bg-primary/10 px-2 py-0.5 rounded border border-primary/20">
                 Source Ingestion & Parsing
               </span>
-              <h3 className="text-xl font-bold text-white mt-2">Convert Raw Educational Media to AI Ready Knowledge</h3>
-              <p className="text-sm text-[hsl(215,20%,50%)] mt-1">
+              <h3 className="text-xl font-bold text-foreground mt-2">Convert Raw Educational Media to AI Ready Knowledge</h3>
+              <p className="text-sm text-muted-foreground mt-1">
                 Our parsing pipeline breaks down textbooks, videos, and syllabus schedules into context vectors.
               </p>
             </div>
 
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="border border-dashed border-[hsl(220,30%,16%)] bg-[hsl(222,44%,4%)] rounded-xl p-6 flex flex-col items-center justify-center text-center transition-all hover:bg-[hsl(220,30%,5%)]">
-                <UploadCloud className="w-10 h-10 text-blue-500/60 mb-3" />
-                <h4 className="text-sm font-semibold text-white mb-1">Upload Syllabus, Reference Books, or Lecture Notes</h4>
-                <p className="text-xs text-[hsl(215,20%,40%)] mb-4 max-w-[280px]">
+              <div className="border border-dashed border-border bg-muted/10 rounded-xl p-6 flex flex-col items-center justify-center text-center transition-all hover:bg-muted/20">
+                <UploadCloud className="w-10 h-10 text-primary/60 mb-3" />
+                <h4 className="text-sm font-semibold text-foreground mb-1">Upload Syllabus, Reference Books, or Lecture Notes</h4>
+                <p className="text-xs text-muted-foreground mb-4 max-w-[280px]">
                   PDF, DOCX, Markdown or URL links parsed directly into BenchRex embeddings.
                 </p>
                 <div className="flex gap-2">
                   <button
                     onClick={() => handleIngest("Algorithms_Intro.pdf")}
-                    className="text-xs px-3.5 py-1.5 rounded bg-blue-600/10 border border-blue-500/20 text-blue-400 hover:bg-blue-600 hover:text-white transition-all font-semibold"
+                    className="text-xs px-3.5 py-1.5 rounded bg-primary/10 border border-primary/20 text-primary hover:bg-primary hover:text-primary-foreground transition-all font-semibold"
                   >
                     Simulate PDF Upload
                   </button>
                   <button
                     onClick={() => handleIngest("Lecture_10_Syllabus.docx")}
-                    className="text-xs px-3.5 py-1.5 rounded bg-purple-600/10 border border-purple-500/20 text-purple-400 hover:bg-purple-600 hover:text-white transition-all font-semibold"
+                    className="text-xs px-3.5 py-1.5 rounded bg-primary/10 border border-primary/20 text-primary hover:bg-primary hover:text-primary-foreground transition-all font-semibold"
                   >
                     Simulate DOCX Upload
                   </button>
@@ -397,18 +397,18 @@ function InteractivePlayground() {
               </div>
 
               {/* Status / Output Display */}
-              <div className="rounded-xl border border-[hsl(220,30%,12%)] bg-[hsl(222,44%,5%)] p-5 flex flex-col justify-between">
+              <div className="rounded-xl border border-border bg-card p-5 flex flex-col justify-between">
                 <div>
-                  <h4 className="text-xs font-mono text-[hsl(215,20%,40%)] uppercase tracking-wider mb-3">Parsing Pipeline Monitor</h4>
+                  <h4 className="text-xs font-mono text-muted-foreground uppercase tracking-wider mb-3">Parsing Pipeline Monitor</h4>
                   {ingestStep === "idle" ? (
-                    <div className="text-xs text-[hsl(215,20%,45%)] italic flex items-center justify-center h-28 border border-white/5 rounded-lg">
+                    <div className="text-xs text-muted-foreground italic flex items-center justify-center h-28 border border-border rounded-lg">
                       Waiting for file upload trigger...
                     </div>
                   ) : (
                     <div className="space-y-4">
                       <div className="flex justify-between items-center text-xs">
-                        <span className="text-white font-semibold font-mono">{ingestFile}</span>
-                        <span className="text-blue-400 font-mono font-bold capitalize animate-pulse">{ingestStep}</span>
+                        <span className="text-foreground font-semibold font-mono">{ingestFile}</span>
+                        <span className="text-primary font-mono font-bold capitalize animate-pulse">{ingestStep}</span>
                       </div>
                       <div className="space-y-2">
                         {[
@@ -425,17 +425,17 @@ function InteractivePlayground() {
                           return (
                             <div key={s.step} className="flex gap-2.5 items-start text-xs">
                               {isFinished ? (
-                                <CheckCircle className="w-4 h-4 text-emerald-400 flex-shrink-0 mt-0.5" />
+                                <CheckCircle className="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" />
                               ) : isActive ? (
-                                <Cpu className="w-4 h-4 text-blue-400 animate-spin flex-shrink-0 mt-0.5" />
+                                <Cpu className="w-4 h-4 text-primary animate-spin flex-shrink-0 mt-0.5" />
                               ) : (
-                                <div className="w-4 h-4 rounded-full border border-white/10 flex-shrink-0 mt-0.5" />
+                                <div className="w-4 h-4 rounded-full border border-border flex-shrink-0 mt-0.5" />
                               )}
                               <div>
-                                <span className={`font-semibold capitalize block ${isFinished ? "text-white" : "text-[hsl(215,20%,35%)]"}`}>
+                                <span className={`font-semibold capitalize block ${isFinished ? "text-foreground" : "text-muted-foreground/60"}`}>
                                   {s.step}
                                 </span>
-                                <span className="text-[10px] text-[hsl(215,20%,45%)] leading-snug">{s.label}</span>
+                                <span className="text-[10px] text-muted-foreground leading-snug">{s.label}</span>
                               </div>
                             </div>
                           );
@@ -444,7 +444,7 @@ function InteractivePlayground() {
                     </div>
                   )}
                 </div>
-                <div className="text-[10px] text-[hsl(215,20%,40%)] font-mono flex items-center justify-between border-t border-white/5 pt-3 mt-4">
+                <div className="text-[10px] text-muted-foreground font-mono flex items-center justify-between border-t border-border pt-3 mt-4">
                   <span>Engine: Threnlabs-VectorParser v1.2</span>
                   <span>Isolation: FERPA Secure</span>
                 </div>
@@ -457,22 +457,22 @@ function InteractivePlayground() {
         {activeTab === "refueling" && (
           <div className="space-y-6">
             <div>
-              <span className="text-[10px] font-mono text-emerald-400 uppercase tracking-widest bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
+              <span className="text-[10px] font-mono text-primary uppercase tracking-widest bg-primary/10 px-2 py-0.5 rounded border border-primary/20">
                 Score-Based Resource Allocation
               </span>
-              <h3 className="text-xl font-bold text-white mt-2">Test Score Credit Refueling</h3>
-              <p className="text-sm text-[hsl(215,20%,50%)] mt-1">
+              <h3 className="text-xl font-bold text-foreground mt-2">Test Score Credit Refueling</h3>
+              <p className="text-sm text-muted-foreground mt-1">
                 Gamify study efforts. Connect test performance logs to BenchRex API token rewards automatically.
               </p>
             </div>
 
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="rounded-xl border border-[hsl(220,30%,12%)] bg-[hsl(222,44%,4%)] p-5 space-y-4">
-                <h4 className="text-xs font-mono text-[hsl(215,20%,40%)] uppercase tracking-wider">Test Records Logger</h4>
+              <div className="rounded-xl border border-border bg-muted/10 p-5 space-y-4">
+                <h4 className="text-xs font-mono text-muted-foreground uppercase tracking-wider">Test Records Logger</h4>
                 <div className="space-y-3">
                   <div className="flex justify-between items-center text-xs">
-                    <span className="text-[hsl(215,20%,50%)] font-medium">Select Test Performance:</span>
-                    <span className="text-white font-bold font-mono">{testScore}% Score</span>
+                    <span className="text-muted-foreground font-medium">Select Test Performance:</span>
+                    <span className="text-foreground font-bold font-mono">{testScore}% Score</span>
                   </div>
                   <input
                     type="range"
@@ -483,38 +483,38 @@ function InteractivePlayground() {
                       if (!refuelClaimed) setTestScore(Number(e.target.value));
                     }}
                     disabled={refuelClaimed}
-                    className="w-full accent-blue-500 h-1 bg-white/10 rounded-lg cursor-pointer"
+                    className="w-full accent-primary h-1 bg-muted rounded-lg cursor-pointer"
                   />
-                  <div className="flex justify-between text-[9px] font-mono text-[hsl(215,20%,40%)]">
+                  <div className="flex justify-between text-[9px] font-mono text-muted-foreground">
                     <span>Passing: 50%</span>
                     <span>Excellent: 90%+</span>
                   </div>
-                  <div className="p-3.5 bg-blue-500/5 rounded-lg border border-blue-500/10 text-xs text-[hsl(210,40%,80%)] leading-relaxed">
-                    <Award className="w-4 h-4 text-yellow-400 inline-block mr-1.5 -mt-0.5" />
+                  <div className="p-3.5 bg-primary/5 rounded-lg border border-primary/10 text-xs text-foreground/95 leading-relaxed">
+                    <Award className="w-4 h-4 text-yellow-500 inline-block mr-1.5 -mt-0.5" />
                     <strong>Refuel Reward Rule:</strong> Every 5 percentage points earned above passing adds 1 credit (e.g. {testScore}% = {Math.floor(testScore / 5)} credits).
                   </div>
                 </div>
               </div>
 
-              <div className="rounded-xl border border-[hsl(220,30%,12%)] bg-[hsl(222,44%,5%)] p-5 flex flex-col justify-between">
+              <div className="rounded-xl border border-border bg-card p-5 flex flex-col justify-between">
                 <div>
-                  <h4 className="text-xs font-mono text-[hsl(215,20%,40%)] uppercase tracking-wider mb-4">Student Wallet</h4>
-                  <div className="flex items-center justify-between border-b border-white/5 pb-4 mb-4">
+                  <h4 className="text-xs font-mono text-muted-foreground uppercase tracking-wider mb-4">Student Wallet</h4>
+                  <div className="flex items-center justify-between border-b border-border pb-4 mb-4">
                     <div>
-                      <span className="text-[10px] text-[hsl(215,20%,40%)] uppercase block font-mono">Current Balance</span>
-                      <span className="text-3xl font-black text-white font-mono flex items-center gap-1.5 mt-1">
-                        <Coins className="w-6 h-6 text-blue-400" />
-                        {credits} <span className="text-xs text-[hsl(215,20%,50%)] font-normal font-sans">tokens</span>
+                      <span className="text-[10px] text-muted-foreground uppercase block font-mono">Current Balance</span>
+                      <span className="text-3xl font-black text-foreground font-mono flex items-center gap-1.5 mt-1">
+                        <Coins className="w-6 h-6 text-primary" />
+                        {credits} <span className="text-xs text-muted-foreground font-normal font-sans">tokens</span>
                       </span>
                     </div>
                     <div>
-                      <span className="text-[10px] text-[hsl(215,20%,40%)] uppercase block font-mono text-right">Refuel Status</span>
+                      <span className="text-[10px] text-muted-foreground uppercase block font-mono text-right">Refuel Status</span>
                       {refuelClaimed ? (
-                        <span className="text-xs px-2.5 py-1 bg-emerald-500/15 border border-emerald-500/20 text-emerald-400 rounded-full font-bold mt-1 block">
+                        <span className="text-xs px-2.5 py-1 bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 rounded-full font-bold mt-1 block">
                           Claimed
                         </span>
                       ) : (
-                        <span className="text-xs px-2.5 py-1 bg-yellow-500/15 border border-yellow-500/20 text-yellow-400 rounded-full font-bold mt-1 block">
+                        <span className="text-xs px-2.5 py-1 bg-yellow-500/10 border border-yellow-500/20 text-yellow-600 rounded-full font-bold mt-1 block">
                           Ready to Claim
                         </span>
                       )}
@@ -523,12 +523,12 @@ function InteractivePlayground() {
 
                   <div className="space-y-2 text-xs">
                     <div className="flex justify-between">
-                      <span className="text-[hsl(215,20%,50%)]">Earned credits:</span>
-                      <span className="font-mono text-white font-semibold">+{Math.floor(testScore / 5)} credits</span>
+                      <span className="text-muted-foreground">Earned credits:</span>
+                      <span className="font-mono text-foreground font-semibold">+{Math.floor(testScore / 5)} credits</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-[hsl(215,20%,50%)]">Logged Subject:</span>
-                      <span className="font-mono text-white font-semibold">Discrete Mathematics</span>
+                      <span className="text-muted-foreground">Logged Subject:</span>
+                      <span className="font-mono text-foreground font-semibold">Discrete Mathematics</span>
                     </div>
                   </div>
                 </div>
@@ -538,8 +538,8 @@ function InteractivePlayground() {
                   disabled={refuelClaimed}
                   className={`w-full py-3 rounded-lg text-xs font-bold mt-6 transition-all ${
                     refuelClaimed
-                      ? "bg-white/5 text-[hsl(215,20%,40%)] cursor-not-allowed border border-white/5"
-                      : "bg-blue-600 hover:bg-blue-500 text-white font-bold shadow-lg shadow-blue-500/25 active:scale-95"
+                      ? "bg-muted text-muted-foreground/60 cursor-not-allowed border border-border"
+                      : "bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-sm active:scale-95"
                   }`}
                 >
                   {refuelClaimed ? "Credits Refueled Successfully" : "Claim Credits from Test Score"}
@@ -589,7 +589,7 @@ export default function ScholarsAnchorPage() {
           >
             <Link
               href="/products"
-              className="inline-flex items-center gap-1.5 text-xs text-[hsl(215,20%,45%)] hover:text-white transition-colors mb-8 group"
+              className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground transition-colors mb-8 group"
             >
               <svg className="w-3.5 h-3.5 group-hover:-translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -597,20 +597,20 @@ export default function ScholarsAnchorPage() {
               All Products
             </Link>
 
-            <h1 className="text-5xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-white to-white/60 tracking-tight mb-6">
+            <h1 className="text-5xl md:text-7xl font-bold text-foreground tracking-tight mb-6">
               ScholarsAnchor
             </h1>
-            <p className="text-2xl md:text-3xl text-blue-400 font-bold mb-6">
+            <p className="text-2xl md:text-3xl text-primary font-bold mb-6">
               E2E AI Control Suite for Educational Institutions
             </p>
-            <p className="text-xl text-[hsl(215,20%,55%)] max-w-4xl leading-relaxed mb-12 mx-auto">
+            <p className="text-xl text-muted-foreground max-w-4xl leading-relaxed mb-12 mx-auto">
               Revamped and unified. ScholarsAnchor gives schools, colleges, and universities absolute command over operational scheduling with <strong>CalendarSync</strong> and conceptual academic doubt-solving with <strong>BenchRex</strong>.
             </p>
 
             <div className="flex flex-wrap gap-6 justify-center">
               <Link
                 href="/company#contact"
-                className="group inline-flex items-center gap-3 px-10 py-5 bg-white/[0.03] border border-[hsl(220,30%,20%)] hover:bg-gradient-to-br hover:from-blue-600 hover:to-indigo-700 text-white font-black rounded-2xl transition-all hover:scale-105 hover:shadow-[0_20px_50px_-12px_rgba(59,130,246,0.5)] text-lg shadow-xl shadow-blue-500/10 active:scale-95 hover:border-transparent"
+                className="group inline-flex items-center gap-3 px-10 py-5 bg-primary hover:bg-primary/90 text-primary-foreground border border-primary font-semibold rounded-2xl transition-all hover:scale-105 hover:shadow-[0_20px_50px_-12px_rgba(59,130,246,0.15)] text-lg active:scale-95"
               >
                 Connect with our Team
                 <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -619,7 +619,7 @@ export default function ScholarsAnchorPage() {
               </Link>
               <a
                 href="#interactive-demo"
-                className="inline-flex items-center gap-2 px-10 py-5 border border-[hsl(220,30%,20%)] hover:bg-white/[0.03] text-[hsl(210,40%,75%)] hover:text-white rounded-2xl transition-all text-lg font-medium hover:border-blue-500/30"
+                className="inline-flex items-center gap-2 px-10 py-5 border border-border hover:bg-muted/50 text-muted-foreground hover:text-foreground rounded-2xl transition-all text-lg font-medium"
               >
                 Interactive Playground
               </a>
@@ -629,38 +629,38 @@ export default function ScholarsAnchorPage() {
       </section>
 
       {/* Two Core Components Section */}
-      <section className="py-20 px-6 lg:px-8 border-y border-[hsl(220,30%,10%)] bg-[hsl(222,47%,4%)] relative overflow-hidden">
+      <section className="py-20 px-6 lg:px-8 border-y border-border bg-muted/10 relative overflow-hidden">
         <RadialGlow color="violet" className="w-[50rem] h-[37.5rem] bottom-0 right-0 translate-x-1/3" />
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <SectionLabel color="blue">Product Integration</SectionLabel>
-            <h2 className="text-3xl md:text-5xl font-bold text-white mt-4">One Integrated Operational Canopy</h2>
-            <p className="text-[hsl(215,20%,55%)] mt-3 max-w-2xl mx-auto">
+            <h2 className="text-3xl md:text-5xl font-bold text-foreground mt-4">One Integrated Operational Canopy</h2>
+            <p className="text-muted-foreground mt-3 max-w-2xl mx-auto">
               ScholarsAnchor compiles and encapsulates the two key pillars of modern educational AI: scheduling automation and reasoning-first knowledge assistance.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
             {/* CalendarSync Card */}
-            <div className="relative rounded-3xl border border-[hsl(220,30%,14%)] bg-[hsl(222,44%,7%)] p-8 lg:p-10 flex flex-col justify-between overflow-hidden group hover:border-blue-500/30 transition-all duration-300">
-              <div className="absolute -top-16 -right-16 w-48 h-48 bg-blue-500/5 rounded-full blur-3xl" />
+            <div className="relative rounded-3xl border border-border bg-card p-8 lg:p-10 flex flex-col justify-between overflow-hidden group hover:border-primary/30 transition-all duration-300 shadow-sm">
+              <div className="absolute -top-16 -right-16 w-48 h-48 bg-primary/5 rounded-full blur-3xl" />
               <div>
-                <div className="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 mb-6">
+                <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary mb-6">
                   <Calendar className="w-6 h-6" />
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-3">CalendarSync Engine</h3>
-                <p className="text-sm text-[hsl(215,20%,50%)] leading-relaxed mb-6">
+                <h3 className="text-2xl font-bold text-foreground mb-3">CalendarSync Engine</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-6">
                   Sustained, algorithm-grounded automatic scheduling. Configures complex parameters like teacher hourly load targets, course credits, student cohort priorities, and classroom availabilities to generate complete conflict-free timetables.
                 </p>
               </div>
-              <ul className="space-y-3.5 border-t border-white/5 pt-6 mt-4">
+              <ul className="space-y-3.5 border-t border-border pt-6 mt-4">
                 {[
                   "CP-SAT Constraint Solver optimization",
                   "Real-time resource conflicts detection",
                   "Department-level coordination parameters override"
                 ].map((feat) => (
-                  <li key={feat} className="flex items-center gap-3 text-xs text-[hsl(210,40%,80%)]">
-                    <CheckCircle className="w-4 h-4 text-blue-400 flex-shrink-0" />
+                  <li key={feat} className="flex items-center gap-3 text-xs text-foreground/90">
+                    <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
                     {feat}
                   </li>
                 ))}
@@ -668,25 +668,25 @@ export default function ScholarsAnchorPage() {
             </div>
 
             {/* BenchRex Card */}
-            <div className="relative rounded-3xl border border-[hsl(220,30%,14%)] bg-[hsl(222,44%,7%)] p-8 lg:p-10 flex flex-col justify-between overflow-hidden group hover:border-purple-500/30 transition-all duration-300">
-              <div className="absolute -top-16 -right-16 w-48 h-48 bg-purple-500/5 rounded-full blur-3xl" />
+            <div className="relative rounded-3xl border border-border bg-card p-8 lg:p-10 flex flex-col justify-between overflow-hidden group hover:border-primary/30 transition-all duration-300 shadow-sm">
+              <div className="absolute -top-16 -right-16 w-48 h-48 bg-primary/5 rounded-full blur-3xl" />
               <div>
-                <div className="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400 mb-6">
+                <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary mb-6">
                   <Sparkles className="w-6 h-6" />
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-3">BenchRex Platform</h3>
-                <p className="text-sm text-[hsl(215,20%,50%)] leading-relaxed mb-6">
+                <h3 className="text-2xl font-bold text-foreground mb-3">BenchRex Platform</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-6">
                   A designated student doubt-solving workspace leveraging deep model reasoning. It uses semantic context and reference indexes to assist students in understanding complex topics without losing the baseline academic curriculum guidelines.
                 </p>
               </div>
-              <ul className="space-y-3.5 border-t border-white/5 pt-6 mt-4">
+              <ul className="space-y-3.5 border-t border-border pt-6 mt-4">
                 {[
                   "Reasoning doubts platform with attribution",
                   "Expert support escalation for specific complex doubts",
                   "Digital Notes Board to save doubts and solutions"
                 ].map((feat) => (
-                  <li key={feat} className="flex items-center gap-3 text-xs text-[hsl(210,40%,80%)]">
-                    <CheckCircle className="w-4 h-4 text-purple-400 flex-shrink-0" />
+                  <li key={feat} className="flex items-center gap-3 text-xs text-foreground/90">
+                    <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
                     {feat}
                   </li>
                 ))}
@@ -701,8 +701,8 @@ export default function ScholarsAnchorPage() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <SectionLabel color="blue">Live Simulator</SectionLabel>
-            <h2 className="text-3xl md:text-5xl font-bold text-white mt-4">Experience ScholarsAnchor Operational Flow</h2>
-            <p className="text-[hsl(215,20%,55%)] mt-3 max-w-2xl mx-auto">
+            <h2 className="text-3xl md:text-5xl font-bold text-foreground mt-4">Experience ScholarsAnchor Operational Flow</h2>
+            <p className="text-muted-foreground mt-3 max-w-2xl mx-auto">
               Test drive the interface, build schedules, resolve reasoning doubts with BenchRex, or refuel credits.
             </p>
           </div>
@@ -712,13 +712,13 @@ export default function ScholarsAnchorPage() {
       </section>
 
       {/* Complete E2E Control Suite Features */}
-      <section className="py-24 px-6 lg:px-8 bg-[hsl(222,47%,3%)] border-t border-[hsl(220,30%,12%)] relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/4" />
+      <section className="py-24 px-6 lg:px-8 bg-muted/10 border-t border-border relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/4" />
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20">
             <SectionLabel color="blue">Core Platform Features</SectionLabel>
-            <h2 className="text-4xl md:text-5xl font-bold text-white mt-4">The Complete Administrative Canopy</h2>
-            <p className="text-lg text-[hsl(215,20%,55%)] mt-3 max-w-xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mt-4">The Complete Administrative Canopy</h2>
+            <p className="text-lg text-muted-foreground mt-3 max-w-xl mx-auto">
               Everything required to operationalize artificial intelligence safely in schools, colleges, and universities.
             </p>
           </div>
@@ -775,13 +775,13 @@ export default function ScholarsAnchorPage() {
               return (
                 <div
                   key={i}
-                  className="p-6 rounded-2xl border border-[hsl(220,30%,14%)] bg-[hsl(222,44%,7%)] hover:border-blue-500/25 transition-all duration-300"
+                  className="p-6 rounded-2xl border border-border bg-card hover:border-primary/25 transition-all duration-300 shadow-sm"
                 >
-                  <div className="w-10 h-10 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 mb-5">
+                  <div className="w-10 h-10 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center text-primary mb-5">
                     <Icon className="w-5 h-5" />
                   </div>
-                  <h3 className="text-lg font-bold text-white mb-2">{feat.title}</h3>
-                  <p className="text-xs text-[hsl(215,20%,48%)] leading-relaxed">{feat.desc}</p>
+                  <h3 className="text-lg font-bold text-foreground mb-2">{feat.title}</h3>
+                  <p className="text-xs text-muted-foreground leading-relaxed">{feat.desc}</p>
                 </div>
               );
             })}
@@ -790,25 +790,25 @@ export default function ScholarsAnchorPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 px-6 lg:px-8 border-t border-[hsl(220,30%,10%)] relative overflow-hidden">
+      <section className="py-24 px-6 lg:px-8 border-t border-border relative overflow-hidden">
         <RadialGlow color="blue" className="w-[37.5rem] h-[25rem] top-0 left-1/2 -translate-x-1/2 opacity-40" />
         <div className="max-w-3xl mx-auto text-center relative z-10">
-          <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight mb-5 leading-tight">
-            Ready to empower your institution with <span className="text-blue-400">ScholarsAnchor?</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground tracking-tight mb-5 leading-tight">
+            Ready to empower your institution with <span className="text-primary">ScholarsAnchor?</span>
           </h2>
-          <p className="text-lg text-[hsl(215,20%,55%)] mb-10 leading-relaxed">
+          <p className="text-lg text-muted-foreground mb-10 leading-relaxed">
             Get in touch with our operations team to set up an early pilot program. We will integrate your calendars, test scoring APIs, and learning management systems.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/company#contact"
-              className="px-8 py-4 bg-blue-500 hover:bg-blue-400 text-white font-bold rounded-xl transition-all shadow-lg shadow-blue-500/20 hover:scale-105 active:scale-95"
+              className="px-8 py-4 bg-primary hover:bg-primary/90 text-primary-foreground font-bold rounded-xl transition-all shadow-sm hover:scale-105 active:scale-95"
             >
               Contact our team
             </Link>
             <Link
               href="/products"
-              className="px-8 py-4 border border-[hsl(220,30%,20%)] hover:border-blue-500/40 text-[hsl(210,40%,75%)] hover:text-white rounded-xl transition-all font-semibold"
+              className="px-8 py-4 border border-border hover:border-muted-foreground text-muted-foreground hover:text-foreground rounded-xl transition-all font-semibold"
             >
               View other products
             </Link>

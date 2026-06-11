@@ -199,15 +199,15 @@ function DropdownPanel({ columns, visible }: { columns: NavColumn[]; visible: bo
     >
       {/* Caret arrow */}
       <div className="flex justify-center">
-        <div className="w-2.5 h-2.5 rotate-45 bg-[hsl(222,44%,10%)] border-l border-t border-[hsl(220,30%,20%)]" style={{ marginBottom: "-1px" }} />
+        <div className="w-2.5 h-2.5 rotate-45 bg-card border-l border-t border-border" style={{ marginBottom: "-1px" }} />
       </div>
 
-      <div className="bg-[hsl(222,44%,10%)] border border-[hsl(220,30%,20%)] rounded-xl shadow-2xl overflow-hidden min-w-[32.5rem]">
-        <div className={`grid divide-x divide-[hsl(220,30%,17%)] ${columns.length === 2 ? "grid-cols-2" : "grid-cols-3"}`}>
+      <div className="bg-card border border-border rounded-xl shadow-lg overflow-hidden min-w-[32.5rem]">
+        <div className={`grid divide-x divide-border ${columns.length === 2 ? "grid-cols-2" : "grid-cols-3"}`}>
           {columns.map((col, ci) => (
             <div key={ci} className="p-4">
               {/* Column heading */}
-              <div className="text-[10px] font-bold tracking-[0.12em] text-[hsl(215,20%,38%)] uppercase mb-3 px-2">
+              <div className="text-[10px] font-bold tracking-[0.12em] text-muted-foreground/80 uppercase mb-3 px-2">
                 {col.heading}
               </div>
 
@@ -222,15 +222,15 @@ function DropdownPanel({ columns, visible }: { columns: NavColumn[]; visible: bo
                     <LinkComponent
                       key={item.href}
                       {...(linkProps as any)}
-                      className="group flex flex-col gap-0.5 px-2 py-2.5 rounded-lg hover:bg-[hsl(220,30%,14%)] transition-colors duration-100 cursor-pointer"
+                      className="group flex flex-col gap-0.5 px-2 py-2.5 rounded-lg hover:bg-muted/50 transition-colors duration-100 cursor-pointer"
                     >
                       <div className="flex items-center gap-2">
-                        <span className="text-sm font-medium text-[hsl(210,40%,88%)] group-hover:text-white transition-colors leading-none">
+                        <span className="text-sm font-medium text-foreground group-hover:text-primary transition-colors leading-none">
                           {item.label}
                         </span>
                         {item.tag && <TagBadge tag={item.tag} />}
                       </div>
-                      <span className="text-xs text-[hsl(215,20%,44%)] leading-snug">
+                      <span className="text-xs text-muted-foreground leading-snug">
                         {item.desc}
                       </span>
                     </LinkComponent>
@@ -242,11 +242,11 @@ function DropdownPanel({ columns, visible }: { columns: NavColumn[]; visible: bo
         </div>
 
         {/* Footer strip */}
-        <div className="border-t border-[hsl(220,30%,17%)] px-5 py-2.5 flex items-center justify-between bg-[hsl(222,47%,8%)]">
-          <span className="text-[11px] text-[hsl(215,20%,36%)]">Threnlabs AI/DL Platform</span>
+        <div className="border-t border-border px-5 py-2.5 flex items-center justify-between bg-muted/30">
+          <span className="text-[11px] text-muted-foreground/70">Threnlabs AI/DL Platform</span>
           <Link
             href="/products"
-            className="text-[11px] text-blue-400 hover:text-blue-300 transition-colors flex items-center gap-1"
+            className="text-[11px] text-primary hover:text-primary/80 transition-colors flex items-center gap-1"
           >
             View all products
             <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -299,7 +299,7 @@ export function Nav() {
     <nav
       ref={navRef}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
-        ? "bg-[hsl(222,47%,5%)]/95 backdrop-blur-xl border-b border-[hsl(220,30%,14%)]"
+        ? "bg-background/90 backdrop-blur-md border-b border-border shadow-sm"
         : "bg-transparent"
         }`}
     >
@@ -321,13 +321,13 @@ export function Nav() {
               <button
                 onClick={() => handleNavClick(item.label)}
                 className={`flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-150 select-none ${openMenu === item.label
-                  ? "text-white bg-[hsl(220,30%,13%)]"
-                  : "text-[hsl(215,20%,58%)] hover:text-white hover:bg-[hsl(220,30%,11%)]"
+                  ? "text-foreground bg-muted"
+                  : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
                   }`}
               >
                 {item.label}
                 <svg
-                  className={`w-3.5 h-3.5 transition-transform duration-200 ${openMenu === item.label ? "rotate-180 text-blue-400" : "text-[hsl(215,20%,40%)]"}`}
+                  className={`w-3.5 h-3.5 transition-transform duration-200 ${openMenu === item.label ? "rotate-180 text-primary" : "text-muted-foreground/60"}`}
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -346,7 +346,7 @@ export function Nav() {
         <div className="hidden md:flex items-center gap-3 z-10">
           <Link
             href="/company#contact"
-            className="text-sm text-[hsl(215,20%,55%)] hover:text-white transition-colors px-4 py-1.5 rounded-lg hover:bg-[hsl(220,30%,11%)]"
+            className="text-sm text-muted-foreground hover:text-foreground transition-colors px-4 py-1.5 rounded-lg hover:bg-muted/50"
           >
             Connect
           </Link>
@@ -358,9 +358,9 @@ export function Nav() {
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
         >
-          <span className={`block w-5 h-0.5 bg-white transition-all duration-200 origin-center ${mobileOpen ? "rotate-45 translate-y-2" : ""}`} />
-          <span className={`block w-5 h-0.5 bg-white transition-all duration-200 ${mobileOpen ? "opacity-0 scale-x-0" : ""}`} />
-          <span className={`block w-5 h-0.5 bg-white transition-all duration-200 origin-center ${mobileOpen ? "-rotate-45 -translate-y-2" : ""}`} />
+          <span className={`block w-5 h-0.5 bg-foreground transition-all duration-200 origin-center ${mobileOpen ? "rotate-45 translate-y-2" : ""}`} />
+          <span className={`block w-5 h-0.5 bg-foreground transition-all duration-200 ${mobileOpen ? "opacity-0 scale-x-0" : ""}`} />
+          <span className={`block w-5 h-0.5 bg-foreground transition-all duration-200 origin-center ${mobileOpen ? "-rotate-45 -translate-y-2" : ""}`} />
         </button>
       </div>
 
@@ -369,16 +369,16 @@ export function Nav() {
         className={`md:hidden overflow-hidden transition-all duration-300 ${mobileOpen ? "max-h-[80vh]" : "max-h-0"
           }`}
       >
-        <div className="bg-[hsl(222,44%,6%)] border-t border-[hsl(220,30%,14%)] overflow-y-auto">
+        <div className="bg-background border-t border-border shadow-lg overflow-y-auto">
           {navItems.filter(i => !i.hidden).map((item) => (
-            <div key={item.label} className="border-b border-[hsl(220,30%,11%)]">
+            <div key={item.label} className="border-b border-border">
               <button
                 onClick={() => setMobileExpanded(mobileExpanded === item.label ? null : item.label)}
-                className="w-full flex items-center justify-between px-6 py-4 text-sm font-medium text-[hsl(210,40%,80%)] hover:text-white transition-colors"
+                className="w-full flex items-center justify-between px-6 py-4 text-sm font-medium text-foreground/90 hover:text-foreground transition-colors"
               >
                 <span>{item.label}</span>
                 <svg
-                  className={`w-4 h-4 text-[hsl(215,20%,40%)] transition-transform duration-200 ${mobileExpanded === item.label ? "rotate-180" : ""}`}
+                  className={`w-4 h-4 text-muted-foreground/60 transition-transform duration-200 ${mobileExpanded === item.label ? "rotate-180" : ""}`}
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -392,7 +392,7 @@ export function Nav() {
                 <div className="pb-3">
                   {item.columns.map((col, ci) => (
                     <div key={ci} className="px-5 mb-3">
-                      <div className="text-[10px] font-bold tracking-widest text-[hsl(215,20%,35%)] uppercase mb-2 ml-1">
+                       <div className="text-[10px] font-bold tracking-widest text-muted-foreground/70 uppercase mb-2 ml-1">
                         {col.heading}
                       </div>
                       <div className="space-y-0.5">
@@ -405,13 +405,13 @@ export function Nav() {
                             <LinkComponent
                               key={link.href}
                               {...(linkProps as any)}
-                              className="flex items-center justify-between px-2 py-2.5 rounded-lg hover:bg-[hsl(220,30%,13%)] transition-colors"
+                              className="flex items-center justify-between px-2 py-2.5 rounded-lg hover:bg-muted/50 transition-colors"
                             >
                               <div>
-                                <div className="text-sm text-[hsl(210,40%,80%)] hover:text-white font-medium leading-none mb-0.5">
+                                <div className="text-sm text-foreground/90 hover:text-foreground font-medium leading-none mb-0.5">
                                   {link.label}
                                 </div>
-                                <div className="text-xs text-[hsl(215,20%,42%)]">{link.desc}</div>
+                                <div className="text-xs text-muted-foreground">{link.desc}</div>
                               </div>
                               {link.tag && <TagBadge tag={link.tag} />}
                             </LinkComponent>
@@ -429,13 +429,13 @@ export function Nav() {
           <div className="px-5 py-4 flex flex-col gap-3">
             <Link
               href="/company#contact"
-              className="text-sm text-center py-2.5 border border-[hsl(220,30%,18%)] rounded-lg text-[hsl(215,20%,55%)] hover:text-white hover:border-[hsl(220,30%,28%)] transition-all"
+              className="text-sm text-center py-2.5 border border-border rounded-lg text-muted-foreground hover:text-foreground hover:border-muted-foreground transition-all"
             >
               Sign in
             </Link>
             <Link
               href="/products/cosmos"
-              className="text-sm text-center py-2.5 bg-blue-500 hover:bg-blue-400 text-white font-bold rounded-lg transition-all shadow-lg shadow-blue-500/20"
+              className="text-sm text-center py-2.5 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-lg transition-all"
             >
               Learn About Cosmos
             </Link>

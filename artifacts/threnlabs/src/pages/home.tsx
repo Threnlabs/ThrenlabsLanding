@@ -14,7 +14,7 @@ function HeroSection() {
         {[...Array(24)].map((_, i) => (
           <div
             key={i}
-            className="absolute w-1 h-1 rounded-full bg-blue-400 opacity-20"
+            className="absolute w-1 h-1 rounded-full bg-primary/20 opacity-20"
             style={{
               left: `${(i * 4.2 + 3) % 100}%`,
               top: `${(i * 7.3 + 5) % 100}%`,
@@ -25,18 +25,18 @@ function HeroSection() {
       </div>
 
       <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
-        <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold text-white tracking-tight mb-6">
+        <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold text-foreground tracking-tight mb-6">
           Threnlabs
         </h1>
 
-        <p className="text-lg md:text-xl text-[hsl(215,20%,55%)] max-w-2xl mx-auto leading-relaxed mb-10">
+        <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-10">
           Threnlabs delivers premium B2B AI SaaS solutions advancing AI for educational institutions. We design enterprise-grade academic operations software and reasoning-first developer tools that universities, colleges, and research labs can trust under pressure.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Link
             href="https://cosmos.threnlabs.com"
-            className="group relative inline-flex items-center gap-2 px-7 py-3.5 bg-blue-500 hover:bg-blue-400 text-white font-semibold rounded-lg transition-all duration-200 text-sm"
+            className="group relative inline-flex items-center gap-2 px-7 py-3.5 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-lg transition-all duration-200 text-sm"
           >
             Explore Cosmos
             <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -45,7 +45,7 @@ function HeroSection() {
           </Link>
           <Link
             href="/technology"
-            className="inline-flex items-center gap-2 px-7 py-3.5 border border-[hsl(220,30%,20%)] hover:border-blue-500/50 text-[hsl(210,40%,75%)] hover:text-white rounded-lg transition-all duration-200 text-sm"
+            className="inline-flex items-center gap-2 px-7 py-3.5 border border-border hover:border-muted-foreground text-muted-foreground hover:text-foreground rounded-lg transition-all duration-200 text-sm"
           >
             Our Technology
           </Link>
@@ -54,8 +54,8 @@ function HeroSection() {
 
       {/* Scroll indicator */}
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-40">
-        <div className="text-xs text-[hsl(215,20%,55%)] tracking-widest uppercase">Scroll</div>
-        <div className="w-px h-10 bg-gradient-to-b from-blue-400 to-transparent" />
+        <div className="text-xs text-muted-foreground/80 tracking-widest uppercase">Scroll</div>
+        <div className="w-px h-10 bg-gradient-to-b from-primary/60 to-transparent" />
       </div>
     </section>
   );
@@ -75,41 +75,37 @@ function OverviewSection() {
             {
               title: "Cosmos",
               label: "Products",
-              labelStyle: "text-green-400 bg-green-500/10 border-green-500/20",
+              labelStyle: "text-primary bg-primary/10 border-primary/20",
               desc: "The Reasoning First Code Editor — built for complex projects and architectural context, alongside ScholarsAnchor operational AI scheduling.",
               href: "/products",
-              color: "violet",
             },
             {
               title: "Technology",
               label: "Infrastructure",
-              labelStyle: "text-blue-400 bg-blue-500/10 border-blue-500/20",
+              labelStyle: "text-blue-600 bg-blue-500/10 border-blue-500/20",
               desc: "Custom CUDA kernels, a priority-aware scheduler, and a high-performance data pipeline — built for production.",
               href: "/technology",
-              color: "blue",
             },
             {
               title: "Research",
               label: "Publications",
-              labelStyle: "text-cyan-400 bg-cyan-500/10 border-cyan-500/20",
+              labelStyle: "text-purple-600 bg-purple-500/10 border-purple-500/20",
               desc: "NeurIPS, ICML, MLSys. We publish the methods behind our products — not just the results.",
               href: "/research",
-              color: "cyan",
             },
-          ].map(({ title, label, labelStyle, desc, href, color }, i) => (
+          ].map(({ title, label, labelStyle, desc, href }, i) => (
             <a
               key={title}
-              href={href.startsWith("http") ? href : href}
-              {...(href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-              className={`group block p-7 rounded-xl border border-[hsl(220,30%,14%)] bg-[hsl(222,44%,7%)] hover:border-${color}-500/30 transition-all duration-300 hover:-translate-y-1`}
+              href={href}
+              className="group block p-7 rounded-xl border border-border bg-card hover:border-primary/30 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1"
               style={{ transitionDelay: `${i * 80}ms` }}
             >
               <div className={`inline-flex px-2 py-0.5 rounded text-xs border ${labelStyle} mb-4 font-medium`}>
                 {label}
               </div>
-              <h3 className="text-white font-bold text-xl mb-2">{title}</h3>
-              <p className="text-sm text-[hsl(215,20%,50%)] leading-relaxed mb-4">{desc}</p>
-              <div className={`flex items-center gap-1 text-xs text-[hsl(215,20%,40%)] group-hover:text-${color}-400 transition-colors`}>
+              <h3 className="text-foreground font-bold text-xl mb-2">{title}</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed mb-4">{desc}</p>
+              <div className="flex items-center gap-1 text-xs text-muted-foreground/80 group-hover:text-primary transition-colors">
                 Learn more
                 <svg className="w-3 h-3 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -134,24 +130,24 @@ function CTASection() {
           className="transition-all duration-700"
           style={{ opacity: inView ? 1 : 0, transform: inView ? "translateY(0)" : "translateY(30px)" }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight mb-5 leading-tight">
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground tracking-tight mb-5 leading-tight">
             Ready to build on
-            <span className="shimmer-text block mt-1">real AI infrastructure?</span>
+            <span className="block text-primary mt-1 font-black">real AI infrastructure?</span>
           </h2>
-          <p className="text-[hsl(215,20%,55%)] mb-8 leading-relaxed">
+          <p className="text-muted-foreground mb-8 leading-relaxed">
             Talk to our team about Cosmos deployment, enterprise licensing, or early access
             to our suite of products.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link
               href="/company#contact"
-              className="px-7 py-3.5 bg-blue-500 hover:bg-blue-400 text-white font-semibold rounded-lg transition-all text-sm"
+              className="px-7 py-3.5 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-lg transition-all text-sm"
             >
               Contact our team
             </Link>
             <Link
               href="/products/cosmos"
-              className="px-7 py-3.5 border border-[hsl(220,30%,20%)] hover:border-blue-500/40 text-[hsl(210,40%,75%)] hover:text-white rounded-lg transition-all text-sm"
+              className="px-7 py-3.5 border border-border hover:border-muted-foreground text-muted-foreground hover:text-foreground rounded-lg transition-all text-sm"
             >
               Explore Cosmos
             </Link>
@@ -164,7 +160,7 @@ function CTASection() {
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[hsl(222,47%,5%)] text-white">
+    <div className="min-h-screen bg-background text-foreground">
       <SEO
         title="Threnlabs | Advancing AI for Educational Institutions"
         description="Threnlabs (Thren) engineers production-grade B2B AI SaaS solutions for educational institutions, specializing in academic scheduling and reasoning-first developer tools."

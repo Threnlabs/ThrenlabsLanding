@@ -14,10 +14,10 @@ function ProductsHero() {
           style={{ opacity: inView ? 1 : 0, transform: inView ? "translateY(0)" : "translateY(30px)" }}
         >
           <SectionLabel color="blue">B2B AI SaaS Suite</SectionLabel>
-          <h1 className="text-4xl md:text-6xl font-bold text-white tracking-tight mb-6 max-w-4xl mx-auto leading-[1.15]">
+          <h1 className="text-4xl md:text-6xl font-bold text-foreground tracking-tight mb-6 max-w-4xl mx-auto leading-[1.15]">
             Advancing AI for Educational Institutions
           </h1>
-          <p className="text-xl text-[hsl(215,20%,55%)] max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             Leading B2B AI SaaS solutions built specifically for school, college, and university operations. From reasoning-first research tools to automated academic scheduling, we advance education through secure and reliable AI.
           </p>
         </div>
@@ -44,25 +44,25 @@ function FlagshipProduct() {
           className="block group"
           style={{ opacity: inView ? 1 : 0, transform: inView ? "translateY(0)" : "translateY(30px)", transition: "all 0.7s ease" }}
         >
-          <div className="relative rounded-2xl border border-violet-500/20 bg-[hsl(222,44%,7%)] p-8 lg:p-12 overflow-hidden hover:border-violet-500/40 transition-all duration-300">
+          <div className="relative rounded-2xl border border-border bg-card p-8 lg:p-12 overflow-hidden hover:border-primary/45 transition-all duration-300 shadow-sm">
             <RadialGlow color="violet" className="w-[37.5rem] h-[25rem] -top-20 right-0 opacity-40" />
             <div className="relative z-10 grid md:grid-cols-2 gap-10 items-center">
               <div>
-                <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight mb-2 group-hover:text-violet-200 transition-colors">
+                <h2 className="text-4xl md:text-5xl font-bold text-foreground tracking-tight mb-2 group-hover:text-primary transition-colors">
                   Cosmos
                 </h2>
-                <div className="text-xl text-blue-400 font-semibold mb-4">The Reasoning-First IDE for University Labs.</div>
-                <p className="text-[hsl(215,20%,55%)] leading-relaxed mb-6">
+                <div className="text-xl text-primary font-semibold mb-4">The Reasoning-First IDE for University Labs.</div>
+                <p className="text-muted-foreground leading-relaxed mb-6">
                   Accelerate scientific and computer science research in college laboratories. Cosmos maintains deep architectural context and validations, enabling students and researchers to build complex AI applications reliably and at a fraction of the cost.
                 </p>
                 <div className="flex flex-wrap gap-3 mb-6">
                   {["Academic Research", "Reasoning-First IDE", "Context Preservation", "Low Token Cost"].map((feat) => (
-                    <span key={feat} className="text-xs px-3 py-1 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-300">
+                    <span key={feat} className="text-xs px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary">
                       {feat}
                     </span>
                   ))}
                 </div>
-                <div className="inline-flex items-center gap-2 text-blue-400 group-hover:text-blue-300 transition-colors font-medium text-sm">
+                <div className="inline-flex items-center gap-2 text-primary group-hover:text-primary/80 transition-colors font-medium text-sm">
                   View Cosmos details
                   <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -77,9 +77,9 @@ function FlagshipProduct() {
                   { value: "Deep", label: "Architectural Context" },
                   { value: "Stable", label: "Deployment Ready" },
                 ].map(({ value, label }) => (
-                  <div key={label} className="rounded-xl border border-[hsl(220,30%,16%)] bg-[hsl(222,44%,5%)] p-5">
-                    <div className="text-xl font-bold text-white tabular-nums mb-1">{value}</div>
-                    <div className="text-xs text-[hsl(215,20%,42%)]">{label}</div>
+                  <div key={label} className="rounded-xl border border-border bg-muted/20 p-5">
+                    <div className="text-xl font-bold text-foreground tabular-nums mb-1">{value}</div>
+                    <div className="text-xs text-muted-foreground">{label}</div>
                   </div>
                 ))}
               </div>
@@ -103,7 +103,7 @@ function AvailableProducts() {
           <SectionLabel color="blue">
             Publicly Available
           </SectionLabel>
-          <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mt-4">Active Suite</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight mt-4">Active Suite</h2>
         </div>
 
         <Link
@@ -111,24 +111,24 @@ function AvailableProducts() {
           className="block group"
           style={{ opacity: inView ? 1 : 0, transform: inView ? "translateY(0)" : "translateY(30px)", transition: "all 0.7s ease" }}
         >
-          <div className="relative rounded-2xl border border-blue-500/20 bg-[hsl(222,44%,7%)] p-8 lg:p-12 overflow-hidden hover:border-blue-500/40 transition-all duration-300">
+          <div className="relative rounded-2xl border border-border bg-card p-8 lg:p-12 overflow-hidden hover:border-primary/45 transition-all duration-300 shadow-sm">
             <RadialGlow color="blue" className="w-[37.5rem] h-[25rem] -top-20 right-0 opacity-40" />
             <div className="relative z-10 grid md:grid-cols-2 gap-10 items-center">
               <div>
-                <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight mb-4 group-hover:text-blue-200 transition-colors">
+                <h2 className="text-4xl md:text-5xl font-bold text-foreground tracking-tight mb-4 group-hover:text-primary transition-colors">
                   ScholarsAnchor
                 </h2>
-                <p className="text-[hsl(215,20%,55%)] leading-relaxed mb-6">
+                <p className="text-muted-foreground leading-relaxed mb-6">
                   The complete end-to-end B2B AI operations and management suite for educational institutions. Unifies CalendarSync algorithm-grounded scheduling and BenchRex doubt solving under one comprehensive campus control canopy.
                 </p>
                 <div className="flex flex-wrap gap-3 mb-6">
                   {["AI Academic Scheduling", "BenchRex Doubt Solver", "Student Dashboard", "E2E Institutional Control"].map((feat) => (
-                    <span key={feat} className="text-xs px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-300">
+                    <span key={feat} className="text-xs px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary">
                       {feat}
                     </span>
                   ))}
                 </div>
-                <div className="inline-flex items-center gap-2 text-blue-400 group-hover:text-blue-300 transition-colors font-medium text-sm">
+                <div className="inline-flex items-center gap-2 text-primary group-hover:text-primary/80 transition-colors font-medium text-sm">
                   View ScholarsAnchor details
                   <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -143,9 +143,9 @@ function AvailableProducts() {
                   { value: "End-to-End", label: "Encryption" },
                   { value: "Stable", label: "Production Status" },
                 ].map(({ value, label }) => (
-                  <div key={label} className="rounded-xl border border-[hsl(220,30%,16%)] bg-[hsl(222,44%,5%)] p-5">
-                    <div className="text-xl font-bold text-white tabular-nums mb-1">{value}</div>
-                    <div className="text-xs text-[hsl(215,20%,42%)]">{label}</div>
+                  <div key={label} className="rounded-xl border border-border bg-muted/20 p-5">
+                    <div className="text-xl font-bold text-foreground tabular-nums mb-1">{value}</div>
+                    <div className="text-xs text-muted-foreground">{label}</div>
                   </div>
                 ))}
               </div>
@@ -178,9 +178,9 @@ function UpcomingProducts() {
   ];
 
   const colorMap: Record<string, { dot: string; bar: string; badge: string; tag: string }> = {
-    blue: { dot: "bg-blue-400", bar: "bg-blue-500", badge: "bg-blue-500/10 border-blue-500/20 text-blue-300", tag: "text-blue-400" },
-    violet: { dot: "bg-violet-400", bar: "bg-violet-500", badge: "bg-violet-500/10 border-violet-500/20 text-violet-300", tag: "text-violet-400" },
-    cyan: { dot: "bg-cyan-400", bar: "bg-cyan-400", badge: "bg-cyan-500/10 border-cyan-500/20 text-cyan-300", tag: "text-cyan-400" },
+    blue: { dot: "bg-primary", bar: "bg-primary", badge: "bg-primary/10 border border-primary/20 text-primary", tag: "text-primary" },
+    violet: { dot: "bg-primary", bar: "bg-primary", badge: "bg-primary/10 border border-primary/20 text-primary", tag: "text-primary/90" },
+    cyan: { dot: "bg-primary", bar: "bg-primary", badge: "bg-primary/10 border border-primary/20 text-primary", tag: "text-primary/95" },
   };
 
   return (
@@ -194,8 +194,8 @@ function UpcomingProducts() {
           <SectionLabel color="yellow">
             In Development
           </SectionLabel>
-          <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-3">Coming next</h2>
-          <p className="text-[hsl(215,20%,55%)] max-w-xl">Future Products, Join us to know more.</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight mb-3">Coming next</h2>
+          <p className="text-muted-foreground max-w-xl">Future Products, Join us to know more.</p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-6 max-w-4xl">
@@ -204,7 +204,7 @@ function UpcomingProducts() {
             return (
               <div
                 key={codename + i}
-                className="group block rounded-xl border border-[hsl(220,30%,14%)] bg-[hsl(222,44%,7%)] p-6 transition-all duration-300"
+                className="group block rounded-xl border border-border bg-card p-6 transition-all duration-300 shadow-sm"
                 style={{
                   opacity: inView ? 1 : 0,
                   transform: inView ? "translateY(0)" : "translateY(30px)",
@@ -212,10 +212,10 @@ function UpcomingProducts() {
                 }}
               >
                 <div className="flex items-center justify-between mb-4">
-                  <span className="text-xs font-mono tracking-widest text-[hsl(215,20%,40%)]">{codename.toUpperCase()}</span>
+                  <span className="text-xs font-mono tracking-widest text-muted-foreground">{codename.toUpperCase()}</span>
                   <div className={`w-2 h-2 rounded-full pulse-dot ${c.dot}`} />
                 </div>
-                <p className="text-sm text-[hsl(215,20%,55%)] leading-relaxed mb-4">{desc}</p>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-4">{desc}</p>
 
                 <div className="flex flex-wrap gap-1.5 mb-4">
                   {features.map((f) => (
